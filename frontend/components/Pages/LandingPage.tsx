@@ -17,7 +17,6 @@ export default function LandingPage() {
             </Typography>
           </Box>
               <Box
-                borderRadius={5}
                 paddingX={3}
                 paddingY={1.5}
                 className="cursor-pointer hover:scale-105"
@@ -39,13 +38,13 @@ export default function LandingPage() {
           justifyContent="center"
           alignItems="center"
         >
-          <Box className="relative inline-block mt-2">
+          <Box className="relative hover:scale-105 inline-block mt-2">
             <Box className="absolute top-2 left-2 w-full h-full bg-[#FCA311] rounded z-0"></Box>
             <Box className="relative z-10 bg-white text-black px-6 py-3 rounded font-semibold shadow-md cursor-pointer">
               Get Started
             </Box>
           </Box>
-          <Image src="/Girl.png" alt="Girl" width={500} height={550} />
+          <Image src="/Girl.png" alt="Girl" width={500} height={550} className="max-w-full" />
         </Box>
       </Grid>
     </Grid>
