@@ -1,0 +1,61 @@
+import colors from "@/lib/color";
+import { Box, Grid, Stack, Typography } from "@mui/material";
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import Image from "next/image";
+
+export default function StayConnectedSection ()
+{
+    return <Box width="100wh" height={ 450 } overflow="hidden" bgcolor={ colors.CeladonPorcelain }  >
+        <Grid container>
+            <Grid display="flex" padding={ 5 } size={ 6 } >
+                <Stack spacing={ 5 }>
+                    <Stack spacing={ 2 }>
+                        <Typography fontSize={ 35 } fontFamily="cursive" fontWeight={ 600 } >
+                            Stay Connected With Us — Anytime, Anywhere!
+                        </Typography>
+                        <Typography>
+                            Join our active student community on Telegram, WhatsApp, and YouTube <br />
+                            to get daily updates, doubt-solving, and exclusive content for MPSC preparation.
+                        </Typography>
+                    </Stack>
+                    <Box width="fit-content" className="relative hover:scale-105 inline-block mt-2">
+                        <Box className="absolute top-2 left-2 w-full h-full bg-[#FCA311] rounded z-0"></Box>
+                        <Box className="relative z-10 bg-white text-black px-6 py-3 rounded font-semibold shadow-md cursor-pointer">
+                            Join Now <ArrowForwardIcon />
+                        </Box>
+                    </Box>
+                </Stack>
+            </Grid>
+            <Grid size={ 6 } display="flex" justifyContent="center" >
+                <Grid container spacing={ 5 }>
+                    <Grid marginTop='-60px'>
+                        <Stack spacing={ 2 }>
+                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
+                                <Image src='/socialMedia/youtube.png' alt="Youtube" width={ 100 } height={ 100 } />
+                            </Box>
+                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
+                                <Image src='/socialMedia/mail.png' alt="Mail" width={ 100 } height={ 100 } />
+                            </Box>
+                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
+                                <Image src='/socialMedia/whatsapp.png' alt="WhatsApp" width={ 100 } height={ 100 } />
+                            </Box>
+                        </Stack>
+                    </Grid>
+                    <Grid>
+                        <Stack spacing={ 2 }>
+                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
+                                <Image src='/socialMedia/whatsapp.png' alt="WhatsApp" width={ 100 } height={ 100 } />
+                            </Box>
+                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
+                                <Image src='/socialMedia/telegram.png' alt="telegram" width={ 100 } height={ 100 } />
+                            </Box>
+                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
+                                <Image src='/socialMedia/meet.png' alt="Meet" width={ 100 } height={ 100 } />
+                            </Box>
+                        </Stack>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Box >
+}
