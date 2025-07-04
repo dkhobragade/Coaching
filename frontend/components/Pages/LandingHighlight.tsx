@@ -72,6 +72,7 @@ export default function LandingHighlight ()
                 width={ 500 }
                 height={ 580 }
                 style={ { maxWidth: "100%", height: "auto" } }
+                loading="lazy"
               />
             </Box>
           </Box>

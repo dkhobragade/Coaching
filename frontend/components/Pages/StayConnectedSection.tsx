@@ -12,7 +12,7 @@ export default function StayConnectedSection ()
         return <Stack spacing={ 2 }>
             { SocailMediaBoxOne.map( ( item ) =>
                 <Box key={ item.key } className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
-                    <Image src={ item.img } alt="Youtube" width={ 100 } height={ 100 } />
+                    <Image src={ item.img } alt="Youtube" width={ 100 } height={ 100 } loading="lazy" />
                 </Box> ) }
         </Stack>
     }
@@ -22,7 +22,7 @@ export default function StayConnectedSection ()
         return <Stack spacing={ 2 }>
             { SocailMediaBoxTwo.map( ( item ) =>
                 <Box key={ item.key } className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
-                    <Image src={ item.img } alt="Youtube" width={ 100 } height={ 100 } />
+                    <Image src={ item.img } alt="Youtube" width={ 100 } height={ 100 } loading="lazy" />
                 </Box> ) }
         </Stack>
     }

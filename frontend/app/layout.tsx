@@ -3,7 +3,7 @@ import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
 import "./globals.css";
 import { ThemeProvider } from "@mui/material";
 import theme from "@/lib/theme";
-import GlobalSpeedDial from "@/components/lowLevelComponent/SpeedDial";
+import SpeedDialWrapper from "@/components/Pages/SpeedDialWrapper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -21,7 +21,7 @@ export default function RootLayout ( {
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={ theme }>
-            <GlobalSpeedDial />
+            <SpeedDialWrapper />
             { children }
           </ThemeProvider>
         </AppRouterCacheProvider>
