@@ -3,7 +3,7 @@ import CheckBox from "@/components/lowLevelComponent/Checkbox";
 import InputField from "@/components/lowLevelComponent/InputField";
 import PasswordField from "@/components/lowLevelComponent/PasswordField";
 import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
-import GoogleIcon from '@mui/icons-material/Google';
+import Image from "next/image";
 
 export default function signIn ()
 {
@@ -14,7 +14,7 @@ export default function signIn ()
                 <Stack spacing={ 2 }>
                     <Typography fontWeight={ 600 } fontSize={ 30 }>Sign in</Typography>
                     <span>Please login to continue to your account</span>
-                    <InputField fullWidht title={ "" } placeholder="Email" />
+                    <InputField fullWidht label="Email" />
                     <PasswordField />
                     <CheckBox label="Keep me logged in" />
                     <Button size="medium" variant="contained" label="Sign in" />
@@ -23,8 +23,8 @@ export default function signIn ()
                 <Divider>or</Divider>
                 <br />
                 <Stack spacing={ 2 }>
-                    <Button size="medium" endIcon={ <GoogleIcon color="success" /> } fullwidth variant="outlined" label="Sign in with Google" />
-                    <Grid container spacing={ 1 }>
+                    <Button size="medium" endIcon={ <Image src='/socialMedia/google.png' alt="Google" width={ 20 } height={ 20 } /> } fullwidth variant="outlined" label="Sign in with Google" />
+                    <Grid justifyContent="center" container spacing={ 1 }>
                         <Typography>
                             Need an account?
                         </Typography>

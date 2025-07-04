@@ -1,7 +1,7 @@
 export interface InputProps {
-  title: string;
-  placeholder: string;
+  label: string;
   fullWidht?: boolean;
+  icon?: React.ReactNode;
 }
 
 export interface CheckboxProps {
