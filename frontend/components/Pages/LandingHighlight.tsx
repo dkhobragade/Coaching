@@ -11,6 +11,26 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Image from "next/image";
 
 export default function LandingHighlight() {
+
+  const ListPrimartText=[
+    'Structured courses for Pre + Mains',
+    'Daily practice tests & analysis',
+    'Personalized doubt-clearing sessions'
+  ]
+
+  const renderListItem = () => {
+    return <List>
+      {ListPrimartText.map((text:string)=><ListItem key={1}>
+        <ListItemIcon>
+  <CheckCircleIcon color="success" />
+        </ListItemIcon>
+        <ListItemText primary={text}/>
+      </ListItem>)}
+    </List>
+  }
+
+
+
   return (
     <Box
       bgcolor="white"
@@ -75,26 +95,7 @@ export default function LandingHighlight() {
               </Typography>
             </Grid>
             <Grid>
-              <List>
-                <ListItem>
-                  <ListItemIcon>
-                    <CheckCircleIcon color="success" />
-                  </ListItemIcon>
-                  <ListItemText primary="Structured courses for Pre + Mains" />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon>
-                    <CheckCircleIcon color="success" />
-                  </ListItemIcon>
-                  <ListItemText primary="Daily practice tests & analysis" />
-                </ListItem>
-                <ListItem>
-                  <ListItemIcon>
-                    <CheckCircleIcon color="success" />
-                  </ListItemIcon>
-                  <ListItemText primary="Personalized doubt-clearing sessions" />
-                </ListItem>
-              </List>
+              {renderListItem()}
             </Grid>
             <Grid>
               <Box className="relative hover:scale-105 inline-block mt-2">
