@@ -1,11 +1,10 @@
-import { Box, Grid, Typography } from "@mui/material";
-import Image from "next/image";
+import { Box } from "@mui/material";
 
 export default function SchedulingSection ()
 {
     return (
-       <Box>
-        djf
+        <Box>
+            djf
         </Box>
     );
 }
