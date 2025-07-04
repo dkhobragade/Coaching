@@ -215,53 +215,55 @@ export default function StatsAndIntegrations() {
           <Grid size={3}>
             <Box
               height={200}
-              bgcolor="greenyellow"
+              bgcolor="#687FE5"
               padding={2}
               borderRadius={5}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              amet sunt accusamus consectetur explicabo, nobis dicta minima
-              assumenda architecto atque ex doloribus vero voluptatum maxime
-              delectus ipsa tempora necessitatibus culpa.
+              <Stack spacing={3}>
+                <Typography fontSize={20}>Clear Your Goals</Typography>
+                <Typography color="white">
+                  Tailored preparation strategies to help you crack Prelims, Mains & Interview with confidence.
+                </Typography>
+              </Stack>
             </Box>
           </Grid>
           <Grid size={3}>
             <Box
               height={200}
-              bgcolor="greenyellow"
+              bgcolor="#98A1BC"
               padding={2}
               borderRadius={5}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              amet sunt accusamus consectetur explicabo, nobis dicta minima
-              assumenda architecto atque ex doloribus vero voluptatum maxime
-              delectus ipsa tempora necessitatibus culpa.
+              <Stack spacing={3}>
+                <Typography fontSize={20}>All-in-One Resources</Typography>
+                <Typography color="white">From daily current affairs to subject-wise notes – everything you need in one place.</Typography>
+              </Stack>
             </Box>
           </Grid>
           <Grid size={3}>
             <Box
               height={200}
-              bgcolor="greenyellow"
+              bgcolor="#91C8E4"
               padding={2}
               borderRadius={5}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              amet sunt accusamus consectetur explicabo, nobis dicta minima
-              assumenda architecto atque ex doloribus vero voluptatum maxime
-              delectus ipsa tempora necessitatibus culpa.
+              <Stack spacing={3}>
+                <Typography fontSize={20}>Smart Study Plans</Typography>
+                <Typography color="white">Stay on track with structured timetables, revision modules, and performance tracking.</Typography>
+              </Stack>
             </Box>
           </Grid>
           <Grid size={3}>
             <Box
               height={200}
-              bgcolor="greenyellow"
+              bgcolor="#A2D5C6"
               padding={2}
               borderRadius={5}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-              amet sunt accusamus consectetur explicabo, nobis dicta minima
-              assumenda architecto atque ex doloribus vero voluptatum maxime
-              delectus ipsa tempora necessitatibus culpa.
+              <Stack spacing={3}>
+                <Typography fontSize={20}>Personal Mentorship</Typography>
+                <Typography color="white">1-on-1 guidance to keep you motivated, focused, and always moving forward in your journey.</Typography>
+              </Stack>
             </Box>
           </Grid>
         </Grid>

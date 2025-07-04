@@ -3,7 +3,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-sans: var(--font-parkinsans);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,7 +17,6 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
 }
-
 
 .socialButton {
   background-color: rgba(45, 35, 35, 0.1);
