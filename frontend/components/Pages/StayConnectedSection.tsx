@@ -1,10 +1,33 @@
+import Image from "next/image";
 import colors from "@/lib/color";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import Image from "next/image";
+import { SocailMediaBoxOne, SocailMediaBoxTwo } from "@/lib/constant";
 
 export default function StayConnectedSection ()
 {
+
+    const renderBoxOne = () =>
+    {
+        return <Stack spacing={ 2 }>
+            { SocailMediaBoxOne.map( ( item ) =>
+                <Box key={ item.key } className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
+                    <Image src={ item.img } alt="Youtube" width={ 100 } height={ 100 } />
+                </Box> ) }
+        </Stack>
+    }
+
+    const renderBoxTwo = () =>
+    {
+        return <Stack spacing={ 2 }>
+            { SocailMediaBoxTwo.map( ( item ) =>
+                <Box key={ item.key } className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
+                    <Image src={ item.img } alt="Youtube" width={ 100 } height={ 100 } />
+                </Box> ) }
+        </Stack>
+    }
+
+
     return <Box width="100wh" height={ 450 } overflow="hidden" bgcolor={ colors.CeladonPorcelain }  >
         <Grid container>
             <Grid display="flex" padding={ 5 } size={ 6 } >
@@ -29,33 +52,15 @@ export default function StayConnectedSection ()
             <Grid size={ 6 } display="flex" justifyContent="center" >
                 <Grid container spacing={ 5 }>
                     <Grid marginTop='-60px'>
-                        <Stack spacing={ 2 }>
-                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
-                                <Image src='/socialMedia/youtube.png' alt="Youtube" width={ 100 } height={ 100 } />
-                            </Box>
-                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
-                                <Image src='/socialMedia/mail.png' alt="Mail" width={ 100 } height={ 100 } />
-                            </Box>
-                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
-                                <Image src='/socialMedia/whatsapp.png' alt="WhatsApp" width={ 100 } height={ 100 } />
-                            </Box>
-                        </Stack>
+                        { renderBoxOne() }
                     </Grid>
                     <Grid>
-                        <Stack spacing={ 2 }>
-                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
-                                <Image src='/socialMedia/whatsapp.png' alt="WhatsApp" width={ 100 } height={ 100 } />
-                            </Box>
-                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
-                                <Image src='/socialMedia/telegram.png' alt="telegram" width={ 100 } height={ 100 } />
-                            </Box>
-                            <Box className="cursor-pointer" display="flex" alignItems="center" justifyContent="center" padding={ 5 } bgcolor={ colors.White } width={ 150 } height={ 200 } borderRadius={ 10 } >
-                                <Image src='/socialMedia/meet.png' alt="Meet" width={ 100 } height={ 100 } />
-                            </Box>
-                        </Stack>
+                        { renderBoxTwo() }
                     </Grid>
                 </Grid>
             </Grid>
         </Grid>
     </Box >
 }
+
+

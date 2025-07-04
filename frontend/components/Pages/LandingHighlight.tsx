@@ -1,31 +1,20 @@
-import {
-  Box,
-  Grid,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Typography,
-} from "@mui/material";
+import { Box, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Image from "next/image";
+import { ListItems } from "@/lib/constant";
 
-export default function LandingHighlight() {
+export default function LandingHighlight ()
+{
 
-  const ListPrimartText=[
-    'Structured courses for Pre + Mains',
-    'Daily practice tests & analysis',
-    'Personalized doubt-clearing sessions'
-  ]
-
-  const renderListItem = () => {
+  const renderListItem = () =>
+  {
     return <List>
-      {ListPrimartText.map((text:string)=><ListItem key={1}>
+      { ListItems.map( ( item ) => <ListItem key={ item.key }>
         <ListItemIcon>
-  <CheckCircleIcon color="success" />
+          <CheckCircleIcon color="success" />
         </ListItemIcon>
-        <ListItemText primary={text}/>
-      </ListItem>)}
+        <ListItemText primary={ item.text } />
+      </ListItem> ) }
     </List>
   }
 
@@ -38,26 +27,26 @@ export default function LandingHighlight() {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      padding={10}
+      padding={ 10 }
     >
-      <Grid container spacing={10} margin="auto" >
+      <Grid container spacing={ 10 } margin="auto" >
         <Grid
           className="rounded-2xl"
-          order={{ xs: 2, md: 1 }}
-          size={{ xs: 12, md: 6 }}
+          order={ { xs: 2, md: 1 } }
+          size={ { xs: 12, md: 6 } }
         >
           <Box position="relative" width="fit-content">
             <Box
               bgcolor="#FCA311"
-              width={300}
-              maxHeight={250}
-              maxWidth={300}
-              height={250}
+              width={ 300 }
+              maxHeight={ 250 }
+              maxWidth={ 300 }
+              height={ 250 }
               position="absolute"
               top="50%"
               left="50%"
               className="max-w-[190] max-h-[160] z-0"
-              sx={{
+              sx={ {
                 width: {
                   xs: 190,
                   sm: 220,
@@ -69,33 +58,33 @@ export default function LandingHighlight() {
                   md: 250,
                 },
                 transform: {
-                    md:"translate(-80%, -70%)",
-                    xs:"translate(-100%, -70%)"
+                  md: "translate(-80%, -70%)",
+                  xs: "translate(-100%, -70%)"
                 },
                 borderRadius: 2,
-              }}
+              } }
             />
-            <Box position="relative" zIndex={1}>
+            <Box position="relative" zIndex={ 1 }>
               <Image
                 className="cursor-pointer"
                 src="/iPad.png"
                 alt="iPad"
-                width={500}
-                height={580}
-                style={{ maxWidth: "100%", height: "auto" }}
+                width={ 500 }
+                height={ 580 }
+                style={ { maxWidth: "100%", height: "auto" } }
               />
             </Box>
           </Box>
         </Grid>
-        <Grid size={{ xs: 12, md: 6 }} order={{ xs: 1, md: 2 }}>
+        <Grid size={ { xs: 12, md: 6 } } order={ { xs: 1, md: 2 } }>
           <Grid>
             <Grid>
-              <Typography fontSize={20}>
+              <Typography fontSize={ 20 }>
                 Your MPSC Preparation, Simplified
               </Typography>
             </Grid>
             <Grid>
-              {renderListItem()}
+              { renderListItem() }
             </Grid>
             <Grid>
               <Box className="relative hover:scale-105 inline-block mt-2">
