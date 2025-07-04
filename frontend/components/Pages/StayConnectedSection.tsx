@@ -30,7 +30,7 @@ export default function StayConnectedSection ()
 
     return <Box width="100wh" height={ 450 } overflow="hidden" bgcolor={ colors.CeladonPorcelain }  >
         <Grid container>
-            <Grid display="flex" padding={ 5 } size={ 6 } >
+            <Grid display="flex" padding={ 5 } order={ { xs: 1 } } size={ { xs: 12, md: 6 } } >
                 <Stack spacing={ 5 }>
                     <Stack spacing={ 2 }>
                         <Typography fontSize={ 35 } fontFamily="cursive" fontWeight={ 600 } >
@@ -49,7 +49,7 @@ export default function StayConnectedSection ()
                     </Box>
                 </Stack>
             </Grid>
-            <Grid size={ 6 } display="flex" justifyContent="center" >
+            <Grid size={ { xs: 12, md: 6 } } order={ { xs: 2 } } display={ { xs: 'none', md: 'flex' } } justifyContent="center" >
                 <Grid container spacing={ 5 }>
                     <Grid marginTop='-60px'>
                         { renderBoxOne() }
