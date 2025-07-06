@@ -5,7 +5,10 @@ import Image from "next/image";
 export default function BookLandingPage ()
 {
     return (
-        <Box bgcolor={ colors.FrenchVanillaSorbet } height='100vh' >
+        <Box bgcolor={ colors.FrenchVanillaSorbet }
+            minHeight="100vh"
+            display="flex"
+            alignItems="center" >
             <Grid padding={ 2 } container alignItems="center" justifyContent="center" height="100%" >
                 <Grid size={ { xs: 12, md: 6 } } order={ { xs: 1 } } padding={ 5 } >
                     <Stack spacing={ 5 }>

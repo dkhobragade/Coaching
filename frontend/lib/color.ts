@@ -9,6 +9,9 @@ const colors = {
   CapeHope: "#D7D7D7",
   CrystalCut: "#F7F3ED",
   BneiBrakBay: "#1D4FD8",
+  RaspberryLeafGreen: "#0C513F",
+  CitrusSplash: "#FFC501",
+  KissMeKate: "#E7EEEC",
 };
 
 export default colors;
