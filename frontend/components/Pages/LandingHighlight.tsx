@@ -23,7 +23,7 @@ export default function LandingHighlight ()
   return (
     <Box
       bgcolor="white"
-      className="w-full h-screen"
+      className="w-full h-100vh"
       display="flex"
       justifyContent="center"
       alignItems="center"

@@ -1,7 +1,9 @@
-import Image from "next/image";
+import BookLandingPage from "@/components/Pages/BookLandingPage";
+import { Box } from "@mui/material";
 
 export default function Books ()
 {
-    return <div>
-    </div>
+    return <Box>
+        <BookLandingPage />
+    </Box>
 }
