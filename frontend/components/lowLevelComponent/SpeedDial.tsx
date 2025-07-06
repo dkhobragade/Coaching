@@ -7,6 +7,7 @@ import CastForEducationIcon from '@mui/icons-material/CastForEducation';
 import ForumIcon from '@mui/icons-material/Forum';
 import QuizIcon from '@mui/icons-material/Quiz';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import { useRouter } from 'next/navigation';
 
 const actions = [
     { key: '1', icon: <CastForEducationIcon />, name: 'Courses' },
@@ -17,9 +18,25 @@ const actions = [
 
 export default function GlobalSpeedDial ()
 {
+    const router = useRouter();
+
     const handleClickSpeedDial = ( key: string ) =>
     {
-        console.log( "key", key )
+        switch ( key )
+        {
+            case '1':
+                router.push( '/courses' );
+                break;
+            case '2':
+                router.push( '/counselling' );
+                break;
+            case '3':
+                router.push( '/test' );
+                break;
+            case '4':
+                router.push( '/books' );
+                break;
+        }
     }
 
     return <Dial
