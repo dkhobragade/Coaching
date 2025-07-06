@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v15-appRouter'
-import "./globals.css";
 import { ThemeProvider } from "@mui/material";
-import theme from "@/lib/theme";
 import SpeedDialWrapper from "@/components/Pages/SpeedDialWrapper";
+import CartWrapper from "@/components/Pages/CartWrapper";
+import theme from "@/lib/theme";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,6 +23,7 @@ export default function RootLayout ( {
         <AppRouterCacheProvider>
           <ThemeProvider theme={ theme }>
             <SpeedDialWrapper />
+            <CartWrapper />
             { children }
           </ThemeProvider>
         </AppRouterCacheProvider>

@@ -1,9 +1,9 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-import GlobalSpeedDial from "../lowLevelComponent/SpeedDial"
+import Cart from "../lowLevelComponent/Cart"
 
-export default function SpeedDialWrapper ()
+export default function CartWrapper ()
 {
     const pathName = usePathname()
     console.log( pathName )
@@ -14,5 +14,5 @@ export default function SpeedDialWrapper ()
         showSpeedDial = false
     }
 
-    return showSpeedDial ? <GlobalSpeedDial /> : null
+    return showSpeedDial ? <Cart /> : null
 }

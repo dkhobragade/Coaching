@@ -8,6 +8,7 @@ const colors = {
   Black: "#000000",
   CapeHope: "#D7D7D7",
   CrystalCut: "#F7F3ED",
+  BneiBrakBay: "#1D4FD8",
 };
 
 export default colors;

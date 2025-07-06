@@ -32,7 +32,7 @@ export default function CurrentAffair ()
                                 </Box>
                                 <Box className='cursor-pointer' bgcolor={ colors.Black } color={ colors.BeeCluster } padding={ 2 } width="fit-content" >
                                     <Typography fontWeight={ 700 }>
-                                        Buy Now
+                                        Add to cart
                                     </Typography>
                                 </Box>
                             </Grid>
