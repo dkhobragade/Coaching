@@ -4,19 +4,23 @@ import Image from "next/image";
 
 export default function CurrentAffair ()
 {
-    return <Box padding={ 5 } bgcolor={ colors.Pearl } height='100vh' >
+    return <Box padding={ 5 }
+        bgcolor={ colors.Pearl }
+        height='100vh'
+        display="flex"
+        alignItems="center" >
         <Grid container>
-            <Grid size={ 8 }>
+            <Grid size={ { xs: 12, md: 8 } }>
                 <Typography fontSize={ 35 } fontFamily="cursive" fontWeight={ 700 }>
                     Current Affairs for MPSC
                 </Typography>
                 <Grid container padding={ 5 }>
-                    <Grid size={ 6 }>
+                    <Grid size={ { xs: 12, md: 6 } } order={ { md: 1 } }>
                         <Box width={ 500 } height={ 300 }>
                             <Image src="/books/IndianPolity.jpg" alt="Indian Polity" width={ 300 } height={ 100 } />
                         </Box>
                     </Grid>
-                    <Grid size={ 6 }>
+                    <Grid size={ { xs: 12, md: 6 } } order={ { md: 2 } }>
                         <Stack spacing={ 3 }>
                             <Typography fontSize={ 25 }>
                                 Indian Polity
@@ -40,7 +44,7 @@ export default function CurrentAffair ()
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid size={ 4 } paddingTop={ 10 }>
+            <Grid size={ { xs: 12, md: 4 } } paddingTop={ 10 }>
                 <Stack spacing={ 5 }>
                     <Box display="flex" >
                         <Grid container spacing={ 5 }>

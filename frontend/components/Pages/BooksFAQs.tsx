@@ -4,7 +4,7 @@ import Brightness5Icon from '@mui/icons-material/Brightness5';
 
 export default function BooksFAQs ()
 {
-    return <Box padding={ 5 } bgcolor={ colors.Black } height='100vh' >
+    return <Box padding={ 5 } bgcolor={ colors.Black } height='100vh'  >
         <Box bgcolor={ colors.White } width={ 1000 } padding={ 2 } borderRight={ 5 } height={ 500 } justifyContent="center" justifyItems="center" display="flex" justifySelf="center" >
             <Grid container spacing={ 6 }>
                 <Grid size={ { xs: 12, md: 6 } } order={ { xs: 1 } }>
