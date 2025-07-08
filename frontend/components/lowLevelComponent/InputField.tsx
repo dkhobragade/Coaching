@@ -17,7 +17,7 @@ export default function InputField ( props: InputProps )
             autoComplete="new-password"
             label={ props.label }
             sx={ { m: 1 } }
-            fullWidth={ props.fullWidht }
+            fullWidth={ props.fullWidth }
             size="small"
         />
     )

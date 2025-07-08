@@ -14,7 +14,7 @@ export default function signIn ()
                 <Stack spacing={ 2 }>
                     <Typography fontWeight={ 600 } fontSize={ 30 }>Sign in</Typography>
                     <span>Please login to continue to your account</span>
-                    <InputField fullWidht label="Email" />
+                    <InputField fullWidth label="Email" />
                     <PasswordField />
                     <CheckBox label="Keep me logged in" />
                     <Button size="medium" variant="contained" label="Sign in" />

@@ -15,9 +15,9 @@ export default function signUp ()
             <Stack spacing={ 2 }>
                 <Typography fontWeight={ 600 } fontSize={ 30 }>Sign up</Typography>
                 <span>Please login to continue to your account</span>
-                <InputField fullWidht label="Name" icon={ <PersonIcon /> } />
-                <InputField fullWidht label="Email" icon={ <EmailIcon /> } />
-                <InputField fullWidht label="Mobile No." icon={ <CallIcon /> } />
+                <InputField fullWidth label="Name" icon={ <PersonIcon /> } />
+                <InputField fullWidth label="Email" icon={ <EmailIcon /> } />
+                <InputField fullWidth label="Mobile No." icon={ <CallIcon /> } />
                 <PasswordField />
                 <Button size="medium" variant="contained" label="Sign up" />
             </Stack>

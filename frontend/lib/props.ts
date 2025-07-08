@@ -1,6 +1,6 @@
 export interface InputProps {
   label: string;
-  fullWidht?: boolean;
+  fullWidth?: boolean;
   icon?: React.ReactNode;
 }
 

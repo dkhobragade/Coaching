@@ -9,7 +9,7 @@ export default function CartWrapper ()
     console.log( pathName )
     let showSpeedDial = true
 
-    if ( pathName == "/signIn" || pathName == "/signup" || pathName == "/cart" )
+    if ( pathName == "/signIn" || pathName == "/signup" || pathName == "/cart" || pathName == '/cart/payment' )
     {
         showSpeedDial = false
     }

@@ -1,3 +1,5 @@
+"use client"
+
 import InputField from "@/components/lowLevelComponent/InputField";
 import colors from "@/lib/color";
 import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
@@ -6,9 +8,13 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import AddIcon from '@mui/icons-material/Add';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { cartPageDeliveryList } from "@/lib/constant";
+import { useRouter } from "next/navigation";
 
 export default function Cart ()
 {
+
+    const router = useRouter()
+
     const data = [
         {
             key: '1',
@@ -114,6 +120,11 @@ export default function Cart ()
         </Grid>
     }
 
+    const onClickCheckout = () =>
+    {
+        router.push( '/cart/payment' )
+    }
+
     return <Box bgcolor={ colors.ChildofLight } width='100%' minHeight="100vh" padding={ 2 } >
         <Box display="flex" gap={ 1 }>
             <ShoppingCartIcon />
@@ -193,7 +204,7 @@ export default function Cart ()
                                     <Typography fontWeight={ 700 }>
                                         Card Total
                                     </Typography>
-                                    <Box padding={ 1 } className="cursor-pointer" bgcolor={ colors.White } color={ colors.Black } borderRadius={ 5 } width='100%' height='20%' >
+                                    <Box onClick={ onClickCheckout } padding={ 1 } className="cursor-pointer" bgcolor={ colors.White } color={ colors.Black } borderRadius={ 5 } width='100%' height='20%' >
                                         <Typography justifySelf="center" fontWeight={ 600 } >
                                             Proceed to Checkout
                                         </Typography>
