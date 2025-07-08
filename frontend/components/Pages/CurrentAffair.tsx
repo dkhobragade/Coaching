@@ -6,9 +6,7 @@ export default function CurrentAffair ()
 {
     return <Box padding={ 5 }
         bgcolor={ colors.Pearl }
-        height='100vh'
-        display="flex"
-        alignItems="center" >
+        height='100vh' >
         <Grid container>
             <Grid size={ { xs: 12, md: 8 } }>
                 <Typography fontSize={ 35 } fontFamily="cursive" fontWeight={ 700 }>

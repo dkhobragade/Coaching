@@ -12,6 +12,13 @@ const colors = {
   RaspberryLeafGreen: "#0C513F",
   CitrusSplash: "#FFC501",
   KissMeKate: "#E7EEEC",
+  ChildofLight: "#EFF3F6",
+  HoneyBird: "#FFD28D",
+  MilkyMaize: "#FAD8A1",
+  Sugarwinkle: "#FFC9E4",
+  OrangeGlow: "#FFE2BC",
+  BreezeofGreen: "#D2F9BE",
+  Milan: "#FAF496",
 };
 
 export default colors;

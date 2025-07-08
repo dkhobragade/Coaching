@@ -1,10 +1,20 @@
+'use client'
+
 import colors from "@/lib/color";
 import { Badge, Box, Typography } from "@mui/material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useRouter } from "next/navigation";
 
 export default function Cart ()
 {
-    return <Box className='cursor-pointer' padding={ 1 } borderRadius={ 2 } sx={ {
+    const router = useRouter();
+
+    const handleClick = () =>
+    {
+        router.push( '/cart' );
+    };
+
+    return <Box onClick={ handleClick } className='cursor-pointer' padding={ 1 } borderRadius={ 2 } sx={ {
         position: 'fixed', top: 200, right: -110, zIndex: 9999, transition: 'right 0.4s ease-in-out', '&:hover': {
             right: -20
         }

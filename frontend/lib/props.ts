@@ -27,3 +27,13 @@ export interface ButtonProps {
   fullwidth?: boolean;
   endIcon?: React.ReactNode;
 }
+
+export interface ModalProps {
+  open: boolean;
+  onClose: () => void;
+  title?: string;
+  children: React.ReactElement<unknown>;
+  maxWidth?: "xs" | "sm" | "md" | "lg" | "xl";
+  fullWidth?: boolean;
+  disableBackdropClick?: boolean;
+}
