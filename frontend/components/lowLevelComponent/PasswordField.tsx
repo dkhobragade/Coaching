@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import LockIcon from '@mui/icons-material/Lock';
 
 export default function PasswordField ()
 {
@@ -24,6 +25,12 @@ export default function PasswordField ()
     return <FormControl sx={ { m: 1 } } fullWidth size="small" variant="outlined">
         <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
         <OutlinedInput
+            autoComplete="new-password"
+            startAdornment={
+                <InputAdornment position="start">
+                    <LockIcon />
+                </InputAdornment>
+            }
             id="outlined-adornment-password"
             type={ showPassword ? 'text' : 'password' }
             endAdornment={
