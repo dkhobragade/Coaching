@@ -9,7 +9,7 @@ import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 
-export default function signIn ()
+export default function SignIn ()
 {
     const router = useRouter()
 

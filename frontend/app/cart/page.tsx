@@ -103,7 +103,7 @@ export default function Cart ()
     {
         return <Grid marginTop={ 2 } container spacing={ 6 }>
             { cartPageDeliveryList.map( ( item ) =>
-                <Grid size={ { xs: 6, md: 3 } }>
+                <Grid key={ item.key } size={ { xs: 6, md: 3 } }>
                     <Box borderRadius={ 5 } bgcolor={ colors.White } padding={ 1 } width={ 250 } height={ 90 } >
                         <Box display="flex" gap={ 1 }>
                             <Box alignContent="center" justifyItems="center" width={ 70 } height={ 70 } borderRadius={ 5 } bgcolor={ colors[ item.color as keyof typeof colors ] } >

@@ -1,5 +1,5 @@
 import colors from "@/lib/color";
-import { Box, FormControl, Grid, GridLegacy, InputLabel, MenuItem, Select, Stack, TextField, Typography } from "@mui/material";
+import { Box, FormControl, Grid, InputLabel, MenuItem, Select, Stack, Typography } from "@mui/material";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import InputField from "@/components/lowLevelComponent/InputField";
 import { indianStates } from "@/lib/constant";
