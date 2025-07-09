@@ -27,6 +27,7 @@ const colors = {
   LustfulWishes: "#D33B95",
   BlueAstro: "#4DA8DA",
   BristolBlue: "#578F8E",
+  GloomyPurple: "#7E56DA",
 };
 
 export default colors;

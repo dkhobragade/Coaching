@@ -26,6 +26,7 @@ export interface ButtonProps {
   size?: "small" | "medium" | "large";
   fullwidth?: boolean;
   endIcon?: React.ReactNode;
+  startIcon?: React.ReactNode;
 }
 
 export interface ModalProps {
