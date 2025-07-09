@@ -21,6 +21,8 @@ const colors = {
   Milan: "#FAF496",
   DrWhite: "#FAFAFA",
   Zinnia: "#FCA311",
+  YrielYellow: "#FFDB57",
+  ChristySmile: "#F9BBC7",
 };
 
 export default colors;

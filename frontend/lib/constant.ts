@@ -13,42 +13,6 @@ export const ListItems = [
   },
 ];
 
-export const SocailMediaBoxOne = [
-  {
-    key: "1",
-    img: "/socialMedia/youtube.png",
-    alt: "YouTube",
-  },
-  {
-    key: "2",
-    img: "/socialMedia/mail.png",
-    alt: "Mail",
-  },
-  {
-    key: "3",
-    img: "/socialMedia/whatsapp.png",
-    alt: "WhatsApp",
-  },
-];
-
-export const SocailMediaBoxTwo = [
-  {
-    key: "1",
-    img: "/socialMedia/whatsapp.png",
-    alt: "WhatsApp",
-  },
-  {
-    key: "2",
-    img: "/socialMedia/telegram.png",
-    alt: "Telegram",
-  },
-  {
-    key: "3",
-    img: "/socialMedia/meet.png",
-    alt: "Meet",
-  },
-];
-
 export const cartPageDeliveryList = [
   {
     key: "1",
