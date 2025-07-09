@@ -1,37 +1,49 @@
-🛠 Tech Stack
-Node.js & Express.js
-MongoDB + Mongoose
-JWT for authentication
-Razorpay / Stripe for payments
-Multer for file uploads
-Nodemailer for sending OTPs or notifications
+## 🛠 Tech Stack
+
+- **Node.js** & **Express.js** – Backend framework  
+- **MongoDB** + **Mongoose** – Database and ORM  
+- **JWT** – For authentication  
+- **Razorpay / Stripe** – Payment gateway integration  
+- **Multer** – File uploads (PDFs, images)  
+- **Nodemailer** – For sending OTPs and notifications  
+
+---
+
+## 📁 Project Structure
 
 backend/
 ├── config/
 │ └── db.js # DB connection logic
+│
 ├── controllers/
 │ ├── authController.js # Login, signup, etc.
 │ ├── courseController.js # CRUD for courses
 │ ├── testController.js # Test series logic
 │ ├── paymentController.js # Razorpay/Stripe handlers
 │ └── userController.js # User profile, progress, etc.
+│
 ├── middlewares/
 │ └── authMiddleware.js # JWT auth check
+│
 ├── models/
 │ ├── User.js
 │ ├── Course.js
 │ ├── Test.js
 │ └── Result.js
+│
 ├── routes/
 │ ├── authRoutes.js
 │ ├── courseRoutes.js
 │ ├── testRoutes.js
 │ ├── userRoutes.js
 │ └── paymentRoutes.js
+│
 ├── uploads/ # For PDFs, images, etc.
+│
 ├── utils/
 │ └── sendEmail.js # For OTP or notifications
-├── .env # Env variables
+│
+├── .env # Environment variables
 ├── .gitignore
 ├── package.json
 ├── server.js # Entry point
