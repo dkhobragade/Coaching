@@ -1,3 +1,11 @@
+🛠 Tech Stack
+Node.js & Express.js
+MongoDB + Mongoose
+JWT for authentication
+Razorpay / Stripe for payments
+Multer for file uploads
+Nodemailer for sending OTPs or notifications
+
 backend/
 ├── config/
 │ └── db.js # DB connection logic
