@@ -14,13 +14,6 @@
 ---
 
 
-## 📁 Project Structure
-
-<pre> ``` backend/ ├── config/ │ └── db.js # Database connection setup │ ├── controllers/ │ ├── authController.js # User signup/login/logout │ ├── courseController.js # CRUD for courses │ ├── testController.js # Test series logic │ ├── paymentController.js # Handles Razorpay/Stripe │ └── userController.js # User profiles & progress │ ├── middlewares/ │ └── authMiddleware.js # JWT authorization │ ├── models/ │ ├── User.js │ ├── Course.js │ ├── Test.js │ └── Result.js │ ├── routes/ │ ├── authRoutes.js │ ├── courseRoutes.js │ ├── testRoutes.js │ ├── userRoutes.js │ └── paymentRoutes.js │ ├── uploads/ # PDF, image storage │ ├── utils/ │ └── sendEmail.js # OTP and email notifications │ ├── .env # Environment variables ├── .gitignore ├── package.json ├── server.js # Entry point └── README.md ``` </pre>
-
-
----
-
 ## 🎯 API Endpoints
 
 ### Authentication (`/api/auth`)
