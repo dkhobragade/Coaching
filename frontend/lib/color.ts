@@ -19,6 +19,8 @@ const colors = {
   OrangeGlow: "#FFE2BC",
   BreezeofGreen: "#D2F9BE",
   Milan: "#FAF496",
+  DrWhite: "#FAFAFA",
+  Zinnia: "#FCA311",
 };
 
 export default colors;

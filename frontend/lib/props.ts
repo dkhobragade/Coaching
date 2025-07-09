@@ -37,3 +37,19 @@ export interface ModalProps {
   fullWidth?: boolean;
   disableBackdropClick?: boolean;
 }
+
+export interface AnmiatedProps {
+  children: React.ReactNode;
+}
+
+export interface BounceAnmiatedProps {
+  children: React.ReactNode;
+  duration?: number;
+  repeat?: boolean;
+}
+
+export interface ScaleButtonProps {
+  text: string;
+  onClick?: () => void;
+  justify?: "start" | "center" | "end";
+}

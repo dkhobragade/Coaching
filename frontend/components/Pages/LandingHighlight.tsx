@@ -2,6 +2,7 @@ import { Box, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } fro
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Image from "next/image";
 import { ListItems } from "@/lib/constant";
+import { ScaleButton } from "../lowLevelComponent/Animation";
 
 export default function LandingHighlight ()
 {
@@ -88,12 +89,7 @@ export default function LandingHighlight ()
               { renderListItem() }
             </Grid>
             <Grid>
-              <Box className="relative hover:scale-105 inline-block mt-2">
-                <Box className="absolute top-2 left-2 w-full h-full bg-[#FCA311] rounded z-0"></Box>
-                <Box className="relative  z-10 bg-black text-white px-6 py-3 rounded font-semibold shadow-md cursor-pointer">
-                  Explore Courses
-                </Box>
-              </Box>
+              <ScaleButton justify="start" text="Explore Courses" />
             </Grid>
           </Grid>
         </Grid>
