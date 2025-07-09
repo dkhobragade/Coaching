@@ -13,7 +13,7 @@ export default function Home ()
 {
 
   return (
-    <Box>
+    <Box sx={ { width: "100%", overflowX: "hidden" } } >
       <LandingPage />
       <Scroller />
       <LandingHighlight />

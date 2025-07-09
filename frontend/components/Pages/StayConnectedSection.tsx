@@ -44,7 +44,7 @@ export default function StayConnectedSection ()
                         />
                     </Box>
                     {/* need to change color */ }
-                    <Box bgcolor="#029AFF"
+                    <Box bgcolor={ colors.BlueAstro }
                         className="w-48 h-48 rounded-full cursor-pointer transition-all duration-300 transform hover:scale-[1.1] flex justify-center items-center" >
                         <Image loading="lazy" className="object-contain" src="/socialMedia/youtube.png" alt="YouTube" width={ 100 } height={ 100 } />
                     </Box>

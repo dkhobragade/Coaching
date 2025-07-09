@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import { ScaleButton } from "../lowLevelComponent/Animation";
+import colors from "@/lib/color";
 
 export default function CallToAction ()
 {
@@ -10,7 +11,7 @@ export default function CallToAction ()
             display="flex"
             justifyContent="center"
             alignItems="center"
-            bgcolor="#4DA8DA"
+            bgcolor={ colors.BlueAstro }
             px={ 2 }
         >
             <Box textAlign="center" maxWidth={ 800 }>

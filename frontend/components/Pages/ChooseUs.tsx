@@ -4,19 +4,25 @@ import MenuBookIcon from '@mui/icons-material/MenuBook';
 import PersonSearchIcon from '@mui/icons-material/PersonSearch';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
 import SecurityIcon from '@mui/icons-material/Security';
-import { BounceBox } from "../lowLevelComponent/Animation";
+import { BounceBox, ScaleButton } from "../lowLevelComponent/Animation";
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import RecordVoiceOverIcon from '@mui/icons-material/RecordVoiceOver';
+import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 
 export default function ChooseUs ()
 {
 
-    return <Box width="100%" minHeight="100vh" padding={ 5 } marginTop={ 5 } marginBottom={ 5 }>
-        <Box width="fit-content" justifySelf="center" marginBottom={ 1 } bgcolor={ colors.Zinnia } padding={ 1 } >
+    return <Box width="100%">
+        <Box display="flex" width="fit-content" justifySelf="center" marginBottom={ 1 } bgcolor={ colors.Zinnia } padding={ 1 } >
             <Typography fontSize={ 30 } fontWeight={ 700 } >
                 Why choose us
             </Typography>
+            <BounceBox>
+                <QuestionMarkIcon sx={ { fontSize: 40, color: 'white' } } />
+            </BounceBox>
         </Box>
         <Grid container spacing={ 3 }>
-            <Grid size={ { xs: 12, md: 6 } } order={ { xs: 1 } } marginTop={ 10 } >
+            <Grid size={ { xs: 12, md: 6 } } padding={ 5 } order={ { xs: 1 } } marginTop={ 10 } >
                 <Stack spacing={ 3 }>
                     <Box width="fit-content" padding={ 2 } bgcolor={ colors.BreezeofGreen } >
                         <Typography fontSize={ 15 } fontWeight={ 700 }>
@@ -26,85 +32,115 @@ export default function ChooseUs ()
                     <Typography textAlign="justify"  >
                         We are dedicated to empowering aspirants through expert guidance, structured content, and a result-driven approach to crack the MPSC exam with confidence.
                     </Typography>
-                    <Box width="fit-content" className="relative hover:scale-105 inline-block mt-2">
-                        <Box className="absolute top-2 left-2 w-full h-full bg-[#FCA311] rounded z-0"></Box>
-                        <Box className="relative  z-10 bg-black text-white px-6 py-3 rounded font-semibold shadow-md cursor-pointer">
-                            Book a session
-                        </Box>
-                    </Box>
+                    <br />
+                    <ScaleButton justify="start" text="Book a session" />
                 </Stack>
             </Grid>
             <Grid size={ { xs: 12, md: 6 } } order={ { xs: 2 } }>
-                <Grid container spacing={ 5 }>
-                    <Grid size={ { xs: 12, md: 6 } } order={ { xs: 1 } }>
-                        <Box display="flex" flexDirection="column" gap={ 5 } >
-                            <Box borderRadius={ 5 } bgcolor={ colors.DrWhite } padding={ 2 } width="100%" minHeight={ 200 } >
+                <Box display="flex" flexDirection="column" >
+                    <Box minHeight={ 300 }>
+                        <Box display="flex" marginLeft={ 25 }  >
+                            <Box padding={ 2 } minWidth={ 180 } bgcolor={ colors.Zinnia } height={ 300 } >
                                 <Stack spacing={ 5 }>
                                     <BounceBox>
-                                        <MenuBookIcon sx={ { fontSize: 40 } } />
+                                        <MenuBookIcon sx={ { fontSize: 40, color: "white" } } />
                                     </BounceBox>
                                     <Box>
-                                        <Typography fontWeight={ 600 }>
+                                        <Typography color={ colors.Black } fontWeight={ 700 }>
                                             Comprehensive Courses
                                         </Typography>
-                                        <Typography>
+                                        <Typography color={ colors.White }>
                                             Complete syllabus, topic-wise classes, and updated notes.
                                         </Typography>
                                     </Box>
                                 </Stack>
                             </Box>
-                            <Box borderRadius={ 5 } bgcolor={ colors.DrWhite } padding={ 2 } width="100%" minHeight={ 200 } >
+                            <Box padding={ 2 } minWidth={ 180 } bgcolor={ colors.Babe } height={ 300 } >
                                 <Stack spacing={ 5 }>
                                     <BounceBox>
-                                        <PersonSearchIcon sx={ { fontSize: 40 } } />
+                                        <PersonSearchIcon sx={ { fontSize: 40, color: "white" } } />
                                     </BounceBox>
-                                    <Box>
-                                        <Typography fontWeight={ 600 }>
+                                    <Box >
+                                        <Typography fontWeight={ 700 } color={ colors.Black }>
                                             Personalized Mentorship
                                         </Typography>
-                                        <Typography>
+                                        <Typography color={ colors.White }>
                                             One-on-one guidance and regular doubt-clearing.
                                         </Typography>
                                     </Box>
                                 </Stack>
                             </Box>
                         </Box>
-                    </Grid>
-                    <Grid size={ { xs: 12, md: 6 } } order={ { xs: 2 } }>
-                        <Box display="flex" flexDirection="column" gap={ 5 } >
-                            <Box borderRadius={ 5 } bgcolor={ colors.DrWhite } padding={ 2 } width="100%" minHeight={ 200 } >
+                    </Box>
+                    <Box minHeight={ 200 }>
+                        <Box display="flex" marginLeft={ 15 }  >
+                            <Box padding={ 2 } minWidth={ 180 } bgcolor={ colors.LustfulWishes } height={ 200 } >
                                 <Stack spacing={ 5 }>
                                     <BounceBox>
-                                        <PlayCircleOutlineIcon sx={ { fontSize: 40 } } />
+                                        <PlayCircleOutlineIcon sx={ { fontSize: 35, color: "white" } } />
                                     </BounceBox>
                                     <Box>
-                                        <Typography fontWeight={ 600 }>
+                                        <Typography fontWeight={ 600 } color={ colors.Black }>
                                             Live + Recorded Classes
                                         </Typography>
-                                        <Typography>
+                                        <Typography color={ colors.White }>
                                             Join live or watch anytime with full access.
                                         </Typography>
                                     </Box>
                                 </Stack>
                             </Box>
-                            <Box borderRadius={ 5 } bgcolor={ colors.DrWhite } padding={ 2 } width="100%" minHeight={ 200 } >
+                            <Box padding={ 2 } minWidth={ 180 } bgcolor={ colors.BlueAstro } height={ 200 } >
                                 <Stack spacing={ 5 }>
                                     <BounceBox>
-                                        <SecurityIcon sx={ { fontSize: 40 } } />
+                                        <SecurityIcon sx={ { fontSize: 35, color: "white" } } />
                                     </BounceBox>
-                                    <Box>
-                                        <Typography fontWeight={ 600 }>
+                                    <Box >
+                                        <Typography fontWeight={ 600 } color={ colors.Black }>
                                             Trusted & Transparent
                                         </Typography>
-                                        <Typography>
+                                        <Typography color={ colors.White }>
                                             Clear pricing, flexible plans, and student-first support.
                                         </Typography>
                                     </Box>
                                 </Stack>
                             </Box>
                         </Box>
-                    </Grid>
-                </Grid>
+                    </Box>
+                    <Box minHeight={ 50 }>
+                        <Box display="flex" >
+                            <Box padding={ 2 } minWidth={ 180 } bgcolor={ colors.BristolBlue } height={ 140 } >
+                                <Stack spacing={ 2 }>
+                                    <BounceBox>
+                                        <AssignmentIcon sx={ { fontSize: 20, color: "white" } } />
+                                    </BounceBox>
+                                    <Box>
+                                        <Typography fontWeight={ 600 } color={ colors.Black }>
+                                            Regular Mock Tests
+                                        </Typography>
+                                        <Typography color={ colors.White }>
+                                            Track your progress with timely mock exams and feedback.
+                                        </Typography>
+                                    </Box>
+                                </Stack>
+                            </Box>
+                            <Box padding={ 2 } minWidth={ 180 } bgcolor={ colors.Black } height={ 140 } >
+                                <Stack spacing={ 2 }>
+                                    <BounceBox>
+                                        <RecordVoiceOverIcon sx={ { fontSize: 20, color: "white" } } />
+                                    </BounceBox>
+                                    <Box color={ colors.White }>
+                                        <Typography fontWeight={ 600 } >
+                                            Interview Preparation
+                                        </Typography>
+                                        <Typography >
+                                            Mock interviews and guidance for MPSC personality tests.
+                                        </Typography>
+                                    </Box>
+                                </Stack>
+                            </Box>
+                        </Box>
+                    </Box>
+                </Box>
             </Grid>
         </Grid>
     </Box >

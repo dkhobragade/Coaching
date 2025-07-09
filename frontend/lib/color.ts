@@ -23,6 +23,10 @@ const colors = {
   Zinnia: "#FCA311",
   YrielYellow: "#FFDB57",
   ChristySmile: "#F9BBC7",
+  Babe: "#D97B79",
+  LustfulWishes: "#D33B95",
+  BlueAstro: "#4DA8DA",
+  BristolBlue: "#578F8E",
 };
 
 export default colors;
