@@ -1,10 +1,9 @@
 import express from "express";
+import authRoutes from "./routes/authRoutes.js";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("Hello, World!");
-});
+app.use("/api/auth", authRoutes);
 
 app.listen(5001, () => {
   console.log("Server is running on http://localhost:5001");
