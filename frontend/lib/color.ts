@@ -30,6 +30,10 @@ const colors = {
   GloomyPurple: "#7E56DA",
   SmokeAndMirrors: "#F3F5F9",
   CoolBalaclavasAreForever: "#14213D",
+  Lotion: "#FEFDFB",
+  BeniukonBronze: "#FE7D33",
+  AlpineRace: "#274061",
+  OrangeQuench: "#FFC05F",
 };
 
 export default colors;

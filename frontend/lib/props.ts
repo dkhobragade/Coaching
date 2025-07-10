@@ -44,7 +44,7 @@ export interface AnmiatedProps {
   children: React.ReactNode;
 }
 
-export interface BounceAnmiatedProps {
+export interface AnmiationProps {
   children: React.ReactNode;
   duration?: number;
   repeat?: boolean;

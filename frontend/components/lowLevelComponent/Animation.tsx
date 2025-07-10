@@ -1,7 +1,7 @@
 "use client"
 
 import colors from "@/lib/color"
-import { AnmiatedProps, BounceAnmiatedProps, ScaleButtonProps } from "@/lib/props";
+import { AnmiatedProps, AnmiationProps, ScaleButtonProps } from "@/lib/props";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
 import clsx from "clsx";
@@ -36,7 +36,7 @@ export default function BorderBoxAnimation ( props: AnmiatedProps )
 }
 
 
-export const BounceBox = ( props: BounceAnmiatedProps ) =>
+export const BounceBox = ( props: AnmiationProps ) =>
 {
     return <motion.div transition={ {
         duration: 1,
@@ -44,11 +44,27 @@ export const BounceBox = ( props: BounceAnmiatedProps ) =>
         repeatType: "reverse",
         ease: "easeInOut",
     } }
-        animate={ { y: [ 0, -10 ], } }
+        animate={ { y: [ 0, -10 ] } }
+
     >
         { props.children }
     </motion.div>
 
+}
+
+
+export const RotateBox = ( props: AnmiationProps ) =>
+{
+    return <motion.div transition={ {
+        duration: 5,
+        repeat: Infinity,
+        repeatType: "loop",
+        ease: "linear",
+    } }
+        animate={ { rotate: [ 0, 360 ] } }
+    >
+        { props.children }
+    </motion.div>
 }
 
 export const ScaleButton = ( props: ScaleButtonProps ) =>
