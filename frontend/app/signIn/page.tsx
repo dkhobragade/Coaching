@@ -45,22 +45,24 @@ export default function SignIn ()
                                     Sign In
                                 </Typography>
                             </Box>
-                            <Button size="medium" startIcon={ <Image src='/socialMedia/google.png' alt="Google" width={ 20 } height={ 20 } /> } fullwidth variant="outlined" label="Sign in with Google" />
                         </Stack>
                         <Divider>or</Divider>
-                        <Box display="flex" justifySelf="center" gap={ 1 } >
-                            <Typography>
-                                Need an account?
-                            </Typography>
-                            <Typography onClick={ onClickSingUp } color={ colors.GloomyPurple } fontWeight={ 500 } className="underline cursor-pointer" >
-                                Create One
-                            </Typography>
-                        </Box>
+                        <Stack rowGap={ 2 }>
+                            <Button size="medium" startIcon={ <Image src='/socialMedia/google.png' alt="Google" width={ 20 } height={ 20 } /> } fullwidth variant="outlined" label="Sign in with Google" />
+                            <Box display="flex" justifySelf="center" gap={ 1 } >
+                                <Typography>
+                                    Need an account?
+                                </Typography>
+                                <Typography onClick={ onClickSingUp } color={ colors.GloomyPurple } fontWeight={ 500 } className="underline cursor-pointer" >
+                                    Create One
+                                </Typography>
+                            </Box>
+                        </Stack>
                     </Box>
                 </Box>
             </Grid>
             <Grid size={ { xs: 12, md: 6 } } display={ { xs: 'none', md: 'block' } }  >
-                <Box bgcolor='#F3F5F9' width="100%" height="100%" alignContent="center" justifyItems="center" >
+                <Box bgcolor={ colors.SmokeAndMirrors } width="100%" height="100%" alignContent="center" justifyItems="center" >
                     <BounceBox>
                         <Box className="w-48 h-25 rounded-t-full" bgcolor={ colors.GloomyPurple } />
                     </BounceBox>

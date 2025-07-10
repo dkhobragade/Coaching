@@ -2,6 +2,7 @@ export interface InputProps {
   label: string;
   fullWidth?: boolean;
   icon?: React.ReactNode;
+  type?: "text" | "password" | "email" | "number" | "tel" | "search";
 }
 
 export interface CheckboxProps {

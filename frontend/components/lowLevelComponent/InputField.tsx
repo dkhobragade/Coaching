@@ -5,6 +5,7 @@ export default function InputField ( props: InputProps )
 {
     return (
         <TextField
+            type={ props.type ? props.type : "text" }
             slotProps={ {
                 input: {
                     autoComplete: 'new-password',
