@@ -54,4 +54,6 @@ export interface ScaleButtonProps {
   text: string;
   onClick?: () => void;
   justify?: "start" | "center" | "end";
+  bgColor?: string;
+  textColor?: string;
 }

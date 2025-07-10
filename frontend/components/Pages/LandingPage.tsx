@@ -1,9 +1,22 @@
+"use client"
+
 import colors from "@/lib/color";
 import { Box, Grid, Typography } from "@mui/material";
 import Image from "next/image";
+import { ScaleButton } from "../lowLevelComponent/Animation";
+import { useRouter } from "next/navigation";
 
 export default function LandingPage ()
 {
+
+  const router = useRouter()
+
+  const onClickSingUp = () =>
+  {
+    router.push( '/signup' )
+  }
+
+
   return (
     <Grid container>
       <Grid size={ 7 } display="flex" justifyContent="center" alignItems="center">
@@ -18,34 +31,19 @@ export default function LandingPage ()
               </Box>
             </Typography>
           </Box>
-          <Box
-            paddingX={ 3 }
-            paddingY={ 1.5 }
-            className="cursor-pointer hover:scale-105"
-            bgcolor="black"
-            color="white"
-            width="fit-content"
-            padding={ 2 }
-          >
-            Explore Courses
-          </Box>
+          <ScaleButton justify="start" text="Explore Courses" />
         </Box>
       </Grid>
       <Grid size={ 5 }>
         <Box
-          bgcolor="#14213D"
+          bgcolor={ colors.CoolBalaclavasAreForever }
           className="h-screen"
           display="flex"
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
         >
-          <Box className="relative hover:scale-105 inline-block mt-2">
-            <Box className="absolute top-2 left-2 w-full h-full bg-[#FCA311] rounded z-0"></Box>
-            <Box className="relative z-10 bg-white text-black px-6 py-3 rounded font-semibold shadow-md cursor-pointer">
-              Get Started
-            </Box>
-          </Box>
+          <ScaleButton onClick={ onClickSingUp } text="Get Started" bgColor="white" textColor="black" />
           <Image src="/Girl.png" alt="Girl" width={ 500 } height={ 550 } className="max-w-full" loading="lazy" />
         </Box>
       </Grid>

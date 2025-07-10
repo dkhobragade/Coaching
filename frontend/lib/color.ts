@@ -29,6 +29,7 @@ const colors = {
   BristolBlue: "#578F8E",
   GloomyPurple: "#7E56DA",
   SmokeAndMirrors: "#F3F5F9",
+  CoolBalaclavasAreForever: "#14213D",
 };
 
 export default colors;

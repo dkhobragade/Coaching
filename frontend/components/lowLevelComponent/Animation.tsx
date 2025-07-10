@@ -74,9 +74,10 @@ export const ScaleButton = ( props: ScaleButtonProps ) =>
                 layout
                 className="absolute top-2 left-2 w-full h-full bg-[#FCA311] rounded z-0"
             />
-            <Box className="relative z-10 bg-black text-white px-6 py-3 rounded font-semibold shadow-md cursor-pointer">
+            <Box className={ `relative z-10 bg-${ props.bgColor ? props.bgColor : 'black' } text-${ props.textColor ? props.textColor : 'white' } px-6 py-3 rounded font-semibold shadow-md cursor-pointer` }>
                 { props.text }
             </Box>
         </motion.div>
     );
 };
+
