@@ -9,7 +9,7 @@ export default function Books ()
     return <Box sx={ { width: "100%", overflowX: "hidden" } }>
         <BookLandingPage />
         <CurrentAffair />
-        <FormatComparison />
+        {/* <FormatComparison /> */ }
         <BooksFAQs />
     </Box>
 }

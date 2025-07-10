@@ -22,16 +22,6 @@ html {
   scroll-behavior: smooth;
 }
 
-.socialButton {
-  background-color: rgba(45, 35, 35, 0.1);
-  height: 70px;
-  backdrop-filter: blur(100px);
-  cursor: pointer;
-  display: flex;
-  border: 1px solid rgba(26, 7, 236, 0.5);
-  align-items: center;
-}
-
 ::-webkit-scrollbar {
   width: 10px;
   height: 6px;

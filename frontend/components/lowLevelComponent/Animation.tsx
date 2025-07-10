@@ -4,7 +4,7 @@ import colors from "@/lib/color"
 import { AnmiatedProps, BounceAnmiatedProps, ScaleButtonProps } from "@/lib/props";
 import { Box } from "@mui/material";
 import { motion } from "framer-motion";
-
+import clsx from "clsx";
 
 export default function BorderBoxAnimation ( props: AnmiatedProps )
 {
@@ -74,7 +74,13 @@ export const ScaleButton = ( props: ScaleButtonProps ) =>
                 layout
                 className="absolute top-2 left-2 w-full h-full bg-[#FCA311] rounded z-0"
             />
-            <Box className={ `relative z-10 bg-${ props.bgColor ? props.bgColor : 'black' } text-${ props.textColor ? props.textColor : 'white' } px-6 py-3 rounded font-semibold shadow-md cursor-pointer` }>
+            <Box
+                className={ clsx(
+                    "relative z-10 px-6 py-3 rounded font-semibold shadow-md cursor-pointer",
+                    props.bgColor ? `${ props.bgColor }` : "bg-black",
+                    props.textColor ? `${ props.textColor }` : "text-white"
+                ) }
+            >
                 { props.text }
             </Box>
         </motion.div>
