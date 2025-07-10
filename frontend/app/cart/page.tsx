@@ -9,6 +9,7 @@ import AddIcon from '@mui/icons-material/Add';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { cartPageDeliveryList } from "@/lib/constant";
 import { useRouter } from "next/navigation";
+import { BounceBox } from "@/components/lowLevelComponent/Animation";
 
 export default function Cart ()
 {
@@ -107,7 +108,9 @@ export default function Cart ()
                     <Box borderRadius={ 5 } bgcolor={ colors.White } padding={ 1 } width={ 250 } height={ 90 } >
                         <Box display="flex" gap={ 1 }>
                             <Box alignContent="center" justifyItems="center" width={ 70 } height={ 70 } borderRadius={ 5 } bgcolor={ colors[ item.color as keyof typeof colors ] } >
-                                <Image loading="lazy" src={ item.img } alt={ item.alt } width={ item.width } height={ item.height } />
+                                <BounceBox>
+                                    <Image loading="lazy" src={ item.img } alt={ item.alt } width={ item.width } height={ item.height } />
+                                </BounceBox>
                             </Box>
                             <Box alignContent="center" justifyItems="start" >
                                 <Typography fontWeight={ 600 } >{ item.text }</Typography>
@@ -125,7 +128,7 @@ export default function Cart ()
         router.push( '/cart/payment' )
     }
 
-    return <Box bgcolor={ colors.ChildofLight } width='100%' minHeight="100vh" padding={ 2 } >
+    return <Box sx={ { width: "100%", overflowX: "hidden" } } bgcolor={ colors.ChildofLight } width='100%' minHeight="100vh" padding={ 2 } >
         <Box display="flex" gap={ 1 }>
             <ShoppingCartIcon />
             <Typography fontWeight={ 660 } fontSize={ 20 }>

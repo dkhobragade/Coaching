@@ -1,4 +1,3 @@
-import LandingPage from "@/components/Pages/LandingPage";
 import { ScrollItems1 } from "@/lib/constant";
 import { Box } from "@mui/material";
 import dynamic from "next/dynamic";
@@ -8,7 +7,7 @@ const LandingHighlight = dynamic( () => import( "@/components/Pages/LandingHighl
 const ChooseUsSection = dynamic( () => import( "@/components/Pages/ChooseUs" ) )
 const CallToActionSection = dynamic( () => import( "@/components/Pages/CallToAction" ) )
 const StayConnectedSection = dynamic( () => import( "@/components/Pages/StayConnectedSection" ) );
-
+const LandingPage = dynamic( () => import( "@/components/Pages/LandingPage" ) );
 
 export default function Home ()
 {
