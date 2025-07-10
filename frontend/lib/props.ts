@@ -57,3 +57,7 @@ export interface ScaleButtonProps {
   bgColor?: string;
   textColor?: string;
 }
+
+export interface ScrollerItemsProps {
+  list: string[];
+}

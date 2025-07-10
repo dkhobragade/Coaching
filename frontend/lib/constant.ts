@@ -95,3 +95,23 @@ export const indianStates = [
   { value: "LD", label: "Lakshadweep" },
   { value: "PY", label: "Puducherry" },
 ];
+
+export const ScrollItems1 = [
+  "📱 Learn Anytime, Anywhere",
+  "🧾 Weekly Test Reviews",
+  "📅 Batch Timings That Fit You",
+  "⚡ Rapid Revision Techniques",
+  "💬 Live Strategy Sessions",
+  "📣 Latest MPSC Updates",
+  "🗓️ Smart Study Plans",
+  "📈 Daily Progress Tracking",
+  "🏆 MPSC Toppers’ Tips",
+  "📝 Mock Test Evaluations",
+  "🧠 Personal Mentorship",
+];
+
+export const ScrollItems2 = [
+  "📘 Books are your silent mentors — always available, never tired, and filled with answers. Open one, and you open your path to success.",
+  "📖 Books don’t just prepare you for exams — they prepare you for life. One page at a time, one step closer to your goal.",
+  "📗 Every great topper once turned a page. In the quiet of a book lies the loudest path to victory.",
+];

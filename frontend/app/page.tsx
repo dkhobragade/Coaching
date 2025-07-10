@@ -1,4 +1,5 @@
 import LandingPage from "@/components/Pages/LandingPage";
+import { ScrollItems1 } from "@/lib/constant";
 import { Box } from "@mui/material";
 import dynamic from "next/dynamic";
 
@@ -15,7 +16,7 @@ export default function Home ()
   return (
     <Box sx={ { width: "100%", overflowX: "hidden" } } >
       <LandingPage />
-      <Scroller />
+      <Scroller list={ ScrollItems1 } />
       <LandingHighlight />
       <ChooseUsSection />
       <CallToActionSection />
