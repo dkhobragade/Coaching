@@ -12,7 +12,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import { BounceBox } from "@/components/lowLevelComponent/Animation";
 import { useRouter } from "next/navigation";
 
-export default function signUp ()
+export default function SignUp ()
 {
 
     const router = useRouter()

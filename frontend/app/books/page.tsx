@@ -8,6 +8,7 @@ const BookLandingPage = dynamic( () => import( "@/components/Pages/BookLandingPa
 const CurrentAffair = dynamic( () => import( "@/components/Pages/CurrentAffair" ) );
 const BooksFAQs = dynamic( () => import( "@/components/Pages/BooksFAQs" ) );
 const MustToHaveBooks = dynamic( () => import( "@/components/Pages/MustToHaveBooks" ) );
+const AllBooks = dynamic( () => import( "@/components/Pages/AllBooks" ) );
 
 
 export default function Books ()
@@ -16,6 +17,7 @@ export default function Books ()
         <BookLandingPage />
         <Scroller list={ ScrollItems2 } />
         <MustToHaveBooks />
+        <AllBooks />
         <CurrentAffair />
         {/* <FormatComparison /> */ }
         <BooksFAQs />

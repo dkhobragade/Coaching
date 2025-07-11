@@ -34,6 +34,8 @@ const colors = {
   BeniukonBronze: "#FE7D33",
   AlpineRace: "#274061",
   OrangeQuench: "#FFC05F",
+  BitSugar: "#F3F2EC",
+  StarWhite: "#EFEEE8",
 };
 
 export default colors;

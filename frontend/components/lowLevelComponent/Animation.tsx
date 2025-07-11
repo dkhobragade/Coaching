@@ -1,10 +1,11 @@
 "use client"
 
 import colors from "@/lib/color"
-import { AnmiatedProps, AnmiationProps, ScaleButtonProps } from "@/lib/props";
-import { Box } from "@mui/material";
+import { AnmiatedProps, AnmiationProps, CartProps, ScaleButtonProps } from "@/lib/props";
+import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import clsx from "clsx";
+import Image from "next/image";
 
 export default function BorderBoxAnimation ( props: AnmiatedProps )
 {
@@ -103,3 +104,54 @@ export const ScaleButton = ( props: ScaleButtonProps ) =>
     );
 };
 
+
+
+export const CartAnimatedBox = ( props: CartProps ) =>
+{
+    return <Box width={ 250 } minHeight={ 400 }>
+        <motion.div
+            style={ {
+                position: "relative",
+                width: "100%",
+                height: 250,
+                overflow: "hidden",
+            } }
+            whileHover="hover"
+            initial="initial"
+        >
+            <Box width="100%" height="100%" justifyItems="center" bgcolor={ colors.StarWhite } padding={ 2 }  >
+                <Image src={ props.src } alt={ props.alt } width={ 150 } height={ 100 } />
+            </Box>
+            <motion.div
+                variants={ {
+                    initial: { y: "100%" },
+                    hover: { y: "0%" },
+                } }
+                transition={ { duration: 0.3, ease: "easeInOut" } }
+                style={ {
+                    position: "absolute",
+                    bottom: 0,
+                    width: "100%",
+                    height: 50,
+                    backgroundColor: "black",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    cursor: 'pointer'
+                } }
+            >
+                <Typography color="white" fontSize={ 20 } fontWeight={ 600 }>
+                    ADD TO CART
+                </Typography>
+            </motion.div>
+        </motion.div>
+        <Box display="flex" flexDirection="column" gap={ 1 } justifyContent="center" alignItems="center"  >
+            <Typography fontSize={ 20 } fontWeight={ 500 } color="#74642F">
+                { props.title }
+            </Typography>
+            <Typography fontSize={ 20 } fontWeight={ 500 } color="#74642F">
+                { "\u20B9" } { props.price }
+            </Typography>
+        </Box>
+    </Box>
+}

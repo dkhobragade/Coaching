@@ -61,3 +61,10 @@ export interface ScaleButtonProps {
 export interface ScrollerItemsProps {
   list: string[];
 }
+
+export interface CartProps {
+  title: string;
+  price: number;
+  src: string;
+  alt: string;
+}
