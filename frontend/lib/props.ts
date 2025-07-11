@@ -68,3 +68,18 @@ export interface CartProps {
   src: string;
   alt: string;
 }
+
+export interface MenuProps {
+  title: string;
+  children: React.ReactNode;
+}
+
+type MenuItem = {
+  label: string;
+  icon?: React.ReactNode;
+};
+
+export interface AnimatedMenuProps {
+  title: React.ReactNode;
+  menuItems: MenuItem[];
+}

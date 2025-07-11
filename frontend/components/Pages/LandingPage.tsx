@@ -43,7 +43,7 @@ export default function LandingPage ()
           justifyContent="center"
           alignItems="center"
         >
-          <ScaleButton onClick={ onClickSingUp } text="Get Started" bgColor="bg-white" textColor="text-black" />
+          {/* <ScaleButton onClick={ onClickSingUp } text="Get Started" bgColor="bg-white" textColor="text-black" /> */ }
           <Image src="/Girl.png" alt="Girl" width={ 500 } height={ 550 } className="max-w-full" loading="lazy" />
         </Box>
       </Grid>

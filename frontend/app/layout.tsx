@@ -6,6 +6,7 @@ import CartWrapper from "@/components/Pages/CartWrapper";
 import theme from "@/lib/theme";
 import "./globals.css";
 import FooterWrapper from "@/components/Pages/FooterWrapper";
+import Header from "@/components/lowLevelComponent/Header";
 
 export const metadata: Metadata = {
   title: "DKMPSC",
@@ -23,6 +24,7 @@ export default function RootLayout ( {
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={ theme }>
+            <Header />
             <SpeedDialWrapper />
             <CartWrapper />
             { children }
