@@ -5,7 +5,7 @@ import SpeedDialWrapper from "@/components/Pages/SpeedDialWrapper";
 import CartWrapper from "@/components/Pages/CartWrapper";
 import theme from "@/lib/theme";
 import "./globals.css";
-import Foooter from "@/components/lowLevelComponent/Footer";
+import FooterWrapper from "@/components/Pages/FooterWrapper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,7 +26,7 @@ export default function RootLayout ( {
             <SpeedDialWrapper />
             <CartWrapper />
             { children }
-            <Foooter />
+            <FooterWrapper />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>

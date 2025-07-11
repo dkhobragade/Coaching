@@ -1,12 +1,13 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import { usePathname } from "next/navigation"
-import GlobalSpeedDial from "../lowLevelComponent/SpeedDial"
+
+const GlobalSpeedDial = dynamic( () => import( '@/components/lowLevelComponent/SpeedDial' ) )
 
 export default function SpeedDialWrapper ()
 {
     const pathName = usePathname()
-    console.log( pathName )
     let showSpeedDial = true
 
     if ( pathName == "/signIn" || pathName == "/signup" )
