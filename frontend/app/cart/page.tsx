@@ -102,10 +102,10 @@ export default function Cart ()
 
     const renderDeliveryInfo = () =>
     {
-        return <Grid marginTop={ 2 } container spacing={ 6 }>
+        return <Grid marginTop={ 2 } container spacing={ 6 } justifyContent="center" >
             { cartPageDeliveryList.map( ( item ) =>
-                <Grid key={ item.key } size={ { xs: 6, md: 3 } }>
-                    <Box borderRadius={ 5 } bgcolor={ colors.White } padding={ 1 } width={ 250 } height={ 90 } >
+                <Grid key={ item.key } size={ { xs: 12, sm: 4, md: 3 } } display="flex" justifyContent="center" >
+                    <Box borderRadius={ 5 } bgcolor={ colors.White } padding={ 1 } width={ { xs: 300, md: 250 } } height={ 90 } >
                         <Box display="flex" gap={ 1 }>
                             <Box alignContent="center" justifyItems="center" width={ 70 } height={ 70 } borderRadius={ 5 } bgcolor={ colors[ item.color as keyof typeof colors ] } >
                                 <BounceBox>
@@ -137,7 +137,7 @@ export default function Cart ()
         </Box>
         <Grid container spacing={ 1 }>
             <Grid size={ { xs: 12, md: 8 } } order={ { xs: 1 } } padding={ 2 }>
-                <Box bgcolor={ colors.White } padding={ 2 } borderRadius={ 5 } width="100%" maxHeight='450px' overflow="scroll" minHeight="450px" >
+                <Box sx={ { overflowX: 'hidden' } } bgcolor={ colors.White } padding={ 2 } borderRadius={ 5 } width="100%" maxHeight='450px' minHeight="450px" >
                     <Grid container spacing={ 2 } marginBottom={ 2 }>
                         <Grid size={ 6 }>
                             <Typography fontWeight={ 700 }>
