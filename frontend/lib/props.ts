@@ -82,4 +82,5 @@ type MenuItem = {
 export interface AnimatedMenuProps {
   title: React.ReactNode;
   menuItems: MenuItem[];
+  onClick?: (label: string) => void;
 }

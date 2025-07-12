@@ -115,3 +115,21 @@ export const ScrollItems2 = [
   "📖 Books don’t just prepare you for exams — they prepare you for life. One page at a time, one step closer to your goal.",
   "📗 Every great topper once turned a page. In the quiet of a book lies the loudest path to victory.",
 ];
+
+export const coursesData = [
+  {
+    label: "Prelims",
+  },
+  {
+    label: "Mains",
+  },
+];
+
+export const pyqData = [
+  {
+    label: "Download",
+  },
+  {
+    label: "Test",
+  },
+];

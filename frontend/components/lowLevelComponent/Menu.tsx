@@ -6,15 +6,9 @@ import { useState } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { AnimatedMenuProps } from '@/lib/props';
 
-export default function MenuBox ( { title, menuItems }: AnimatedMenuProps )
+export default function MenuBox ( { title, menuItems, onClick }: AnimatedMenuProps )
 {
     const [ isMenuOpen, setIsMenuOpen ] = useState( false );
-    const [ selectedMenu, setSelectedMenu ] = useState<string | null>( null );
-
-    const handleItemClick = ( label: string ) =>
-    {
-        setSelectedMenu( ( prev ) => ( prev === label ? null : label ) );
-    };
 
     return (
         <Box position="relative" display="inline-block" onMouseEnter={ () => setIsMenuOpen( ( prev ) => !prev ) }
@@ -27,9 +21,9 @@ export default function MenuBox ( { title, menuItems }: AnimatedMenuProps )
                 width="fit-content"
                 sx={ { cursor: 'pointer' } }
             >
-                <Typography fontSize={ 15 } fontWeight={ 400 }>
+                <Typography fontWeight={ 400 }>
                     { title }
-                    <KeyboardArrowDownIcon />
+                    <KeyboardArrowDownIcon sx={ { fontSize: { xs: 10, md: 20 } } } />
                 </Typography>
             </Box>
 
@@ -57,7 +51,7 @@ export default function MenuBox ( { title, menuItems }: AnimatedMenuProps )
                         { menuItems.map( ( item ) => (
                             <li
                                 key={ item.label }
-                                onClick={ () => handleItemClick( item.label ) }
+                                onClick={ () => onClick?.( item.label ?? '' ) }
                                 style={ {
                                     padding: '10px 14px',
                                     display: 'flex',
