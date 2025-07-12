@@ -16,6 +16,8 @@ export default function InputField ( props: InputProps )
                     )
                 }
             } }
+            value={ props.value }
+            onChange={ props.onChange }
             autoComplete="new-password"
             label={ props.label }
             sx={ { m: 1 } }

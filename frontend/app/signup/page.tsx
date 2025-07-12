@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react";
 import Button from "@/components/lowLevelComponent/Button";
 import InputField from "@/components/lowLevelComponent/InputField";
 import PasswordField from "@/components/lowLevelComponent/PasswordField";
@@ -17,15 +18,53 @@ export default function SignUp ()
 
     const router = useRouter()
 
+    const [ userData, setUserData ] = useState( {
+        name: '',
+        email: '',
+        password: '',
+        number: ''
+    } )
+
     const onClickSignIn = () =>
     {
         router.push( '/signIn' )
-
     }
+
+    const onClickSubmit = () =>
+    {
+        setUserData( {
+            name: '',
+            email: '',
+            number: '',
+            password: ''
+        } )
+    }
+
+    const onChangeName = ( e: React.ChangeEvent<HTMLInputElement> ) =>
+    {
+        setUserData( prev => ( { ...prev, name: e.target.value } ) );
+    }
+
+    const onChangeEmail = ( e: React.ChangeEvent<HTMLInputElement> ) =>
+    {
+        setUserData( prev => ( { ...prev, email: e.target.value } ) );
+    }
+
+    const onChangeMobile = ( e: React.ChangeEvent<HTMLInputElement> ) =>
+    {
+        setUserData( prev => ( { ...prev, number: e.target.value } ) );
+    }
+
+    const onChangePassword = ( e: React.ChangeEvent<HTMLInputElement> ) =>
+    {
+        setUserData( prev => ( { ...prev, password: e.target.value } ) );
+    }
+
+    console.log( "userdata", userData )
 
     return <Box width="100%" minHeight="100vh">
         <Grid container>
-            <Grid size={ { xs: 12, md: 6 } } >
+            <Grid size={ { xs: 12, md: 6 } }  >
                 <Box display="flex" alignItems="center" justifyContent="center" height="100vh" >
                     <Box width={ 400 } padding={ 1 }>
                         <Stack rowGap={ 0.3 } justifySelf="center" mb={ 2 }>
@@ -40,11 +79,11 @@ export default function SignUp ()
                             </Typography>
                         </Stack>
                         <Stack rowGap={ 1.5 } marginBottom={ 2 } >
-                            <InputField fullWidth label="Name" icon={ <PersonIcon /> } />
-                            <InputField fullWidth label="Email" icon={ <EmailIcon /> } />
-                            <InputField fullWidth label="Mobile No." type="number" icon={ <PhoneIcon /> } />
-                            <PasswordField />
-                            <Box width="100%" height={ 40 } className='cursor-pointer' borderRadius={ 2 } bgcolor={ colors.Zinnia } padding={ 1 } >
+                            <InputField value={ userData.name } onChange={ onChangeName } fullWidth label="Name" icon={ <PersonIcon /> } />
+                            <InputField value={ userData.email } onChange={ onChangeEmail } fullWidth label="Email" icon={ <EmailIcon /> } />
+                            <InputField value={ userData.number } onChange={ onChangeMobile } fullWidth label="Mobile No." type="number" icon={ <PhoneIcon /> } />
+                            <PasswordField value={ userData.password } onChange={ onChangePassword } />
+                            <Box width="100%" onClick={ onClickSubmit } height={ 40 } className='cursor-pointer' borderRadius={ 2 } bgcolor={ colors.Zinnia } padding={ 1 } >
                                 <Typography justifySelf="center" fontSize={ 18 } fontWeight={ 600 } color={ colors.White } >
                                     Sign up
                                 </Typography>

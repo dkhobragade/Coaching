@@ -5,8 +5,9 @@ import { FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } fr
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import LockIcon from '@mui/icons-material/Lock';
+import { PasswordProps } from "@/lib/props";
 
-export default function PasswordField ()
+export default function PasswordField ( props: PasswordProps )
 {
 
     const [ showPassword, setShowPassword ] = useState( false );
@@ -31,6 +32,8 @@ export default function PasswordField ()
                     <LockIcon />
                 </InputAdornment>
             }
+            onChange={ props.onChange }
+            value={ props.value }
             id="outlined-adornment-password"
             type={ showPassword ? 'text' : 'password' }
             endAdornment={

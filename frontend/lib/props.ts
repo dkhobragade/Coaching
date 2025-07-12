@@ -3,6 +3,13 @@ export interface InputProps {
   fullWidth?: boolean;
   icon?: React.ReactNode;
   type?: "text" | "password" | "email" | "number" | "tel" | "search";
+  value?: string | number;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+export interface PasswordProps {
+  value?: string;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export interface CheckboxProps {
