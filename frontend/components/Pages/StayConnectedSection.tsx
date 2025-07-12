@@ -8,7 +8,7 @@ export default function StayConnectedSection ()
     return (
         <Box width="100%" height="100vh" bgcolor={ colors.CeladonPorcelain } display="flex" justifyContent="center" alignItems="center">
             <Box
-                width="80%"
+                minWidth="fit-content"
                 minHeight={ 500 }
                 padding={ 4 }
                 borderRadius={ 5 }
@@ -53,6 +53,7 @@ export default function StayConnectedSection ()
                         <Image loading="lazy" className="object-contain" src="/socialMedia/whatsapp.png" alt="WhatApp" width={ 100 } height={ 100 } />
                     </Box>
                     <Box bgcolor={ colors.ChristySmile } className='w-50 h-50  rounded-tr-full' />
+                    <Box bgcolor={ colors.Zinnia } className='w-30 h-50  rounded-r-full' />
                 </Box>
             </Box>
         </Box >
