@@ -36,6 +36,7 @@ export const signUp = async (req, res) => {
         _id: newUser._id,
         fullName: newUser.fullName,
         email: newUser.email,
+        message: "User added Succesfully",
       });
 
       return;

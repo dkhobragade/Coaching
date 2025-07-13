@@ -9,10 +9,10 @@ export async function postWrapper(path: string, body: any): Promise<any> {
     body: JSON.stringify(body),
   });
 
+  const json = await response.json();
+
   if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(
-      `HTTP error! status: ${response.status}, message: ${errorText}`
-    );
+    throw json;
   }
+  return json;
 }

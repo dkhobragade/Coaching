@@ -12,6 +12,8 @@ import colors from "@/lib/color";
 import PhoneIcon from '@mui/icons-material/Phone';
 import { BounceBox } from "@/components/lowLevelComponent/Animation";
 import { useRouter } from "next/navigation";
+import { postWrapper } from "@/lib/postWrapper";
+import { toast } from "react-toastify";
 
 export default function SignUp ()
 {
@@ -32,12 +34,37 @@ export default function SignUp ()
 
     const onClickSubmit = () =>
     {
-        setUserData( {
-            name: '',
-            email: '',
-            number: '',
-            password: ''
-        } )
+        if ( userData.name.trim() == '' || userData.email.trim() == '' || userData.number.trim() == '' || userData.password.trim() == '' )
+        {
+            return
+        }
+        else
+        {
+            postWrapper( 'auth/signup', {
+                fullName: userData.name,
+                email: userData.email,
+                mobile: userData.number,
+                password: userData.password,
+            } ).then( ( resp ) =>
+            {
+                if ( resp.message )
+                {
+                    toast.success( resp.message )
+                }
+            } ).catch( ( resp ) =>
+            {
+                toast.error( resp.message )
+            } )
+                .finally( () =>
+                {
+                    setUserData( {
+                        name: '',
+                        email: '',
+                        number: '',
+                        password: ''
+                    } )
+                } )
+        }
     }
 
     const onChangeName = ( e: React.ChangeEvent<HTMLInputElement> ) =>

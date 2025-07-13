@@ -6,6 +6,7 @@ import CartWrapper from "@/components/Pages/CartWrapper";
 import theme from "@/lib/theme";
 import "./globals.css";
 import FooterWrapper, { HeaderWrapper } from "@/components/Pages/Wrapper";
+import { ToastContainer } from 'react-toastify';
 
 export const metadata: Metadata = {
   title: "DKMPSC",
@@ -28,6 +29,7 @@ export default function RootLayout ( {
             <CartWrapper />
             { children }
             <FooterWrapper />
+            <ToastContainer autoClose={ 5000 } position="bottom-right" />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
