@@ -1,4 +1,4 @@
-const BASEURL = "https://api.example.com";
+import { BASEURL } from "./constant";
 
 export async function fetchWrapper(
   path: string,
