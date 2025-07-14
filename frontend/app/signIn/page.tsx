@@ -99,7 +99,7 @@ export default function SignIn ()
                         <Divider>or</Divider>
                         <Stack rowGap={ 2 }>
                             {/* <Button size="medium" startIcon={ <Image src='/socialMedia/google.png' alt="Google" width={ 20 } height={ 20 } /> } fullwidth variant="outlined" label="Sign in with Google" /> */ }
-                            <Box display="flex" justifySelf="center" gap={ 1 } >
+                            <Box display="flex" justifyContent="center" gap={ 1 } >
                                 <Typography>
                                     Need an account?
                                 </Typography>
