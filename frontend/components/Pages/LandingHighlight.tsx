@@ -2,7 +2,7 @@ import { Box, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } fro
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Image from "next/image";
 import { ListItems } from "@/lib/constant";
-import { ScaleButton } from "../lowLevelComponent/Animation";
+import { BounceBox, ScaleButton } from "../lowLevelComponent/Animation";
 
 export default function LandingHighlight ()
 {
@@ -12,7 +12,9 @@ export default function LandingHighlight ()
     return <List>
       { ListItems.map( ( item ) => <ListItem key={ item.key }>
         <ListItemIcon>
-          <CheckCircleIcon color="success" />
+          <BounceBox>
+            <CheckCircleIcon color="success" />
+          </BounceBox>
         </ListItemIcon>
         <ListItemText primary={ item.text } />
       </ListItem> ) }
