@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import { AnimatedMenuProps } from '@/lib/props';
+import colors from '@/lib/color';
 
 export default function MenuBox ( { title, menuItems, onClick }: AnimatedMenuProps )
 {
@@ -63,7 +64,7 @@ export default function MenuBox ( { title, menuItems, onClick }: AnimatedMenuPro
                                 } }
                                 onMouseEnter={ ( e ) =>
                                 {
-                                    ( e.currentTarget as HTMLElement ).style.backgroundColor = '#f0f0f0';
+                                    ( e.currentTarget as HTMLElement ).style.backgroundColor = colors.Zinnia;
                                 } }
                                 onMouseLeave={ ( e ) =>
                                 {

@@ -105,19 +105,19 @@ export default function Header ()
                             } }
                         >
                             <Box width="fit-content" padding={ 2 } >
-                                <Box padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 }  >
+                                <Box padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-[#FCA311]" mb={ 1 }  >
                                     <AccountCircleIcon />
                                     <Typography>
                                         My Profile
                                     </Typography>
                                 </Box>
-                                <Box display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 } >
+                                <Box display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-[#FCA311]" mb={ 1 } >
                                     <ManageAccountsIcon />
                                     <Typography>
                                         My Account
                                     </Typography>
                                 </Box>
-                                <Box onClick={ onClickLogout } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200"  >
+                                <Box onClick={ onClickLogout } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-[#FCA311]"  >
                                     <LogoutIcon />
                                     <Typography>
                                         Logout
