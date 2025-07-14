@@ -7,15 +7,35 @@ import colors from "@/lib/color";
 import MobileDrawer from "./MobileDrawer";
 import MenuIcon from '@mui/icons-material/Menu';
 import { coursesData, pyqData } from "@/lib/constant";
-import { Box, Typography, IconButton } from "@mui/material";
+import { Box, Typography, IconButton, Avatar, Menu } from "@mui/material";
 import { useRouter } from "next/navigation";
+import { useAtom, useSetAtom } from "jotai";
+import { userAtom } from "@/lib/store/userAtom";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import LogoutIcon from '@mui/icons-material/Logout';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import { postWrapper } from "@/lib/postWrapper";
+import { toast } from "react-toastify";
 
 export default function Header ()
 {
 
     const router = useRouter()
+    const userAtomState = useAtom( userAtom )
+    const setUserAtomState = useSetAtom( userAtom )
+    const [ open, setOpen ] = useState<boolean>( false );
+    const [ anchorEl, setAnchorEl ] = useState<null | HTMLElement>( null );
+    const openProfile = Boolean( anchorEl );
 
-    const [ open, setOpen ] = useState( false );
+    const handleClick = ( event: React.MouseEvent<HTMLDivElement> ) =>
+    {
+        setAnchorEl( event.currentTarget );
+    };
+
+    const handleClose = () =>
+    {
+        setAnchorEl( null );
+    };
 
     const toggleDrawer = ( newOpen: boolean ) => () =>
     {
@@ -30,6 +50,21 @@ export default function Header ()
     const handlePYQCLick = ( label: string ) =>
     {
         console.log( "label", label )
+    }
+
+    const onClickLogout = () =>
+    {
+        postWrapper( 'auth/logout' ).then( ( resp ) =>
+        {
+            toast.success( resp.message )
+        } ).catch( ( error ) =>
+        {
+            toast.success( error.message )
+        } ).finally( () =>
+        {
+            setUserAtomState( { isLoggedIn: false, user: { name: '', email: '' } } )
+        } )
+
     }
 
     return (
@@ -51,18 +86,62 @@ export default function Header ()
                 <Box className='cursor-pointer' width="fit-content" p={ 1 }>
                     <Typography>Counselling</Typography>
                 </Box>
-                <Box className='cursor-pointer' bgcolor={ colors.Zinnia }
-                    borderRadius={ 2 }
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    px={ 2 }
-                    height={ 40 }>
-                    <Typography fontWeight={ 500 } textAlign="center">
-                        Get Started
-                    </Typography>
-                </Box>
-            </Box>
+                { userAtomState[ 0 ].isLoggedIn ?
+                    <>
+                        <Avatar
+                            aria-controls={ openProfile ? 'basic-menu' : undefined }
+                            aria-haspopup="true"
+                            aria-expanded={ openProfile ? 'true' : undefined }
+                            onClick={ handleClick } className="cursor-pointer" sx={ { width: 40, height: 40, fontWeight: 600 } }>{ userAtomState[ 0 ].user.name[ 0 ]?.toUpperCase() }</Avatar>
+                        <Menu
+                            id="basic-menu"
+                            anchorEl={ anchorEl }
+                            open={ openProfile }
+                            onClose={ handleClose }
+                            slotProps={ {
+                                list: {
+                                    'aria-labelledby': 'basic-button',
+                                },
+                            } }
+                        >
+                            <Box width="fit-content" padding={ 2 } >
+                                <Box padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 }  >
+                                    <AccountCircleIcon />
+                                    <Typography>
+                                        My Profile
+                                    </Typography>
+                                </Box>
+                                <Box display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 } >
+                                    <ManageAccountsIcon />
+                                    <Typography>
+                                        My Account
+                                    </Typography>
+                                </Box>
+                                <Box onClick={ onClickLogout } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200"  >
+                                    <LogoutIcon />
+                                    <Typography>
+                                        Logout
+                                    </Typography>
+                                </Box>
+                            </Box>
+                        </Menu>
+                    </>
+
+
+                    :
+                    <Box className='cursor-pointer' onClick={ () => router.push( '/signup' ) } bgcolor={ colors.Zinnia }
+                        borderRadius={ 2 }
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                        px={ 2 }
+                        height={ 40 }>
+                        <Typography fontWeight={ 500 } textAlign="center">
+                            Get Started
+                        </Typography>
+                    </Box>
+                }
+            </Box >
 
             <Box display={ { xs: 'block', md: 'none' } }>
                 <IconButton onClick={ toggleDrawer( true ) }>
@@ -71,11 +150,13 @@ export default function Header ()
             </Box>
 
             <MobileDrawer
+                isLoggedIn={ userAtomState[ 0 ].isLoggedIn }
+                userName={ userAtomState[ 0 ].user.name }
                 open={ open }
                 toggleDrawer={ toggleDrawer }
                 onCourseClick={ handleCourseCLick }
                 onPYQClick={ handlePYQCLick }
             />
-        </Box>
+        </Box >
     )
 }
