@@ -50,6 +50,7 @@ export default function SignUp ()
                 if ( resp.message )
                 {
                     toast.success( resp.message )
+                    router.push( '/' )
                 }
             } ).catch( ( resp ) =>
             {
@@ -86,8 +87,6 @@ export default function SignUp ()
     {
         setUserData( prev => ( { ...prev, password: e.target.value } ) );
     }
-
-    console.log( "userdata", userData )
 
     return <Box width="100%" minHeight="100vh">
         <Grid container>
