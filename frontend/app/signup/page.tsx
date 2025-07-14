@@ -36,7 +36,7 @@ export default function SignUp ()
     {
         if ( userData.name.trim() == '' || userData.email.trim() == '' || userData.number.trim() == '' || userData.password.trim() == '' )
         {
-            return
+            return toast.error( "Please fill all the fields" )
         }
         else
         {

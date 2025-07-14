@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react";
 import { BounceBox } from "@/components/lowLevelComponent/Animation";
 import Button from "@/components/lowLevelComponent/Button";
 import CheckBox from "@/components/lowLevelComponent/Checkbox";
@@ -10,14 +11,63 @@ import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import EmailIcon from '@mui/icons-material/Email';
+import { toast } from "react-toastify";
+import { postWrapper } from "@/lib/postWrapper";
 
 export default function SignIn ()
 {
     const router = useRouter()
+    const [ userData, setUserData ] = useState( {
+        email: '',
+        password: ''
+    } )
 
     const onClickSingUp = () =>
     {
         router.push( '/signup' )
+    }
+
+    const onClickSubmit = () =>
+    {
+        if ( userData.password.trim() == '' || userData.email.trim() == '' )
+        {
+            return toast.error( "Please fill all the fields" )
+        }
+        else
+        {
+            postWrapper( 'auth/signin', {
+                email: userData.email,
+                password: userData.password
+            } ).then( ( resp ) =>
+            {
+                if ( resp.message )
+                {
+                    toast.success( resp.message )
+                    router.push( '/' )
+                }
+
+            } ).catch( ( error ) =>
+            {
+                toast.error( error.message )
+
+            } ).finally( () =>
+            {
+                setUserData( {
+                    email: '',
+                    password: ''
+                } )
+            } )
+        }
+    }
+
+    const onChangeEmail = ( e: React.ChangeEvent<HTMLInputElement> ) =>
+    {
+        setUserData( prev => ( { ...prev, email: e.target.value } ) );
+    }
+
+    const onChangePassword = ( e: React.ChangeEvent<HTMLInputElement> ) =>
+    {
+        setUserData( prev => ( { ...prev, password: e.target.value } ) );
     }
 
     return <Box width="100%" minHeight="100vh">
@@ -37,10 +87,10 @@ export default function SignIn ()
                             </Typography>
                         </Stack>
                         <Stack rowGap={ 1.5 } marginBottom={ 2 } >
-                            <InputField fullWidth label="Email" icon={ <EmailIcon /> } />
-                            <PasswordField />
+                            <InputField value={ userData.email } onChange={ onChangeEmail } fullWidth label="Email" icon={ <EmailIcon /> } />
+                            <PasswordField value={ userData.password } onChange={ onChangePassword } />
                             <CheckBox label="Keep me logged in" />
-                            <Box width="100%" height={ 40 } className='cursor-pointer' borderRadius={ 2 } bgcolor={ colors.GloomyPurple } padding={ 1 } >
+                            <Box width="100%" onClick={ onClickSubmit } height={ 40 } className='cursor-pointer' borderRadius={ 2 } bgcolor={ colors.GloomyPurple } padding={ 1 } >
                                 <Typography justifySelf="center" fontSize={ 18 } fontWeight={ 600 } color={ colors.White } >
                                     Sign In
                                 </Typography>
