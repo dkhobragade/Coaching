@@ -37,6 +37,7 @@ export const signUp = async (req, res) => {
         fullName: newUser.fullName,
         email: newUser.email,
         message: "User added Succesfully",
+        role,
       });
 
       return;
@@ -72,6 +73,7 @@ export const signin = async (req, res) => {
       fullName: user.fullName,
       email: user.email,
       message: "LogIn successfully",
+      role,
     });
   } catch (error) {
     console.log("Error in Signin controller", error.message);
