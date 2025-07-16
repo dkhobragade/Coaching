@@ -1,4 +1,5 @@
 import User from "../models/User.js";
+import Product from "../models/Product.js";
 
 export const updateUserRole = async (req, res) => {
   const { userID, newRole } = req.body;
@@ -33,6 +34,33 @@ export const getAllUser = async (req, res) => {
     return res.status(200).json(getUser);
   } catch (error) {
     console.log("Error while getting all user", error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+export const addProducts = async (req, res) => {
+  const { name, description, price, category, imageUrl } = req.body;
+  try {
+    const user = await User.findById(req.user._id);
+
+    if (!user || user.role != "admin") {
+      return res.status(403).json({ message: "Access denied. Admins only." });
+    }
+
+    const newProduct = new Product({
+      name,
+      description,
+      price,
+      category,
+      imageUrl,
+    });
+    await newProduct.save();
+
+    res
+      .status(201)
+      .json({ message: "Product added successfully", product: newProduct });
+  } catch (error) {
+    console.log("Error while adding the Product Details", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
