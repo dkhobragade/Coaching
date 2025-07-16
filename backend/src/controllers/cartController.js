@@ -1,7 +1,14 @@
 import Cart from "../models/Cart.js";
 
 export const addUserCartItems = async (req, res) => {
-  const { userId, cartItems } = req.body;
+  const userId = req.user._id;
+  const { productId } = req.body;
+
+  if (!mongoose.Types.ObjectId.isValid(productId)) {
+    return res
+      .status(400)
+      .json({ message: "Invalid productId/ Try After some time" });
+  }
 
   try {
     let cart = await Cart.findOne({ userId });
@@ -9,30 +16,43 @@ export const addUserCartItems = async (req, res) => {
     if (!cart) {
       cart = new Cart({
         userId,
-        items: cartItems,
+        items: [{ productId, quantity: 1 }],
       });
     } else {
       cart.items = cart.items || [];
 
-      cartItems.forEach((newItems) => {
-        const existingItem = cart.items.find(
-          (item) => item.productId.toString() === newItems.productId
-        );
+      const existingItem = cart.items.find(
+        (item) => item.productId.toString() === productId
+      );
 
-        if (existingItem) {
-          existingItem.quantity += newItems.quantity;
-        } else {
-          cart.items.push(newItems);
-        }
-      });
+      if (existingItem) {
+        existingItem.quantity += 1;
+      } else {
+        cart.items.push({ productId, quantity: 1 });
+      }
     }
 
     cart.updatedAt = Date.now();
     await cart.save();
 
-    res.status(200).json({ message: "Item updated successfully", cart });
+    res.status(200).json({ message: "Item updated successfully" });
   } catch (error) {
     console.log("Error while adding items to the cart", error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+export const viewCartItems = async (req, res) => {
+  const userId = req.user._id;
+  try {
+    const cart = await Cart.findOne({ userId });
+
+    if (!cart) {
+      return res.status(200).json({ message: "Your cart is empty" });
+    }
+    res.status(200).json({ cart });
+  } catch (error) {
+    console.log("Error in view cart", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
