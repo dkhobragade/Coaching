@@ -1,7 +1,7 @@
 import { atom } from "jotai";
 
 export const userAtom = atom({
-  isLoggedIn: true,
+  isLoggedIn: false,
   user: {
     name: "",
     email: "",

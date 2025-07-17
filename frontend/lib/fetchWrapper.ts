@@ -5,11 +5,13 @@ export async function fetchWrapper(
   options: RequestInit = {}
 ): Promise<any> {
   const response = await fetch(`${BASEURL}${path}`, {
+    method: options.method || "GET",
     ...options,
     headers: {
       "Content-Type": "application/json",
       ...options.headers,
     },
+    credentials: "include", // Include cookies in the request
   });
 
   if (!response.ok) {

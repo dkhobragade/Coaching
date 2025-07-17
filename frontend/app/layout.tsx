@@ -7,6 +7,7 @@ import theme from "@/lib/theme";
 import "./globals.css";
 import FooterWrapper, { HeaderWrapper } from "@/components/Pages/Wrapper";
 import { ToastContainer } from 'react-toastify';
+import AuthInitializer from "@/lib/AuthInitializer";
 
 export const metadata: Metadata = {
   title: "DKMPSC",
@@ -24,6 +25,7 @@ export default function RootLayout ( {
       <body>
         <AppRouterCacheProvider>
           <ThemeProvider theme={ theme }>
+            <AuthInitializer />
             <HeaderWrapper />
             <SpeedDialWrapper />
             <CartWrapper />
