@@ -1,4 +1,5 @@
 import Cart from "../models/Cart.js";
+import mongoose from "mongoose";
 
 export const addUserCartItems = async (req, res) => {
   const userId = req.user._id;

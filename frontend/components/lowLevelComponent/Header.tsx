@@ -62,7 +62,7 @@ export default function Header ()
             toast.success( error.message )
         } ).finally( () =>
         {
-            setUserAtomState( { isLoggedIn: false, user: { name: '', email: '' } } )
+            setUserAtomState( { isLoggedIn: false, user: { name: '', email: '', id: '' } } )
         } )
 
     }

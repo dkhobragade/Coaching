@@ -15,10 +15,10 @@ export default function AllBooks ()
             <Box display="flex" gap={ 5 } >
                 <Grid container spacing={ 3 } justifyContent="center">
                     { [
-                        { title: "Current Affair 2024", price: 100 },
-                        { title: "Current Affair 2025", price: 20 },
-                        { title: "Current Affair 2026", price: 2320 },
-                        { title: "Current Affair 2027", price: 24 },
+                        { title: "Current Affair 2024", id: '64a2fa72d123456789fedcde', price: 100 },
+                        { title: "Current Affair 2025", id: '68777b30fe0a9691960d9s30', price: 20 },
+                        { title: "Current Affair 2026", id: '68777b30fe0a9691960dsd30', price: 2320 },
+                        { title: "Current Affair 2027", id: '68777b30fe0a9691960dgf30', price: 24 },
                     ].map( ( book, index ) => (
                         <Grid
                             key={ index }
@@ -26,7 +26,7 @@ export default function AllBooks ()
                             display="flex"
                             justifyContent="center"
                         >
-                            <CartAnimatedBox title={ book.title } price={ book.price } src="/cab.png" alt={ "" } />
+                            <CartAnimatedBox title={ book.title } price={ book.price } src="/cab.png" alt={ "" } id={ book.id } />
                         </Grid>
                     ) ) }
                 </Grid>

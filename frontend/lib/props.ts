@@ -70,6 +70,7 @@ export interface ScrollerItemsProps {
 }
 
 export interface CartProps {
+  id: string;
   title: string;
   price: number;
   src: string;

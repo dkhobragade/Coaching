@@ -12,9 +12,7 @@ export default function LandingHighlight ()
     return <List>
       { ListItems.map( ( item ) => <ListItem key={ item.key }>
         <ListItemIcon>
-          <BounceBox>
-            <CheckCircleIcon color="success" />
-          </BounceBox>
+          <CheckCircleIcon color="success" />
         </ListItemIcon>
         <ListItemText primary={ item.text } />
       </ListItem> ) }

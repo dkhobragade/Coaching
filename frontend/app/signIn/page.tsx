@@ -13,10 +13,13 @@ import { useRouter } from "next/navigation";
 import EmailIcon from '@mui/icons-material/Email';
 import { toast } from "react-toastify";
 import { postWrapper } from "@/lib/postWrapper";
+import { useSetAtom } from "jotai";
+import { userAtom } from "@/lib/store/userAtom";
 
 export default function SignIn ()
 {
     const router = useRouter()
+    const setUserAtomState = useSetAtom( userAtom )
     const [ userData, setUserData ] = useState( {
         email: '',
         password: ''
@@ -45,6 +48,7 @@ export default function SignIn ()
                     toast.success( resp.message )
                     router.push( '/' )
                 }
+                setUserAtomState( { isLoggedIn: true, user: { name: resp.fullName, email: resp.email, id: resp._id } } )
 
             } ).catch( ( error ) =>
             {
@@ -59,6 +63,7 @@ export default function SignIn ()
             } )
         }
     }
+
 
     const onChangeEmail = ( e: React.ChangeEvent<HTMLInputElement> ) =>
     {
