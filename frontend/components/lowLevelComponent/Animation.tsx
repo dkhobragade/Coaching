@@ -6,6 +6,11 @@ import { Box, Typography } from "@mui/material";
 import { motion } from "framer-motion";
 import clsx from "clsx";
 import Image from "next/image";
+import { postWrapper } from "@/lib/postWrapper";
+import { toast } from "react-toastify";
+import { useAtom } from "jotai";
+import { userAtom } from "@/lib/store/userAtom";
+import { useRouter } from "next/navigation";
 
 export default function BorderBoxAnimation ( props: AnmiatedProps )
 {
@@ -108,6 +113,33 @@ export const ScaleButton = ( props: ScaleButtonProps ) =>
 
 export const CartAnimatedBox = ( props: CartProps ) =>
 {
+    const userAtomState = useAtom( userAtom )
+    const router = useRouter()
+
+    console.log( "userAtomState", userAtomState )
+    const handleAddToCart = ( id: string ) =>
+    {
+        const userId = userAtomState[ 0 ].user.id
+
+        if ( !userId )
+        {
+            toast.error( "Please create an account to buy." );
+            router.push( '/signup' )
+            return
+        }
+
+        postWrapper( 'auth/cart-Items', {
+            productId: id
+        } ).then( ( resp ) =>
+        {
+            toast.success( "Item added to cart!" )
+        } ).catch( ( error ) =>
+        {
+            toast.error( error )
+        } )
+
+    }
+
     return <Box width={ 250 } minHeight={ 400 }>
         <motion.div
             style={ {
@@ -123,6 +155,7 @@ export const CartAnimatedBox = ( props: CartProps ) =>
                 <Image src={ props.src } alt={ props.alt } width={ 150 } height={ 100 } />
             </Box>
             <motion.div
+                onClick={ () => handleAddToCart( props.id ) }
                 variants={ {
                     initial: { y: "100%" },
                     hover: { y: "0%" },
