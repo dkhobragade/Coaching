@@ -1,7 +1,7 @@
 import Cart from "../models/Cart.js";
 import mongoose from "mongoose";
 
-export const addUserCartItems = async (req, res) => {
+export const addToCart = async (req, res) => {
   const userId = req.user._id;
   const { productId } = req.body;
 
