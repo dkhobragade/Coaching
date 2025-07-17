@@ -41,7 +41,7 @@ export default function Cart ()
             height='fit-content'
         >
             <Box color={ colors.White } display="flex" gap={ 1 }>
-                <Badge badgeContent={ cartItemsVal.items } color="error">
+                <Badge badgeContent={ cartItemsVal } color="error">
                     <ShoppingCartIcon />
                 </Badge>
                 <Typography color={ colors.White } fontWeight={ 600 }>

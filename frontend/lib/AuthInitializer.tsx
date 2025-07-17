@@ -1,19 +1,29 @@
 "use client"
 
-import { useAtom } from "jotai"
-import { userAtom } from "./store/userAtom"
+import { useAtom, useSetAtom } from "jotai"
+import { userAtom, userCartItems } from "./store/userAtom"
 import { useEffect } from "react"
 import { fetchWrapper } from "./fetchWrapper"
+import { getCartItemsLength } from "./cartHelper"
 
 export default function AuthInitializer ()
 {
     const [ , setUser ] = useAtom( userAtom )
+    const setCartItemsVal = useSetAtom( userCartItems );
 
 
     useEffect( () =>
     {
         fethUserDetails()
+        fetchCartDetails()
     }, [] )
+
+
+    const fetchCartDetails = async () =>
+    {
+        const cartLength = await getCartItemsLength()
+        setCartItemsVal( cartLength )
+    }
 
     const fethUserDetails = async () =>
     {

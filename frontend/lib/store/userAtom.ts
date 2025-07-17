@@ -9,6 +9,4 @@ export const userAtom = atom({
   },
 });
 
-export const userCartItems = atom({
-  items: 0,
-});
+export const userCartItems = atom(0);

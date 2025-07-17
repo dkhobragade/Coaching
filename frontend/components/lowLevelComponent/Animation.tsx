@@ -8,9 +8,10 @@ import clsx from "clsx";
 import Image from "next/image";
 import { postWrapper } from "@/lib/postWrapper";
 import { toast } from "react-toastify";
-import { useAtom } from "jotai";
-import { userAtom } from "@/lib/store/userAtom";
+import { useAtom, useSetAtom } from "jotai";
+import { userAtom, userCartItems } from "@/lib/store/userAtom";
 import { useRouter } from "next/navigation";
+import { getCartItemsLength } from "@/lib/cartHelper";
 
 export default function BorderBoxAnimation ( props: AnmiatedProps )
 {
@@ -113,11 +114,11 @@ export const ScaleButton = ( props: ScaleButtonProps ) =>
 
 export const CartAnimatedBox = ( props: CartProps ) =>
 {
-    const userAtomState = useAtom( userAtom )
     const router = useRouter()
+    const userAtomState = useAtom( userAtom )
+    const setCartItemsVal = useSetAtom( userCartItems );
 
-    console.log( "userAtomState", userAtomState )
-    const handleAddToCart = ( id: string ) =>
+    const handleAddToCart = async ( id: string ) =>
     {
         const userId = userAtomState[ 0 ].user.id
 
@@ -135,7 +136,11 @@ export const CartAnimatedBox = ( props: CartProps ) =>
             toast.success( "Item added to cart!" )
         } ).catch( ( error ) =>
         {
-            toast.error( error )
+            toast.error( error.message )
+        } ).finally( async () =>
+        {
+            const cartLength = await getCartItemsLength()
+            setCartItemsVal( cartLength )
         } )
 
     }
