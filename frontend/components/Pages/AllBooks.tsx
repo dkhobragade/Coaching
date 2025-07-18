@@ -1,9 +1,35 @@
+"use client"
+
 import { Box, Divider, Grid, Typography } from "@mui/material";
 import { CartAnimatedBox } from "../lowLevelComponent/Animation";
 import colors from "@/lib/color";
+import { useEffect, useState } from "react";
+import { fetchWrapper } from "@/lib/fetchWrapper";
+import { toast } from "react-toastify";
 
 export default function AllBooks ()
 {
+    const [ productList, setProductList ] = useState<any[]>( [] )
+
+    useEffect( () =>
+    {
+        getFetchAllProduct()
+    }, [] )
+
+
+    const getFetchAllProduct = () =>
+    {
+        fetchWrapper( 'auth/products' ).then( ( resp ) =>
+        {
+            console.log( "products", resp )
+            setProductList( resp.items )
+        } ).catch( ( error ) =>
+        {
+            toast.error( error.message )
+        } )
+
+    }
+
     return <Box width="100%" minHeight="100vh" padding={ 5 } bgcolor={ colors.BitSugar } >
         <Divider>
             <Typography fontSize={ 30 } fontWeight={ 900 } >
@@ -14,12 +40,7 @@ export default function AllBooks ()
         <Box display="flex" justifyContent="center" pt={ 5 } >
             <Box display="flex" gap={ 5 } >
                 <Grid container spacing={ 3 } justifyContent="center">
-                    { [
-                        { title: "Current Affair 2024", id: '64a2fa72d123456789fedcde', price: 100 },
-                        { title: "Current Affair 2025", id: '68777b30fe0a9691960d9s30', price: 20 },
-                        { title: "Current Affair 2026", id: '68777b30fe0a9691960dsd30', price: 2320 },
-                        { title: "Current Affair 2027", id: '68777b30fe0a9691960dgf30', price: 24 },
-                    ].map( ( book, index ) => (
+                    { productList.map( ( book, index ) => (
                         <Grid
                             key={ index }
                             size={ { xs: 12, sm: 6, md: 3 } }
