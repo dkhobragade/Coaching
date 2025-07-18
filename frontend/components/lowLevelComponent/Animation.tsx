@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import { useAtom, useSetAtom } from "jotai";
 import { userAtom, userCartItems } from "@/lib/store/userAtom";
 import { useRouter } from "next/navigation";
-import { getCartItemsLength } from "@/lib/cartHelper";
+import { getUserCartItems } from "@/lib/cartHelper";
 
 export default function BorderBoxAnimation ( props: AnmiatedProps )
 {
@@ -129,7 +129,7 @@ export const CartAnimatedBox = ( props: CartProps ) =>
             return
         }
 
-        postWrapper( 'auth/cart-Items', {
+        postWrapper( 'auth/cart', {
             productId: id
         } ).then( ( resp ) =>
         {
@@ -139,7 +139,7 @@ export const CartAnimatedBox = ( props: CartProps ) =>
             toast.error( error.message )
         } ).finally( async () =>
         {
-            const cartLength = await getCartItemsLength()
+            const cartLength = await getUserCartItems()
             setCartItemsVal( cartLength )
         } )
 

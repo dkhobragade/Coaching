@@ -4,7 +4,7 @@ import { useAtom, useSetAtom } from "jotai"
 import { userAtom, userCartItems } from "./store/userAtom"
 import { useEffect } from "react"
 import { fetchWrapper } from "./fetchWrapper"
-import { getCartItemsLength } from "./cartHelper"
+import { getUserCartItems } from "./cartHelper"
 
 export default function AuthInitializer ()
 {
@@ -21,7 +21,7 @@ export default function AuthInitializer ()
 
     const fetchCartDetails = async () =>
     {
-        const cartLength = await getCartItemsLength()
+        const cartLength = await getUserCartItems()
         setCartItemsVal( cartLength )
     }
 

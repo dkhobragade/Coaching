@@ -10,11 +10,26 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { cartPageDeliveryList } from "@/lib/constant";
 import { useRouter } from "next/navigation";
 import { BounceBox } from "@/components/lowLevelComponent/Animation";
+import { useEffect } from "react";
+import { viewCart } from "@/lib/cartHelper";
 
 export default function Cart ()
 {
 
     const router = useRouter()
+
+    useEffect( () =>
+    {
+        getCartDetails()
+    }, [] )
+
+
+    const getCartDetails = async () =>
+    {
+
+        const cart = await viewCart()
+        console.log( "viewCart", cart )
+    }
 
     const data = [
         {
