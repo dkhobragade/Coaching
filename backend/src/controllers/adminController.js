@@ -1,5 +1,6 @@
 import User from "../models/User.js";
 import Product from "../models/Product.js";
+import bucket from "../config/firebase.js";
 
 export const updateUserRole = async (req, res) => {
   const { userID, newRole } = req.body;
@@ -62,5 +63,36 @@ export const addProducts = async (req, res) => {
   } catch (error) {
     console.log("Error while adding the Product Details", error.message);
     res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+export const addImg = (req, res) => {
+  const { imgFile } = req.body;
+
+  try {
+    const file = imgFile;
+    const filename = `images/${Date.now()}-${file.originalname}`;
+
+    const blob = bucket.file(filename);
+
+    const blobStream = blob.createWriteStream({
+      metadata: {
+        contentType: file.mimetype,
+      },
+    });
+
+    blobStream.end(file.buffer);
+
+    blobStream.on("finish", async () => {
+      const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
+      res.status(200).json({ url: publicUrl });
+    });
+
+    blobStream.on("error", (err) => {
+      res.status(500).json({ error: err.message });
+    });
+  } catch (error) {
+    console.log("Error while uploading the image", error);
+    res.status(500).json({ error: error.message });
   }
 };
