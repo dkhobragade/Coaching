@@ -145,7 +145,7 @@ export const CartAnimatedBox = ( props: CartProps ) =>
 
     }
 
-    return <Box width={ 250 } minHeight={ 400 }>
+    return <Box width={ 250 } minHeight={ 250 }>
         <motion.div
             style={ {
                 position: "relative",
