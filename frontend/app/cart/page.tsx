@@ -10,13 +10,15 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { cartPageDeliveryList } from "@/lib/constant";
 import { useRouter } from "next/navigation";
 import { BounceBox } from "@/components/lowLevelComponent/Animation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { viewCart } from "@/lib/cartHelper";
+import { toast } from "react-toastify";
 
 export default function Cart ()
 {
 
     const router = useRouter()
+    const [ cartData, setCartData ] = useState<any[]>( [] )
 
     useEffect( () =>
     {
@@ -27,9 +29,19 @@ export default function Cart ()
     const getCartDetails = async () =>
     {
 
-        const cart = await viewCart()
-        console.log( "viewCart", cart )
+        await viewCart().then( ( resp ) =>
+        {
+            console.log( resp )
+            setCartData( resp.cart.items )
+        } ).catch( ( error ) =>
+        {
+            console.log( error )
+            toast.error( "Please after some time." )
+        } )
+
     }
+
+    console.log( cartData )
 
     const data = [
         {

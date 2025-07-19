@@ -23,7 +23,16 @@ export const addToCart = async (req, res) => {
     if (!cart) {
       cart = new Cart({
         userId,
-        items: [{ productId, quantity: 1, price: product.price }],
+        items: [
+          {
+            productId,
+            quantity: 1,
+            price: product.price,
+            name: product.name,
+            description: product.description,
+            imageUrl: product.imageUrl,
+          },
+        ],
       });
     } else {
       cart.items = cart.items || [];
@@ -35,8 +44,18 @@ export const addToCart = async (req, res) => {
       if (existingItem) {
         existingItem.quantity += 1;
         existingItem.price = product.price;
+        existingItem.name = product.name;
+        existingItem.description = product.description;
+        existingItem.imageUrl = product.imageUrl;
       } else {
-        cart.items.push({ productId, quantity: 1, price: product.price });
+        cart.items.push({
+          productId,
+          quantity: 1,
+          price: product.price,
+          name: product.name,
+          description: product.description,
+          imageUrl: product.imageUrl,
+        });
       }
     }
 
