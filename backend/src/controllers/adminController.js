@@ -67,30 +67,7 @@ export const addProducts = async (req, res) => {
 };
 
 export const addImg = (req, res) => {
-  const { imgFile } = req.body;
-
   try {
-    const file = imgFile;
-    const filename = `images/${Date.now()}-${file.originalname}`;
-
-    const blob = bucket.file(filename);
-
-    const blobStream = blob.createWriteStream({
-      metadata: {
-        contentType: file.mimetype,
-      },
-    });
-
-    blobStream.end(file.buffer);
-
-    blobStream.on("finish", async () => {
-      const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`;
-      res.status(200).json({ url: publicUrl });
-    });
-
-    blobStream.on("error", (err) => {
-      res.status(500).json({ error: err.message });
-    });
   } catch (error) {
     console.log("Error while uploading the image", error);
     res.status(500).json({ error: error.message });
