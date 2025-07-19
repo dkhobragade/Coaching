@@ -66,8 +66,16 @@ export const addProducts = async (req, res) => {
   }
 };
 
-export const addImg = (req, res) => {
+export const addImg = async (req, res) => {
+  const { imageUrl } = req.body;
   try {
+    if (!imageUrl)
+      res.status(400).json({
+        message: "Profile Pic Required",
+      });
+
+    await cloudinary.uploader.upload(imageUrl);
+    res.status(201).json({ message: "Added Successfully" });
   } catch (error) {
     console.log("Error while uploading the image", error);
     res.status(500).json({ error: error.message });
