@@ -1,5 +1,6 @@
 import Cart from "../models/Cart.js";
 import mongoose from "mongoose";
+import Product from "../models/Product.js";
 
 export const addToCart = async (req, res) => {
   const userId = req.user._id;
@@ -12,12 +13,17 @@ export const addToCart = async (req, res) => {
   }
 
   try {
-    let cart = await Cart.findOne({ userId });
+    const cart = await Cart.findOne({ userId });
+    const product = await Product.findById(productId);
+
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
 
     if (!cart) {
       cart = new Cart({
         userId,
-        items: [{ productId, quantity: 1 }],
+        items: [{ productId, quantity: 1, price: product.price }],
       });
     } else {
       cart.items = cart.items || [];
@@ -28,15 +34,16 @@ export const addToCart = async (req, res) => {
 
       if (existingItem) {
         existingItem.quantity += 1;
+        existingItem.price = product.price;
       } else {
-        cart.items.push({ productId, quantity: 1 });
+        cart.items.push({ productId, quantity: 1, price: product.price });
       }
     }
 
     cart.updatedAt = Date.now();
     await cart.save();
 
-    res.status(200).json({ message: "Item updated successfully" });
+    res.status(200).json({ message: "Item added successfully" });
   } catch (error) {
     console.log("Error while adding items to the cart", error.message);
     res.status(500).json({ message: "Internal Server Error" });
