@@ -8,6 +8,7 @@ import { DataGrid } from '@mui/x-data-grid';
 import InputField from "@/components/lowLevelComponent/InputField";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { postWrapper } from "@/lib/postWrapper";
+import { ScaleButton } from "@/components/lowLevelComponent/Animation";
 
 const columns = [
     { field: 'fullName', headerName: 'First name', width: 130 },
@@ -96,16 +97,46 @@ export default function Admin ()
         const file = e.target.files[ 0 ];
         if ( !file ) return
 
-        const formData = new FormData();
-        formData.append( "file", file );
+        const reader = new FileReader()
+        reader.readAsDataURL( file )
 
-
-        postWrapper( 'auth/img-upload', formData ).then( ( resp ) =>
+        reader.onload = async () =>
         {
-            console.log( "respImg", resp )
+            const base64Img = reader.result
+            await postWrapper( 'auth/img-upload', { imageUrl: base64Img } ).then( ( resp ) =>
+            {
+                setFormData( prev => ( { ...prev, imageUrl: resp.imageUrl } ) );
+            } ).catch( ( error ) =>
+            {
+                toast.error( error.message )
+            } )
+        }
+    }
+
+    const handleSubmit = () =>
+    {
+
+        postWrapper( 'auth/add-product', {
+            name: formData.name,
+            description: formData.description,
+            price: formData.price,
+            category: formData.category,
+            imageUrl: formData.imageUrl
+        } ).then( ( resp ) =>
+        {
+            toast.success( resp.message )
         } ).catch( ( error ) =>
         {
             toast.error( error.message )
+        } ).finally( () =>
+        {
+            setFormData( {
+                name: '',
+                description: '',
+                price: '',
+                category: '',
+                imageUrl: ''
+            } )
         } )
     }
 
@@ -134,6 +165,7 @@ export default function Admin ()
                             multiple
                         />
                     </Button>
+                    <ScaleButton text="Submit" onClick={ handleSubmit } />
                 </Box>
             </Box>
         </Stack>

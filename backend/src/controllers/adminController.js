@@ -1,6 +1,6 @@
 import User from "../models/User.js";
 import Product from "../models/Product.js";
-import bucket from "../config/firebase.js";
+import cloudinary from "../lib/cloudinary.js";
 
 export const updateUserRole = async (req, res) => {
   const { userID, newRole } = req.body;
@@ -75,7 +75,7 @@ export const addImg = async (req, res) => {
       });
 
     await cloudinary.uploader.upload(imageUrl);
-    res.status(201).json({ message: "Added Successfully" });
+    res.status(201).json({ message: "Added Successfully", imageUrl });
   } catch (error) {
     console.log("Error while uploading the image", error);
     res.status(500).json({ error: error.message });

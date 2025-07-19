@@ -18,7 +18,7 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.json());
+app.use(express.json({ limit: "10mb" }));
 app.use(cookieparser());
 
 const PORT = process.env.PORT;
