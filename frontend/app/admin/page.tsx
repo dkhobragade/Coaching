@@ -9,6 +9,7 @@ import InputField from "@/components/lowLevelComponent/InputField";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import { postWrapper } from "@/lib/postWrapper";
 import { ScaleButton } from "@/components/lowLevelComponent/Animation";
+import Image from "next/image";
 
 const columns = [
     { field: 'fullName', headerName: 'First name', width: 130 },
@@ -57,6 +58,8 @@ export default function Admin ()
         category: '',
         imageUrl: '',
     } );
+    const [ isLoading, setIsLoading ] = useState<boolean>( false )
+    const [ selectedImg, setSelectedImg ] = useState<string | any>( null )
 
     useEffect( () =>
     {
@@ -94,6 +97,7 @@ export default function Admin ()
 
     const handleImgChange = async ( e: any ) =>
     {
+        setIsLoading( true )
         const file = e.target.files[ 0 ];
         if ( !file ) return
 
@@ -103,12 +107,16 @@ export default function Admin ()
         reader.onload = async () =>
         {
             const base64Img = reader.result
+            setSelectedImg( base64Img )
             await postWrapper( 'auth/img-upload', { imageUrl: base64Img } ).then( ( resp ) =>
             {
                 setFormData( prev => ( { ...prev, imageUrl: resp.imageUrl } ) );
             } ).catch( ( error ) =>
             {
                 toast.error( error.message )
+            } ).finally( () =>
+            {
+                setIsLoading( false )
             } )
         }
     }
@@ -165,6 +173,9 @@ export default function Admin ()
                             multiple
                         />
                     </Button>
+                    { isLoading &&
+                        <Image src={ selectedImg } alt="Image" width={ 300 } height={ 300 } />
+                    }
                     <ScaleButton text="Submit" onClick={ handleSubmit } />
                 </Box>
             </Box>
