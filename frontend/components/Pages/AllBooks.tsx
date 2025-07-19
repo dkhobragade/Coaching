@@ -47,7 +47,7 @@ export default function AllBooks ()
                             display="flex"
                             justifyContent="center"
                         >
-                            <CartAnimatedBox title={ book.name } price={ book.price } src="/cab.png" alt={ "" } id={ book.id } />
+                            <CartAnimatedBox title={ book.name } price={ book.price } src="/cab.png" alt={ "" } id={ book._id } />
                         </Grid>
                     ) ) }
                 </Grid>

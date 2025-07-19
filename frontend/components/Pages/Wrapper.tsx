@@ -25,7 +25,7 @@ export function HeaderWrapper ()
     const pathName = usePathname()
     let showHeader = true
 
-    if ( pathName == "/signIn" || pathName == "/signup" || pathName == "/cart" || pathName == "/cart/payment" )
+    if ( pathName == "/signIn" || pathName == "/signup" || pathName == "/cart/payment" )
     {
         showHeader = false
     }
