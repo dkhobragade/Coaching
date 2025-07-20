@@ -14,6 +14,7 @@ import { useEffect, useState } from "react";
 import { viewCart } from "@/lib/cartHelper";
 import { toast } from "react-toastify";
 import { fetchWrapper } from "@/lib/fetchWrapper";
+import { DataGrid, GridColDef } from "@mui/x-data-grid";
 
 export default function Cart ()
 {
@@ -41,89 +42,12 @@ export default function Cart ()
 
     }
 
-    const data = [
-        {
-            key: '1',
-            img: '/books/IndianPolity.jpg',
-            alt: 'Indian Polity', title: 'Indian Polity',
-            desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione est rerum fugit impedit provident iusto iure harum repudiandae, voluptatem sed',
-            price: 400,
-            quantity: 1,
-            TotalPrice: 400
-        },
-        {
-            key: '2',
-            img: '/books/IndianPolity.jpg',
-            alt: 'Indian Polity', title: 'Indian Polity',
-            desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione est rerum fugit impedit provident iusto iure harum repudiandae, voluptatem sed',
-            price: 4000,
-            quantity: 10,
-            TotalPrice: 2000
-        },
-        {
-            key: '3',
-            img: '/books/IndianPolity.jpg',
-            alt: 'Indian Polity', title: 'Indian Polity',
-            desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione est rerum fugit impedit provident iusto iure harum repudiandae, voluptatem sed',
-            price: 4000,
-            quantity: 10,
-            TotalPrice: 2000
-        },
-        {
-            key: '4',
-            img: '/books/IndianPolity.jpg',
-            alt: 'Indian Polity', title: 'Indian Polity',
-            desc: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione est rerum fugit impedit provident iusto iure harum repudiandae, voluptatem sed',
-            price: 4000,
-            quantity: 10,
-            TotalPrice: 2000
-        },
+    const column: GridColDef[] = [
+        { field: 'name', headerName: 'Product', },
+        { field: 'price', headerName: 'Price', },
+        { field: 'quantity', headerName: 'Quantity', },
+        { field: '', headerName: 'Total Price', },
     ]
-
-    const renderCardItems = () =>
-    {
-        return <Grid container spacing={ 2 }>
-            { data.map( ( item ) =>
-                <Grid container spacing={ 2 } key={ item.key } marginBottom={ 2 }>
-                    <Grid size={ 6 }>
-                        <Box display="flex" gap={ 3 } >
-                            <Image src={ item.img } alt={ item.alt } width={ 100 } height={ 100 } />
-                            <Typography component="div" fontWeight={ 600 } >
-                                { item.title }<br />
-                                <Typography fontWeight={ 300 }>
-                                    { item.desc }
-                                </Typography>
-                            </Typography>
-                        </Box>
-                    </Grid>
-                    <Grid size={ 2 }>
-                        <Typography fontWeight={ 500 }>
-                            { item.price }
-                        </Typography>
-                    </Grid>
-                    <Grid size={ 2 }>
-                        <Box display="flex" gap={ 1 } >
-                            <Box className='cursor-pointer' bgcolor={ colors.White } border={ 1 } borderRadius={ 1 } width={ 30 } height={ 30 }  >
-                                <RemoveIcon />
-                            </Box>
-                            <Typography>
-                                { item.quantity }
-                            </Typography>
-                            <Box className='cursor-pointer' bgcolor={ colors.White } border={ 1 } borderRadius={ 1 } width={ 30 } height={ 30 }>
-                                <AddIcon />
-                            </Box>
-                        </Box>
-                    </Grid>
-                    <Grid size={ 2 }>
-                        <Typography fontWeight={ 600 } color={ colors.MilkyMaize } >
-                            { item.TotalPrice }
-                        </Typography>
-                    </Grid>
-                </Grid>
-            ) }
-        </Grid>
-
-    }
 
     const renderDeliveryInfo = () =>
     {
@@ -174,29 +98,7 @@ export default function Cart ()
         <Grid container spacing={ 1 }>
             <Grid size={ { xs: 12, md: 8 } } order={ { xs: 1 } } padding={ 2 }>
                 <Box sx={ { overflowX: 'hidden' } } bgcolor={ colors.White } padding={ 2 } borderRadius={ 5 } width="100%" maxHeight='450px' minHeight="450px" >
-                    <Grid container spacing={ 2 } marginBottom={ 2 }>
-                        <Grid size={ 6 }>
-                            <Typography fontWeight={ 700 }>
-                                Product
-                            </Typography>
-                        </Grid>
-                        <Grid size={ 2 }>
-                            <Typography fontWeight={ 700 }>
-                                Price
-                            </Typography>
-                        </Grid>
-                        <Grid size={ 2 }>
-                            <Typography fontWeight={ 700 }>
-                                Quantity
-                            </Typography>
-                        </Grid>
-                        <Grid size={ 2 }>
-                            <Typography fontWeight={ 700 }>
-                                Total Price
-                            </Typography>
-                        </Grid>
-                    </Grid>
-                    { renderCardItems() }
+                    <DataGrid columns={ column } rows={ cartData } getRowId={ ( row ) => row._id } />
                 </Box>
                 <Box mt={ 2 } justifySelf="end"
                     display="flex"
