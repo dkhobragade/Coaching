@@ -13,6 +13,7 @@ import { BounceBox } from "@/components/lowLevelComponent/Animation";
 import { useEffect, useState } from "react";
 import { viewCart } from "@/lib/cartHelper";
 import { toast } from "react-toastify";
+import { fetchWrapper } from "@/lib/fetchWrapper";
 
 export default function Cart ()
 {
@@ -26,12 +27,11 @@ export default function Cart ()
     }, [] )
 
 
-    const getCartDetails = async () =>
+    const getCartDetails = () =>
     {
 
-        await viewCart().then( ( resp ) =>
+        viewCart().then( ( resp ) =>
         {
-            console.log( resp )
             setCartData( resp.cart.items )
         } ).catch( ( error ) =>
         {
@@ -40,8 +40,6 @@ export default function Cart ()
         } )
 
     }
-
-    console.log( cartData )
 
     const data = [
         {
@@ -155,6 +153,17 @@ export default function Cart ()
         router.push( '/cart/payment' )
     }
 
+    const onClickEmptyCart = () =>
+    {
+        fetchWrapper( 'auth/empty-cart' ).then( ( resp ) =>
+        {
+            setCartData( resp.cart.items )
+        } ).catch( ( error ) =>
+        {
+            toast.error( error.message )
+        } )
+    }
+
     return <Box sx={ { width: "100%", overflowX: "hidden" } } bgcolor={ colors.ChildofLight } width='100%' minHeight="100vh" padding={ 2 } >
         <Box display="flex" gap={ 1 }>
             <ShoppingCartIcon />
@@ -188,6 +197,15 @@ export default function Cart ()
                         </Grid>
                     </Grid>
                     { renderCardItems() }
+                </Box>
+                <Box mt={ 2 } justifySelf="end"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    onClick={ onClickEmptyCart } className="cursor-pointer" bgcolor={ colors.Black } color={ colors.White } borderRadius={ 5 } width='40%' height='8%' >
+                    <Typography fontWeight={ 600 } >
+                        Empty Cart
+                    </Typography>
                 </Box>
             </Grid>
             <Grid size={ { xs: 12, md: 4 } } order={ { xs: 2 } } padding={ 2 }  >

@@ -83,3 +83,23 @@ export const viewCartItems = async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+export const deleteAllCartItems = async (req, res) => {
+  const userId = req.user._id;
+  try {
+    const cart = await Cart.findOne({ userId });
+
+    if (!cart) {
+      return res.status(200).json({ message: "Your cart is empty" });
+    }
+
+    cart.items = [];
+    cart.updatedAt = Date.now();
+    await cart.save();
+
+    res.status(200).json({ message: "Your cart is empty", cart });
+  } catch (error) {
+    console.log("Error in view cart", error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
