@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import { Box, Button, IconButton, Stack, styled, Typography } from "@mui/material";
+import { Box, Button, Stack, styled, Typography } from "@mui/material";
 import { fetchWrapper } from "@/lib/fetchWrapper";
 import { toast } from "react-toastify";
 import { DataGrid, GridActionsCellItem, GridColDef, GridRowParams } from '@mui/x-data-grid';
@@ -11,7 +11,6 @@ import { postWrapper } from "@/lib/postWrapper";
 import { ScaleButton } from "@/components/lowLevelComponent/Animation";
 import Image from "next/image";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { error } from "console";
 
 const columns = [
     { field: 'fullName', headerName: 'First name', width: 130 },

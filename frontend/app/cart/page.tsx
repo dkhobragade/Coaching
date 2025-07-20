@@ -4,8 +4,6 @@ import InputField from "@/components/lowLevelComponent/InputField";
 import colors from "@/lib/color";
 import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import RemoveIcon from '@mui/icons-material/Remove';
-import AddIcon from '@mui/icons-material/Add';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { cartPageDeliveryList } from "@/lib/constant";
 import { useRouter } from "next/navigation";
@@ -14,7 +12,9 @@ import { useEffect, useState } from "react";
 import { viewCart } from "@/lib/cartHelper";
 import { toast } from "react-toastify";
 import { fetchWrapper } from "@/lib/fetchWrapper";
-import { DataGrid, GridColDef } from "@mui/x-data-grid";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
+import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 
 export default function Cart ()
 {
@@ -43,9 +43,70 @@ export default function Cart ()
     }
 
     const column: GridColDef[] = [
-        { field: 'name', headerName: 'Product', },
+        {
+            field: 'Image', headerName: '', width: 300, sortable: false,
+            filterable: false,
+            renderCell: ( params: GridRenderCellParams ) => (
+                <Image
+                    src={ params.row.imageUrl }
+                    alt="Img"
+                    width={ 200 }
+                    height={ 200 }
+                    style={ { objectFit: 'cover', borderRadius: '8px', padding: '20px' } }
+                />
+            ),
+        },
+        { field: 'name', headerName: 'Name', minWidth: 150 },
+        {
+            field: 'description', headerName: 'Description', minWidth: 350, renderCell: ( params: GridRenderCellParams ) => (
+                <Typography
+                    variant="body2"
+                    sx={ {
+                        whiteSpace: 'normal',
+                        wordWrap: 'break-word',
+                        overflowWrap: 'break-word',
+                        lineHeight: 1.4,
+                    } }
+                >
+                    { params.row.description }
+                </Typography>
+            )
+        },
         { field: 'price', headerName: 'Price', },
-        { field: 'quantity', headerName: 'Quantity', },
+        {
+            field: 'quantity', headerName: 'Quantity', width: 150,
+            renderCell: ( params: GridRenderCellParams ) => (
+                <Box display="flex" marginTop={ 1 } alignItems="center" gap={ 1 }>
+                    <Box
+                        width={ 32 }
+                        height={ 32 }
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                        bgcolor="grey.300"
+                        borderRadius={ 1 }
+                        sx={ { cursor: 'pointer' } }
+                        onClick={ () => console.log( "Decrease", params.row._id ) }
+                    >
+                        <RemoveIcon fontSize="small" />
+                    </Box>
+                    <Typography mx={ 1 }>{ params.row.quantity }</Typography>
+                    <Box
+                        width={ 32 }
+                        height={ 32 }
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                        bgcolor="grey.300"
+                        borderRadius={ 1 }
+                        sx={ { cursor: 'pointer' } }
+                        onClick={ () => console.log( "Increase", params.row._id ) }
+                    >
+                        <AddIcon fontSize="small" />
+                    </Box>
+                </Box>
+            )
+        },
         { field: '', headerName: 'Total Price', },
     ]
 
@@ -95,23 +156,23 @@ export default function Cart ()
                 Review Your Cart
             </Typography>
         </Box>
-        <Grid container spacing={ 1 }>
-            <Grid size={ { xs: 12, md: 8 } } order={ { xs: 1 } } padding={ 2 }>
-                <Box sx={ { overflowX: 'hidden' } } bgcolor={ colors.White } padding={ 2 } borderRadius={ 5 } width="100%" maxHeight='450px' minHeight="450px" >
-                    <DataGrid columns={ column } rows={ cartData } getRowId={ ( row ) => row._id } />
-                </Box>
-                <Box mt={ 2 } justifySelf="end"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    onClick={ onClickEmptyCart } className="cursor-pointer" bgcolor={ colors.Black } color={ colors.White } borderRadius={ 5 } width='40%' height='8%' >
-                    <Typography fontWeight={ 600 } >
-                        Empty Cart
-                    </Typography>
-                </Box>
-            </Grid>
-            <Grid size={ { xs: 12, md: 4 } } order={ { xs: 2 } } padding={ 2 }  >
-                <Box bgcolor={ colors.White } padding={ 1.5 } borderRadius={ 5 }>
+
+        <Box marginBottom={ 3 } sx={ { overflowX: 'hidden' } } bgcolor={ colors.White } padding={ 2 } borderRadius={ 5 } width="100%" minHeight="450px" >
+            <DataGrid columns={ column } rows={ cartData } getRowId={ ( row ) => row._id } getRowHeight={ () => 'auto' } />
+            <Box mt={ 2 } justifySelf="end"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                onClick={ onClickEmptyCart } className="cursor-pointer" bgcolor={ colors.Black } color={ colors.White } borderRadius={ 5 } width='40%' height='10%' >
+                <Typography fontWeight={ 600 } >
+                    Empty Cart
+                </Typography>
+            </Box>
+        </Box>
+
+        <Box bgcolor={ colors.White } padding={ 1.5 } borderRadius={ 5 }>
+            <Grid container gap={ 0 }>
+                <Grid size={ { md: 6, xs: 12, sm: 6 } } padding={ 2 } >
                     <Stack>
                         <Typography fontWeight={ 700 } mb={ 1 } >Coupon Code</Typography>
                         <Typography fontSize="0.875rem" color="text.secondary" mb={ 1 }>
@@ -135,7 +196,8 @@ export default function Cart ()
                             Apply
                         </Button>
                     </Stack>
-                    <Divider sx={ { my: 2, borderBottomWidth: 1.5, borderColor: '#999' } } />
+                </Grid>
+                <Grid size={ { md: 6, xs: 12, sm: 6 } }>
                     <Box padding={ 2 } bgcolor={ colors.HoneyBird } width="100%" borderRadius={ 5 } >
                         <Stack spacing={ 2 }>
                             <Box>
@@ -163,9 +225,9 @@ export default function Cart ()
                             </Box>
                         </Stack>
                     </Box>
-                </Box>
+                </Grid>
             </Grid>
-        </Grid>
+        </Box>
         <Grid marginTop={ 2 } container spacing={ 2 }>
             { renderDeliveryInfo() }
         </Grid>
