@@ -123,7 +123,6 @@ export default function Admin ()
     {
         fetchWrapper( 'auth/products' ).then( ( resp ) =>
         {
-            console.log( "products", resp )
             setProductList( resp.items )
         } ).catch( ( error ) =>
         {
