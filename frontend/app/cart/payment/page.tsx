@@ -80,9 +80,9 @@ export default function payment ()
 
     }
 
-    return <Box bgcolor={ colors.ChildofLight } width="100%" height="100vh" padding={ 2 } >
+    return <Box bgcolor={ colors.ChildofLight } width="100%" minHeight="100vh" padding={ 2 } >
 
-        <Box width="80%" maxHeight={ 500 } bgcolor={ colors.White } padding={ 5 } borderRadius={ 5 } >
+        <Box width="70%" justifyItems="center" justifySelf="center" maxHeight={ 500 } bgcolor={ colors.White } padding={ 5 } borderRadius={ 5 } >
             <Box display="flex" marginBottom={ 4 } >
                 <LocationOnIcon />
                 <Typography fontWeight={ 600 } fontSize={ 20 }>
