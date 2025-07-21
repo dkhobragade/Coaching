@@ -28,7 +28,7 @@ export default function MustToHaveBooks ()
                                         by M. Laxmikanth
                                     </Typography>
                                 </Box>
-                                <Button label="Buy Now" variant="contained" fullwidth />
+                                <Button label="Buy Now" variant="contained" fullWidth />
                             </Stack>
                         </Box>
                         <Box width={ 350 } minHeight={ 300 } padding={ 1 } bgcolor="#F5F7F8" >
@@ -42,7 +42,7 @@ export default function MustToHaveBooks ()
                                         Laxmikanth
                                     </Typography>
                                 </Box>
-                                <Button label="Buy Now" variant="contained" fullwidth />
+                                <Button label="Buy Now" variant="contained" fullWidth />
                             </Stack>
                         </Box>
                         <Box width={ 350 } minHeight={ 300 } padding={ 1 } bgcolor="#F5F7F8" >
@@ -56,7 +56,7 @@ export default function MustToHaveBooks ()
                                         Laxmikanth
                                     </Typography>
                                 </Box>
-                                <Button label="Buy Now" variant="contained" fullwidth />
+                                <Button label="Buy Now" variant="contained" fullWidth />
                             </Stack>
                         </Box>
                     </Box>
@@ -75,7 +75,7 @@ export default function MustToHaveBooks ()
                                         by M. Laxmikanth
                                     </Typography>
                                 </Box>
-                                <Button label="Buy Now" variant="contained" fullwidth />
+                                <Button label="Buy Now" variant="contained" fullWidth />
                             </Stack>
                         </Box>
                         <Box width={ 350 } minHeight={ 300 } padding={ 1 } bgcolor="#F5F7F8" >
@@ -89,7 +89,7 @@ export default function MustToHaveBooks ()
                                         Laxmikanth
                                     </Typography>
                                 </Box>
-                                <Button label="Buy Now" variant="contained" fullwidth />
+                                <Button label="Buy Now" variant="contained" fullWidth />
                             </Stack>
                         </Box>
                         <Box width={ 350 } minHeight={ 300 } padding={ 1 } bgcolor="#F5F7F8" >
@@ -103,7 +103,7 @@ export default function MustToHaveBooks ()
                                         Laxmikanth
                                     </Typography>
                                 </Box>
-                                <Button label="Buy Now" variant="contained" fullwidth />
+                                <Button label="Buy Now" variant="contained" fullWidth />
                             </Stack>
                         </Box>
                     </Box>

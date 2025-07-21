@@ -1,6 +1,7 @@
 import Cart from "../models/Cart.js";
 import mongoose from "mongoose";
 import Product from "../models/Product.js";
+import Address from "../models/addressSchema.js";
 
 export const addToCart = async (req, res) => {
   const userId = req.user._id;
@@ -106,6 +107,41 @@ export const deleteAllCartItems = async (req, res) => {
     res.status(200).json({ message: "Your cart is empty", cart });
   } catch (error) {
     console.log("Error in view cart", error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+
+export const fillAddressDetails = async (req, res) => {
+  const {
+    firstName,
+    lastName,
+    email,
+    mobileno,
+    address,
+    city,
+    state,
+    pinCode,
+  } = req.body;
+
+  const userId = req.user._id;
+
+  try {
+    const addressDetails = new Address({
+      userId,
+      firstName,
+      lastName,
+      email,
+      mobileno,
+      Address: address,
+      city,
+      state,
+      pincode: pinCode,
+    });
+
+    await addressDetails.save();
+    res.status(200).json({ message: "Address details added successfully" });
+  } catch (error) {
+    console.log("Error in while adding the addresss", error.message);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };

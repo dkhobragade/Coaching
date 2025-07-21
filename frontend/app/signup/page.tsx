@@ -1,13 +1,11 @@
 "use client"
 
 import { useState } from "react";
-import Button from "@/components/lowLevelComponent/Button";
 import InputField from "@/components/lowLevelComponent/InputField";
 import PasswordField from "@/components/lowLevelComponent/PasswordField";
 import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
 import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
-import Image from "next/image";
 import colors from "@/lib/color";
 import PhoneIcon from '@mui/icons-material/Phone';
 import { BounceBox } from "@/components/lowLevelComponent/Animation";

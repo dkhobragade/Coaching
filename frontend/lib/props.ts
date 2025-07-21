@@ -32,7 +32,7 @@ export interface ButtonProps {
     | "success"
     | "warning";
   size?: "small" | "medium" | "large";
-  fullwidth?: boolean;
+  fullWidth?: boolean;
   endIcon?: React.ReactNode;
   startIcon?: React.ReactNode;
 }

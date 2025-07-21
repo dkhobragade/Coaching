@@ -8,6 +8,8 @@ import InputField from "@/components/lowLevelComponent/InputField";
 import Button from "@/components/lowLevelComponent/Button";
 import { useAtom } from "jotai";
 import { userAtom } from "@/lib/store/userAtom";
+import { postWrapper } from "@/lib/postWrapper";
+import { toast } from "react-toastify";
 
 export default function payment ()
 {
@@ -17,7 +19,7 @@ export default function payment ()
         firstName: userAtomState.user.name,
         lastName: '',
         email: userAtomState.user.email,
-        Mobileno: '',
+        mobileno: '',
         address: '',
         city: '',
         state: '',
@@ -43,6 +45,41 @@ export default function payment ()
         setFormData( prev => ( { ...prev, [ field ]: e.target.value } ) );
     }
 
+    const onSubmitAddressDetails = () =>
+    {
+
+        postWrapper( 'auth/add-address', {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            mobileno: formData.mobileno,
+            address: formData.address,
+            city: formData.city,
+            state: formData.state,
+            pinCode: formData.pinCode
+        } ).then( ( resp ) =>
+        {
+            toast.success( resp.message )
+
+        } ).catch( ( error ) =>
+        {
+            toast.error( error.message )
+        } ).finally( () =>
+        {
+            setFormData( {
+                firstName: '',
+                lastName: '',
+                email: '',
+                mobileno: '',
+                address: '',
+                city: '',
+                state: '',
+                pinCode: '',
+            } )
+        } )
+
+    }
+
     return <Box bgcolor={ colors.ChildofLight } width="100%" height="100vh" padding={ 2 } >
 
         <Box width="80%" maxHeight={ 500 } bgcolor={ colors.White } padding={ 5 } borderRadius={ 5 } >
@@ -66,7 +103,7 @@ export default function payment ()
                         <InputField value={ formData.email } fullWidth label="Email" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'email', e ) } />
                     </Grid>
                     <Grid size={ 6 }>
-                        <InputField value={ formData.Mobileno } type="number" fullWidth label="Mobile No." onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'Mobileno', e ) } />
+                        <InputField value={ formData.mobileno } type="number" fullWidth label="Mobile No." onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'mobileno', e ) } />
                     </Grid>
                 </Grid>
                 <Box>
@@ -83,7 +120,7 @@ export default function payment ()
                         <InputField value={ formData.pinCode } type="number" label="ZIP/Postal Code" fullWidth onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'pinCode', e ) } />
                     </Grid>
                 </Grid>
-                <Button label="Submit" variant="contained" fullwidth />
+                <Button onClick={ onSubmitAddressDetails } label="Submit" variant="contained" fullWidth />
             </Stack>
         </Box>
     </Box>
