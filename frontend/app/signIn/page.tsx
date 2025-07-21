@@ -2,13 +2,11 @@
 
 import { useState } from "react";
 import { BounceBox } from "@/components/lowLevelComponent/Animation";
-import Button from "@/components/lowLevelComponent/Button";
 import CheckBox from "@/components/lowLevelComponent/Checkbox";
 import InputField from "@/components/lowLevelComponent/InputField";
 import PasswordField from "@/components/lowLevelComponent/PasswordField";
 import colors from "@/lib/color";
 import { Box, Divider, Grid, Stack, Typography } from "@mui/material";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import EmailIcon from '@mui/icons-material/Email';
 import { toast } from "react-toastify";

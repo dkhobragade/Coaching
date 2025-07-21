@@ -20,6 +20,7 @@ export default function Cart ()
     const router = useRouter()
     const [ cartData, setCartData ] = useState<any[]>( [] )
     const [ total, setTotal ] = useState<number>( 0 )
+    const [ isLoading, setIsLoading ] = useState<boolean>( false )
 
     useEffect( () =>
     {
@@ -29,16 +30,19 @@ export default function Cart ()
 
     const getCartDetails = () =>
     {
+        setIsLoading( true )
 
         viewCart().then( ( resp ) =>
         {
             setCartData( resp.cart.items )
             setTotal( resp.total_Amount )
+            setIsLoading( false )
         } ).catch( ( error ) =>
         {
             console.log( error )
             toast.error( "Please after some time." )
         } )
+
 
     }
 
@@ -141,7 +145,9 @@ export default function Cart ()
         </Box>
 
         <Box marginBottom={ 3 } sx={ { overflowX: 'hidden' } } bgcolor={ colors.White } padding={ 2 } borderRadius={ 5 } width="100%" minHeight="450px" >
-            <DataGrid columns={ column } rows={ cartData } getRowId={ ( row ) => row._id } getRowHeight={ () => 'auto' } />
+            { !isLoading &&
+                <DataGrid columns={ column } rows={ cartData } getRowId={ ( row ) => row._id } getRowHeight={ () => 'auto' } />
+            }
             <Button
                 variant="contained"
                 sx={ {

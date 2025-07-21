@@ -15,6 +15,7 @@ import { postWrapper } from "@/lib/postWrapper";
 import { toast } from "react-toastify";
 import { useSetAtom } from "jotai";
 import { userAtom } from "@/lib/store/userAtom";
+import { useRouter } from "next/navigation";
 
 type MobileDrawerProps = {
     open: boolean;
@@ -30,6 +31,7 @@ export default function MobileDrawer ( { open, toggleDrawer, onCourseClick, onPY
     const [ openCourses, setOpenCourses ] = useState<boolean>( false );
     const [ openPYQ, setOpenPYQ ] = useState<boolean>( false );
     const setUserAtomState = useSetAtom( userAtom )
+    const router = useRouter()
 
     const onCloseDrawer = () =>
     {
@@ -44,14 +46,12 @@ export default function MobileDrawer ( { open, toggleDrawer, onCourseClick, onPY
         postWrapper( 'auth/logout' ).then( ( resp ) =>
         {
             toast.success( resp.message )
+            router.push( '/' )
+            setUserAtomState( { isLoggedIn: false, user: { name: '', email: '', id: '' } } )
         } ).catch( ( error ) =>
         {
             toast.success( error.message )
-        } ).finally( () =>
-        {
-            setUserAtomState( { isLoggedIn: false, user: { name: '', email: '' } } )
         } )
-
     }
 
 
