@@ -62,7 +62,7 @@ export default function MobileDrawer ( { open, toggleDrawer, onCourseClick, onPY
                     <Box>
                         <Avatar className="p-1 justify-self-center mt-2">userName[0]</Avatar>
                         <Box width="100%" padding={ 2 } >
-                            <Box padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 }  >
+                            <Box onClick={ () => router.push( '/profile' ) } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 }  >
                                 <AccountCircleIcon />
                                 <Typography>
                                     My Profile

@@ -105,7 +105,7 @@ export default function Header ()
                             } }
                         >
                             <Box width="fit-content" padding={ 2 } >
-                                <Box padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-[#FCA311]" mb={ 1 }  >
+                                <Box onClick={ () => router.push( '/profile' ) } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-[#FCA311]" mb={ 1 }  >
                                     <AccountCircleIcon />
                                     <Typography>
                                         My Profile
