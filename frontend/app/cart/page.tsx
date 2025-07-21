@@ -2,7 +2,7 @@
 
 import InputField from "@/components/lowLevelComponent/InputField";
 import colors from "@/lib/color";
-import { Box, Button, Divider, Grid, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { cartPageDeliveryList } from "@/lib/constant";
@@ -12,8 +12,6 @@ import { useEffect, useState } from "react";
 import { viewCart } from "@/lib/cartHelper";
 import { toast } from "react-toastify";
 import { fetchWrapper } from "@/lib/fetchWrapper";
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 
 export default function Cart ()
@@ -21,6 +19,7 @@ export default function Cart ()
 
     const router = useRouter()
     const [ cartData, setCartData ] = useState<any[]>( [] )
+    const [ total, setTotal ] = useState<number>( 0 )
 
     useEffect( () =>
     {
@@ -34,6 +33,7 @@ export default function Cart ()
         viewCart().then( ( resp ) =>
         {
             setCartData( resp.cart.items )
+            setTotal( resp.total_Amount )
         } ).catch( ( error ) =>
         {
             console.log( error )
@@ -76,38 +76,16 @@ export default function Cart ()
         {
             field: 'quantity', headerName: 'Quantity', width: 150,
             renderCell: ( params: GridRenderCellParams ) => (
-                <Box display="flex" marginTop={ 1 } alignItems="center" gap={ 1 }>
-                    <Box
-                        width={ 32 }
-                        height={ 32 }
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        bgcolor="grey.300"
-                        borderRadius={ 1 }
-                        sx={ { cursor: 'pointer' } }
-                        onClick={ () => console.log( "Decrease", params.row._id ) }
-                    >
-                        <RemoveIcon fontSize="small" />
-                    </Box>
-                    <Typography mx={ 1 }>{ params.row.quantity }</Typography>
-                    <Box
-                        width={ 32 }
-                        height={ 32 }
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        bgcolor="grey.300"
-                        borderRadius={ 1 }
-                        sx={ { cursor: 'pointer' } }
-                        onClick={ () => console.log( "Increase", params.row._id ) }
-                    >
-                        <AddIcon fontSize="small" />
-                    </Box>
-                </Box>
+                <Typography mx={ 1 }>{ params.row.quantity }</Typography>
             )
         },
-        { field: '', headerName: 'Total Price', },
+        {
+            field: '', headerName: 'Total Price', renderCell: ( params: GridRenderCellParams ) => (
+                <Typography>
+                    { params.row.quantity * params.row.price }
+                </Typography>
+            )
+        },
     ]
 
     const renderDeliveryInfo = () =>
@@ -149,6 +127,11 @@ export default function Cart ()
         } )
     }
 
+    const CardTotalAmountAfterDiscount = () =>
+    {
+        return total * 1
+    }
+
     return <Box sx={ { width: "100%", overflowX: "hidden" } } bgcolor={ colors.ChildofLight } width='100%' minHeight="100vh" padding={ 2 } >
         <Box display="flex" gap={ 1 }>
             <ShoppingCartIcon />
@@ -159,15 +142,24 @@ export default function Cart ()
 
         <Box marginBottom={ 3 } sx={ { overflowX: 'hidden' } } bgcolor={ colors.White } padding={ 2 } borderRadius={ 5 } width="100%" minHeight="450px" >
             <DataGrid columns={ column } rows={ cartData } getRowId={ ( row ) => row._id } getRowHeight={ () => 'auto' } />
-            <Box mt={ 2 } justifySelf="end"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                onClick={ onClickEmptyCart } className="cursor-pointer" bgcolor={ colors.Black } color={ colors.White } borderRadius={ 5 } width='40%' height='10%' >
-                <Typography fontWeight={ 600 } >
-                    Empty Cart
-                </Typography>
-            </Box>
+            <Button
+                variant="contained"
+                sx={ {
+                    justifySelf: 'end',
+                    display: 'flex',
+                    marginTop: 2,
+                    backgroundColor: colors.Black,
+                    color: colors.White,
+                    fontWeight: 600,
+                    borderRadius: 2,
+                    "&:hover": {
+                        backgroundColor: "#333",
+                    },
+                } }
+                onClick={ onClickEmptyCart }
+            >
+                Empty Cart
+            </Button>
         </Box>
 
         <Box bgcolor={ colors.White } padding={ 1.5 } borderRadius={ 5 }>
@@ -207,15 +199,30 @@ export default function Cart ()
                             </Box>
                             <Box>
                                 <Stack spacing={ 1 }>
-                                    <Typography >
-                                        Card Subtotal
-                                    </Typography>
-                                    <Typography >
-                                        Discount
-                                    </Typography>
-                                    <Typography fontWeight={ 700 }>
-                                        Card Total
-                                    </Typography>
+                                    <Box display="flex" justifyContent="space-between" >
+                                        <Typography >
+                                            Card Subtotal
+                                        </Typography>
+                                        <Typography>
+                                            { total }
+                                        </Typography>
+                                    </Box>
+                                    <Box display="flex" justifyContent="space-between">
+                                        <Typography >
+                                            Discount
+                                        </Typography>
+                                        <Typography>
+                                            { 0 }
+                                        </Typography>
+                                    </Box>
+                                    <Box display="flex" justifyContent="space-between">
+                                        <Typography fontWeight={ 700 } >
+                                            Card Total
+                                        </Typography>
+                                        <Typography>
+                                            ₹ { CardTotalAmountAfterDiscount() }
+                                        </Typography>
+                                    </Box>
                                     <Box onClick={ onClickCheckout } padding={ 1 } className="cursor-pointer" bgcolor={ colors.White } color={ colors.Black } borderRadius={ 5 } width='100%' height='20%' >
                                         <Typography justifySelf="center" fontWeight={ 600 } >
                                             Proceed to Checkout

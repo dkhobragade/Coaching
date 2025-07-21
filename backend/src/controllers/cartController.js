@@ -77,7 +77,13 @@ export const viewCartItems = async (req, res) => {
     if (!cart) {
       return res.status(200).json({ message: "Your cart is empty" });
     }
-    res.status(200).json({ cart });
+
+    let total_Amount = 0;
+    cart.items.forEach((price) => {
+      total_Amount += price.quantity * price.price;
+    });
+
+    res.status(200).json({ cart, total_Amount: total_Amount });
   } catch (error) {
     console.log("Error in view cart", error.message);
     res.status(500).json({ message: "Internal Server Error" });
