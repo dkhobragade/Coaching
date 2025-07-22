@@ -35,7 +35,8 @@ export default function AuthInitializer ()
                     id: data._id,
                     email: data.email,
                     mobile: data.mobile,
-                    role: data.role
+                    role: data.role,
+                    img: data.profilePic
                 }
             } );
         } catch ( error )
@@ -46,7 +47,8 @@ export default function AuthInitializer ()
                     id: '',
                     email: '',
                     mobile: '',
-                    role: ''
+                    role: '',
+                    img: ''
                 }
             } );
         }

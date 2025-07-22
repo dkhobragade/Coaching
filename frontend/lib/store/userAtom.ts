@@ -8,6 +8,7 @@ export const userAtom = atom({
     id: "",
     mobile: "",
     role: "",
+    img: "",
   },
 });
 

@@ -46,7 +46,7 @@ export default function SignIn ()
                     toast.success( resp.message )
                     router.push( '/' )
                 }
-                setUserAtomState( { isLoggedIn: true, user: { name: resp.fullName, email: resp.email, id: resp._id, mobile: resp.mobile, role: resp.role } } )
+                setUserAtomState( { isLoggedIn: true, user: { name: resp.fullName, email: resp.email, id: resp._id, mobile: resp.mobile, role: resp.role, img: resp.profilePic } } )
 
             } ).catch( ( error ) =>
             {

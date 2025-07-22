@@ -47,7 +47,7 @@ export default function MobileDrawer ( { open, toggleDrawer, onCourseClick, onPY
         {
             toast.success( resp.message )
             router.push( '/' )
-            setUserAtomState( { isLoggedIn: false, user: { name: '', email: '', id: '', mobile: '', role: '' } } )
+            setUserAtomState( { isLoggedIn: false, user: { name: '', email: '', id: '', mobile: '', role: '', img: '' } } )
         } ).catch( ( error ) =>
         {
             toast.success( error.message )
