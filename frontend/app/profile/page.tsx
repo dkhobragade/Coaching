@@ -2,14 +2,26 @@
 
 import colors from "@/lib/color";
 import { userAtom } from "@/lib/store/userAtom";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, styled, Typography } from "@mui/material";
 import { useAtom } from "jotai";
 import CameraAltIcon from '@mui/icons-material/CameraAlt';
 import { postWrapper } from "@/lib/postWrapper";
 import { toast } from "react-toastify";
-import { VisuallyHiddenInput } from "@/lib/constant";
 import { useRef, useState } from "react";
 import Image from "next/image";
+
+const VisuallyHiddenInput = styled( "input" )( {
+    clip: "rect(0 0 0 0)",
+    clipPath: "inset(50%)",
+    height: 1,
+    overflow: "hidden",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    whiteSpace: "nowrap",
+    width: 1,
+} );
+
 
 export default function Profile ()
 {

@@ -11,7 +11,6 @@ import { postWrapper } from "@/lib/postWrapper";
 import { ScaleButton } from "@/components/lowLevelComponent/Animation";
 import Image from "next/image";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { VisuallyHiddenInput } from "@/lib/constant";
 
 const columns = [
     { field: 'fullName', headerName: 'First name', width: 130 },
@@ -37,6 +36,18 @@ const columns = [
     },
 ];
 
+
+const VisuallyHiddenInput = styled( "input" )( {
+    clip: "rect(0 0 0 0)",
+    clipPath: "inset(50%)",
+    height: 1,
+    overflow: "hidden",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    whiteSpace: "nowrap",
+    width: 1,
+} );
 
 export default function Admin ()
 {
