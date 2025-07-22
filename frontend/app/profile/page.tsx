@@ -4,6 +4,7 @@ import { Box, Stack, Typography } from "@mui/material";
 export default function Profile ()
 {
 
+
     return <Box width="100%" minHeight="100vh">
         <Box width="50%" justifyContent="center" justifySelf="center" margin={ 2 } borderRadius={ 5 } padding={ 2 } bgcolor={ colors.Babe } >
             <Typography fontSize={ 20 } fontWeight={ 600 }  >

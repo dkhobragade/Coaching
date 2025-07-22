@@ -6,6 +6,8 @@ export const userAtom = atom({
     name: "",
     email: "",
     id: "",
+    mobile: "",
+    role: "",
   },
 });
 

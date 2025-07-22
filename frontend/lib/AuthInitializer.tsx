@@ -11,7 +11,6 @@ export default function AuthInitializer ()
     const [ , setUser ] = useAtom( userAtom )
     const setCartItemsVal = useSetAtom( userCartItems );
 
-
     useEffect( () =>
     {
         fethUserDetails()
@@ -34,7 +33,9 @@ export default function AuthInitializer ()
                 isLoggedIn: true, user: {
                     name: data.fullName,
                     id: data._id,
-                    email: data.email
+                    email: data.email,
+                    mobile: data.mobile,
+                    role: data.role
                 }
             } );
         } catch ( error )
@@ -43,7 +44,9 @@ export default function AuthInitializer ()
                 isLoggedIn: false, user: {
                     name: '',
                     id: '',
-                    email: ''
+                    email: '',
+                    mobile: '',
+                    role: ''
                 }
             } );
         }
