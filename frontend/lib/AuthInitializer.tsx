@@ -26,20 +26,20 @@ export default function AuthInitializer ()
 
     const fethUserDetails = async () =>
     {
-        try
+
+        await fetchWrapper( 'auth/check' ).then( ( resp ) =>
         {
-            const data = await fetchWrapper( 'auth/check' )
             setUser( {
                 isLoggedIn: true, user: {
-                    name: data.fullName,
-                    id: data._id,
-                    email: data.email,
-                    mobile: data.mobile,
-                    role: data.role,
-                    img: data.profilePic
+                    name: resp.fullName,
+                    id: resp._id,
+                    email: resp.email,
+                    mobile: resp.mobile,
+                    role: resp.role,
+                    img: resp.profilePic
                 }
             } );
-        } catch ( error )
+        } ).catch( () =>
         {
             setUser( {
                 isLoggedIn: false, user: {
@@ -51,8 +51,7 @@ export default function AuthInitializer ()
                     img: ''
                 }
             } );
-        }
-
+        } )
     }
 
     return null

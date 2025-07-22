@@ -1,8 +1,7 @@
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import FlareIcon from '@mui/icons-material/Flare';
-import { BounceBox, ScaleButton } from "../lowLevelComponent/Animation";
-import DownloadIcon from '@mui/icons-material/Download';
+import { ScaleButton } from "../lowLevelComponent/Animation";
 import Button from "../lowLevelComponent/Button";
 
 export default function Strategy ()

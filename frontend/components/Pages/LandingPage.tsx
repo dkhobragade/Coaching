@@ -4,18 +4,9 @@ import colors from "@/lib/color";
 import { Box, Grid, Typography } from "@mui/material";
 import Image from "next/image";
 import { ScaleButton } from "../lowLevelComponent/Animation";
-import { useRouter } from "next/navigation";
 
 export default function LandingPage ()
 {
-
-  const router = useRouter()
-
-  const onClickSingUp = () =>
-  {
-    router.push( '/signup' )
-  }
-
 
   return (
     <Grid container>

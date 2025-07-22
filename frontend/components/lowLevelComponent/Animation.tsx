@@ -133,7 +133,7 @@ export const CartAnimatedBox = ( props: CartProps ) =>
             productId: id
         } ).then( ( resp ) =>
         {
-            toast.success( "Item added to cart!" )
+            toast.success( resp.message )
         } ).catch( ( error ) =>
         {
             toast.error( error.message )

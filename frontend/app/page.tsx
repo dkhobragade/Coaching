@@ -1,4 +1,3 @@
-import Strategy from "@/components/Pages/Strategy";
 import { ScrollItems1 } from "@/lib/constant";
 import { Box } from "@mui/material";
 import dynamic from "next/dynamic";

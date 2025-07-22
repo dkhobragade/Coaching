@@ -138,7 +138,7 @@ export default function Admin ()
 
         } ).catch( ( error ) =>
         {
-            toast.error( "Error while getting the user list" )
+            toast.error( error.message )
         } )
     }
 
@@ -159,10 +159,10 @@ export default function Admin ()
         setFormData( prev => ( { ...prev, price: e.target.value } ) );
     }
 
-    const handleImgChange = async ( e: any ) =>
+    const handleImgChange = async ( e: React.ChangeEvent<HTMLInputElement> ) =>
     {
         setIsLoading( true )
-        const file = e.target.files[ 0 ];
+        const file = e.target.files?.[ 0 ];
         if ( !file ) return
 
         const reader = new FileReader()

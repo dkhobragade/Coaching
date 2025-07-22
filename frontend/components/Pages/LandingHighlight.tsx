@@ -2,7 +2,7 @@ import { Box, Grid, List, ListItem, ListItemIcon, ListItemText, Typography } fro
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Image from "next/image";
 import { ListItems } from "@/lib/constant";
-import { BounceBox, ScaleButton } from "../lowLevelComponent/Animation";
+import { ScaleButton } from "../lowLevelComponent/Animation";
 
 export default function LandingHighlight ()
 {
