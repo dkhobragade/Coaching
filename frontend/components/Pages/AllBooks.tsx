@@ -6,10 +6,11 @@ import colors from "@/lib/color";
 import { useEffect, useState } from "react";
 import { fetchWrapper } from "@/lib/fetchWrapper";
 import { toast } from "react-toastify";
+import { ProductItem } from "@/lib/props";
 
 export default function AllBooks ()
 {
-    const [ productList, setProductList ] = useState<any[]>( [] )
+    const [ productList, setProductList ] = useState<ProductItem[]>( [] )
 
     useEffect( () =>
     {
@@ -21,7 +22,6 @@ export default function AllBooks ()
     {
         fetchWrapper( 'auth/products' ).then( ( resp ) =>
         {
-            console.log( "products", resp )
             setProductList( resp.items )
         } ).catch( ( error ) =>
         {
@@ -47,7 +47,7 @@ export default function AllBooks ()
                             display="flex"
                             justifyContent="center"
                         >
-                            <CartAnimatedBox title={ book.name } price={ book.price } src={ book.imageUrl } alt={ "" } id={ book._id } />
+                            <CartAnimatedBox title={ book.name } price={ book.price } src={ book.imageUrl } alt="Image" id={ book._id } />
                         </Grid>
                     ) ) }
                 </Grid>

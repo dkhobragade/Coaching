@@ -13,12 +13,13 @@ import { viewCart } from "@/lib/cartHelper";
 import { toast } from "react-toastify";
 import { fetchWrapper } from "@/lib/fetchWrapper";
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
+import { ProductItem } from "@/lib/props";
 
 export default function Cart ()
 {
 
     const router = useRouter()
-    const [ cartData, setCartData ] = useState<any[]>( [] )
+    const [ cartData, setCartData ] = useState<ProductItem[]>( [] )
     const [ total, setTotal ] = useState<number>( 0 )
     const [ isLoading, setIsLoading ] = useState<boolean>( false )
 

@@ -9,7 +9,7 @@ export const getUserCartItems = async () => {
   const items = await viewCart();
 
   const totalItems = items.cart.items.reduce(
-    (acc: any, item: any) => acc + item.quantity,
+    (acc: number, item: { quantity: number }) => acc + item.quantity,
     0
   );
   return totalItems;

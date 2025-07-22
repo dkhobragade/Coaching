@@ -92,3 +92,12 @@ export interface AnimatedMenuProps {
   menuItems: MenuItem[];
   onClick?: (label: string) => void;
 }
+
+export interface ProductItem {
+  category: string;
+  description: string;
+  imageUrl: string;
+  name: string;
+  price: number;
+  _id: string;
+}
