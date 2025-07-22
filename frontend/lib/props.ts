@@ -101,3 +101,14 @@ export interface ProductItem {
   price: number;
   _id: string;
 }
+
+export interface UserType {
+  _id: string;
+  fullName: string;
+  email: string;
+  role: string;
+  mobile: string;
+  profilePic: string;
+  createdAt: string;
+  updatedAt: string;
+}

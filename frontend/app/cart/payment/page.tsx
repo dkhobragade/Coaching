@@ -11,7 +11,7 @@ import { userAtom } from "@/lib/store/userAtom";
 import { postWrapper } from "@/lib/postWrapper";
 import { toast } from "react-toastify";
 
-export default function payment ()
+export default function Payment ()
 {
     const [ userAtomState ] = useAtom( userAtom )
 

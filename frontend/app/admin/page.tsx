@@ -11,6 +11,7 @@ import { postWrapper } from "@/lib/postWrapper";
 import { ScaleButton } from "@/components/lowLevelComponent/Animation";
 import Image from "next/image";
 import DeleteIcon from '@mui/icons-material/Delete';
+import { ProductItem, UserType } from "@/lib/props";
 
 const columns = [
     { field: 'fullName', headerName: 'First name', width: 130 },
@@ -52,7 +53,7 @@ const VisuallyHiddenInput = styled( "input" )( {
 export default function Admin ()
 {
 
-    const [ userList, setUserList ] = useState<any[]>( [] )
+    const [ userList, setUserList ] = useState<UserType[]>( [] )
     const [ formData, setFormData ] = useState( {
         name: '',
         description: '',
@@ -62,7 +63,7 @@ export default function Admin ()
     } );
     const [ isLoading, setIsLoading ] = useState<boolean>( false )
     const [ selectedImg, setSelectedImg ] = useState<string | any>( null )
-    const [ productList, setProductList ] = useState<any[]>( [] )
+    const [ productList, setProductList ] = useState<ProductItem[]>( [] )
 
     useEffect( () =>
     {
