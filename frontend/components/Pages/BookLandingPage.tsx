@@ -49,7 +49,7 @@ export default function BookLandingPage ()
                         <ScaleButton text="Explore shop" justify="start" />
                     </Box>
                 </Grid>
-                <Grid size={ { xs: 12, md: 4 } } sx={ { alignSelf: "flex-end" } }>
+                <Grid size={ { xs: 12, md: 4 } } display={ { xs: 'none', md: 'block' } } sx={ { alignSelf: "flex-end", } }>
                     <Box display="flex" gap={ 5 }>
                         <Box
                             sx={ {

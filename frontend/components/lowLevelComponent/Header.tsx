@@ -42,15 +42,6 @@ export default function Header ()
         setOpen( newOpen );
     };
 
-    const handleCourseCLick = ( label: string ) =>
-    {
-        console.log( "label", label )
-    }
-
-    const handlePYQCLick = ( label: string ) =>
-    {
-        console.log( "label", label )
-    }
 
     const onClickLogout = () =>
     {
@@ -75,11 +66,11 @@ export default function Header ()
             </Box>
 
             <Box display={ { xs: 'none', md: 'flex' } } alignItems="center" gap={ 4 }>
-                <MenuBox title="Courses" menuItems={ coursesData } onClick={ handleCourseCLick } />
+                <MenuBox title="Courses" menuItems={ coursesData } />
                 <Box onClick={ () => router.push( '/books' ) } className='cursor-pointer' width="fit-content" p={ 1 }>
                     <Typography>Books</Typography>
                 </Box>
-                <MenuBox title='PYQ' menuItems={ pyqData } onClick={ handlePYQCLick } />
+                <MenuBox title='PYQ' menuItems={ pyqData } />
                 <Box className='cursor-pointer' width="fit-content" p={ 1 }>
                     <Typography>Free Initiative</Typography>
                 </Box>
@@ -150,12 +141,8 @@ export default function Header ()
             </Box>
 
             <MobileDrawer
-                isLoggedIn={ userAtomState[ 0 ].isLoggedIn }
-                userName={ userAtomState[ 0 ].user.name }
                 open={ open }
                 toggleDrawer={ toggleDrawer }
-                onCourseClick={ handleCourseCLick }
-                onPYQClick={ handlePYQCLick }
             />
         </Box >
     )

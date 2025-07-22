@@ -1,6 +1,6 @@
 "use client"
 
-import { Avatar, Box, Collapse, Drawer, List, ListItemButton, ListItemIcon, ListItemText, Typography } from "@mui/material";
+import { Avatar, Box, Divider, Drawer, Typography } from "@mui/material";
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import SendIcon from '@mui/icons-material/Send';
 import ExpandLess from '@mui/icons-material/ExpandLess';
@@ -13,24 +13,21 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import { postWrapper } from "@/lib/postWrapper";
 import { toast } from "react-toastify";
-import { useSetAtom } from "jotai";
+import { useAtom, useSetAtom } from "jotai";
 import { userAtom } from "@/lib/store/userAtom";
 import { useRouter } from "next/navigation";
 
 type MobileDrawerProps = {
     open: boolean;
     toggleDrawer: ( newOpen: boolean ) => () => void;
-    onCourseClick: ( label: string ) => void;
-    onPYQClick: ( label: string ) => void;
-    isLoggedIn: boolean
-    userName: string
 };
 
-export default function MobileDrawer ( { open, toggleDrawer, onCourseClick, onPYQClick, isLoggedIn, userName }: MobileDrawerProps )
+export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProps )
 {
     const [ openCourses, setOpenCourses ] = useState<boolean>( false );
     const [ openPYQ, setOpenPYQ ] = useState<boolean>( false );
     const setUserAtomState = useSetAtom( userAtom )
+    const userAtomState = useAtom( userAtom )
     const router = useRouter()
 
     const onCloseDrawer = () =>
@@ -58,9 +55,9 @@ export default function MobileDrawer ( { open, toggleDrawer, onCourseClick, onPY
     return (
         <Drawer anchor="right" open={ open } onClose={ () => onCloseDrawer() }>
             <Box sx={ { width: 300 } } >
-                { isLoggedIn &&
+                { userAtomState[ 0 ].isLoggedIn &&
                     <Box>
-                        <Avatar className="p-1 justify-self-center mt-2">userName[0]</Avatar>
+                        <Avatar className="p-1 justify-self-center mt-2">{ userAtomState[ 0 ].user.name[ 0 ]?.toUpperCase() }</Avatar>
                         <Box width="100%" padding={ 2 } >
                             <Box onClick={ () => router.push( '/profile' ) } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 }  >
                                 <AccountCircleIcon />
@@ -77,56 +74,68 @@ export default function MobileDrawer ( { open, toggleDrawer, onCourseClick, onPY
                         </Box>
                     </Box>
                 }
-                <List >
-                    <ListItemButton onClick={ () => setOpenCourses( !openCourses ) }>
-                        <ListItemIcon><InboxIcon /></ListItemIcon>
-                        <ListItemText primary="Courses" />
+                <Divider />
+                <Box width="100%" padding={ 1 } >
+                    <Box onClick={ () => setOpenCourses( !openCourses ) } padding={ 1 } display="flex" justifyContent="space-between" gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
+                        <Box display="flex" gap={ 2 } >
+                            <InboxIcon />
+                            <Typography>
+                                Courses
+                            </Typography>
+                        </Box>
                         { openCourses ? <ExpandLess /> : <ExpandMore /> }
-                    </ListItemButton>
-                    <Collapse in={ openCourses } timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
-                            { [ "Prelims", "Mains" ].map( ( course ) => (
-                                <ListItemButton key={ course } sx={ { pl: 4 } } onClick={ () => onCourseClick( course ) }>
-                                    <ListItemIcon><StarBorder /></ListItemIcon>
-                                    <ListItemText primary={ course } />
-                                </ListItemButton>
-                            ) ) }
-                        </List>
-                    </Collapse>
-
-                    <ListItemButton onClick={ () => setOpenPYQ( !openPYQ ) }>
-                        <ListItemIcon><SendIcon /></ListItemIcon>
-                        <ListItemText primary="PYQ" />
-                        { openPYQ ? <ExpandLess /> : <ExpandMore /> }
-                    </ListItemButton>
-                    <Collapse in={ openPYQ } timeout="auto" unmountOnExit>
-                        <List component="div" disablePadding>
-                            { [ "Download", "Test" ].map( ( pyq ) => (
-                                <ListItemButton key={ pyq } sx={ { pl: 4 } } onClick={ () => onPYQClick( pyq ) }>
-                                    <ListItemIcon><StarBorder /></ListItemIcon>
-                                    <ListItemText primary={ pyq } />
-                                </ListItemButton>
-                            ) ) }
-                        </List>
-                    </Collapse>
-
-                    <ListItemButton>
-                        <ListItemText primary="Books" />
-                    </ListItemButton>
-                    <ListItemButton>
-                        <ListItemText primary="Free Initiative" />
-                    </ListItemButton>
-                    <ListItemButton>
-                        <ListItemText primary="Counselling" />
-                    </ListItemButton>
-                    { !isLoggedIn &&
-                        <ListItemButton>
-                            <Box bgcolor={ colors.Zinnia } width="100%" px={ 2 } py={ 1 } borderRadius={ 2 }>
-                                <Typography fontWeight={ 500 } textAlign="center" >Get Started</Typography>
+                    </Box>
+                    { openCourses &&
+                        <Box padding={ 1 }>
+                            <Box padding={ 1 } display="flex" mb={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
+                                <StarBorder />
+                                <Typography>
+                                    Prelims
+                                </Typography>
                             </Box>
-                        </ListItemButton>
+                            <Box padding={ 1 } display="flex" mb={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
+                                <StarBorder />
+                                <Typography>
+                                    Mains
+                                </Typography>
+                            </Box>
+                        </Box>
                     }
-                    { isLoggedIn &&
+                </Box>
+                <Box width="100%" padding={ 1 } >
+                    <Box onClick={ () => setOpenPYQ( !openPYQ ) } padding={ 1 } display="flex" justifyContent="space-between" gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
+                        <Box display="flex" gap={ 2 } >
+                            <SendIcon />
+                            <Typography>
+                                PYQ
+                            </Typography>
+                        </Box>
+                        { openPYQ ? <ExpandLess /> : <ExpandMore /> }
+                    </Box>
+                    { openPYQ &&
+                        <Box padding={ 2 }>
+                            <Box padding={ 1 } display="flex" mb={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
+                                <StarBorder />
+                                <Typography>
+                                    Download
+                                </Typography>
+                            </Box>
+                            <Box padding={ 1 } display="flex" mb={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
+                                <StarBorder />
+                                <Typography>
+                                    Test
+                                </Typography>
+                            </Box>
+                        </Box>
+                    }
+                </Box>
+                <Box width="100%" padding={ 1 }>
+                    { !userAtomState[ 0 ].isLoggedIn &&
+                        <Box bgcolor={ colors.Zinnia } width="100%" px={ 2 } py={ 1 } borderRadius={ 2 }>
+                            <Typography fontWeight={ 500 } textAlign="center" >Get Started</Typography>
+                        </Box>
+                    }
+                    { userAtomState[ 0 ].isLoggedIn &&
                         <Box onClick={ onClickLogout } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200"  >
                             <LogoutIcon />
                             <Typography>
@@ -134,7 +143,7 @@ export default function MobileDrawer ( { open, toggleDrawer, onCourseClick, onPY
                             </Typography>
                         </Box>
                     }
-                </List>
+                </Box>
             </Box>
         </Drawer>
     );
