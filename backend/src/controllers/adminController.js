@@ -66,7 +66,7 @@ export const addProducts = async (req, res) => {
   }
 };
 
-export const addImg = async (req, res) => {
+export const addProductImg = async (req, res) => {
   const { imageUrl } = req.body;
   try {
     if (!imageUrl)
