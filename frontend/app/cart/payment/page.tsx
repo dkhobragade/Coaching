@@ -10,6 +10,7 @@ import { useAtom } from "jotai";
 import { userAtom } from "@/lib/store/userAtom";
 import { postWrapper } from "@/lib/postWrapper";
 import { toast } from "react-toastify";
+import QRCode from "@/components/Pages/QRCode";
 
 export default function Payment ()
 {
@@ -123,5 +124,6 @@ export default function Payment ()
                 <Button onClick={ onSubmitAddressDetails } label="Submit" variant="contained" fullWidth />
             </Stack>
         </Box>
+        <QRCode />
     </Box>
 }
