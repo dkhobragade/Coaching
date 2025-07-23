@@ -15,7 +15,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://coaching-lh21t30tv-dikshants-projects-cae2d97e.vercel.app",
+    origin: /^https:\/\/coaching-.*\.vercel\.app$/,
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
