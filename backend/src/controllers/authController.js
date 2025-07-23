@@ -27,7 +27,7 @@ export const signUp = async (req, res) => {
       email,
       mobile,
       password: hashedPassword,
-      role: role || "user",
+      role: "user",
     });
 
     if (newUser) {
