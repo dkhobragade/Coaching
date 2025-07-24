@@ -13,10 +13,18 @@ dotenv.config();
 
 const app = express();
 
+const allowedOrigins = [
+  "http://localhost:3000", // for development
+  "https://coaching-frontend-lovat.vercel.app", // your actual deployed frontend
+];
+
 app.use(
   cors({
-    // origin: "http://localhost:3000",
-    origin: /^https:\/\/coaching-.*\.vercel\.app$/,
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      }
+    },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
