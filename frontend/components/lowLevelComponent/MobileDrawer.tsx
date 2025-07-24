@@ -16,6 +16,10 @@ import { toast } from "react-toastify";
 import { useAtom, useSetAtom } from "jotai";
 import { userAtom } from "@/lib/store/userAtom";
 import { useRouter } from "next/navigation";
+import MenuBookIcon from '@mui/icons-material/MenuBook';
+import SafetyDividerIcon from '@mui/icons-material/SafetyDivider';
+import SlowMotionVideoIcon from '@mui/icons-material/SlowMotionVideo';
+import Button from '../lowLevelComponent/Button'
 
 type MobileDrawerProps = {
     open: boolean;
@@ -76,6 +80,12 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
                 }
                 <Divider />
                 <Box width="100%" padding={ 1 } >
+                    <Box onClick={ () => router.push( '/books' ) } mt={ 1 } mb={ 1 } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200">
+                        <MenuBookIcon />
+                        <Typography>
+                            Books
+                        </Typography>
+                    </Box>
                     <Box onClick={ () => setOpenCourses( !openCourses ) } padding={ 1 } display="flex" justifyContent="space-between" gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
                         <Box display="flex" gap={ 2 } >
                             <InboxIcon />
@@ -129,11 +139,21 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
                         </Box>
                     }
                 </Box>
+                <Box mt={ 1 } mb={ 1 } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200">
+                    <SlowMotionVideoIcon />
+                    <Typography>
+                        Free Initiative
+                    </Typography>
+                </Box>
+                <Box mt={ 1 } mb={ 1 } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200">
+                    <SafetyDividerIcon />
+                    <Typography>
+                        Counselling
+                    </Typography>
+                </Box>
                 <Box width="100%" padding={ 1 }>
                     { !userAtomState[ 0 ].isLoggedIn &&
-                        <Box bgcolor={ colors.Zinnia } width="100%" px={ 2 } py={ 1 } borderRadius={ 2 }>
-                            <Typography fontWeight={ 500 } textAlign="center" >Get Started</Typography>
-                        </Box>
+                        <Button label="Get Started" onClick={ () => router.push( '/signup' ) } color={ colors.Zinnia } fullWidth />
                     }
                     { userAtomState[ 0 ].isLoggedIn &&
                         <Box onClick={ onClickLogout } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200"  >

@@ -4,9 +4,12 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import TelegramIcon from '@mui/icons-material/Telegram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { BounceBox } from "./Animation";
+import { useRouter } from "next/navigation";
 
 export default function Foooter ()
 {
+    const router = useRouter()
+
     return <Box sx={ { width: "100%", overflowX: "hidden" } } bgcolor="black" width="100%" height="fit-content" >
         <Grid color="white" padding={ 2 } container spacing={ 5 } >
             <Grid size={ { md: 2 } } display={ { xs: 'none', sm: 'none', md: 'block' } } >
@@ -42,7 +45,7 @@ export default function Foooter ()
                     >
                         <Box display="flex" flexDirection={ { md: "row", sm: 'row', xs: 'column' } } gap={ { md: 10, sm: 5, xm: 1 } }>
                             <Typography className="cursor-pointer">Courses</Typography>
-                            <Typography className="cursor-pointer">Books</Typography>
+                            <Typography onClick={ () => router.push( '/books' ) } className="cursor-pointer">Books</Typography>
                             <Typography className="cursor-pointer">PYQ</Typography>
                             <Typography className="cursor-pointer">Free Initiative</Typography>
                             <Typography className="cursor-pointer">Counselling</Typography>
