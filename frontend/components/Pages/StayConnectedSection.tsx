@@ -6,11 +6,12 @@ export default function StayConnectedSection ()
 {
 
     return (
-        <Box width="100%" height="100vh" bgcolor={ colors.CeladonPorcelain } display="flex" justifyContent="center" alignItems="center">
+        <Box width="100%" height="fit-content" bgcolor={ colors.CeladonPorcelain } display="flex" justifyContent="center" alignItems="center">
             <Box
-                minWidth="fit-content"
+                minWidth="50%"
                 minHeight={ 500 }
                 padding={ 4 }
+                margin={ 5 }
                 borderRadius={ 5 }
                 bgcolor={ colors.Black }
                 display="flex"
@@ -28,32 +29,33 @@ export default function StayConnectedSection ()
                     </Box>
                 </Box>
 
-                <Box display="flex" pt={ 4 }>
-                    <Box bgcolor={ colors.Zinnia } className='w-25 h-50  rounded-l-full' />
-                    <Box bgcolor={ colors.YrielYellow } className='w-25 h-50  rounded-l-full' />
-                    <Box
-                        bgcolor={ colors.ChristySmile }
-                        className="w-48 h-48 rounded-full cursor-pointer transition-all duration-300 transform hover:scale-[1.1] flex justify-center items-center"
-                    >
-                        <Image loading="lazy"
-                            src="/socialMedia/telegram.png"
-                            alt="Telegram"
-                            width={ 80 }
-                            height={ 80 }
-                            className="object-contain"
-                        />
+                <Box display={ { md: 'flex', sm: 'contents' } } pt={ 4 }>
+                    <Box bgcolor={ colors.Zinnia } display={ { xs: 'none', sm: 'none', md: 'block' } } className='w-25 h-50   rounded-l-full' />
+                    <Box bgcolor={ colors.YrielYellow } display={ { xs: 'none', sm: 'none', md: 'block' } } className='w-25 h-50   rounded-l-full' />
+                    <Box display="flex" justifyContent="center" flexWrap={ { md: 'nowrap', sm: 'wrap', xs: 'wrap' } } gap={ { xs: 2, md: 0, sm: 2 } } >
+                        <Box
+                            bgcolor={ colors.ChristySmile }
+                            className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48  rounded-full cursor-pointer transition-all duration-300 transform hover:scale-[1.1] flex justify-center items-center"
+                        >
+                            <Image loading="lazy"
+                                src="/socialMedia/telegram.png"
+                                alt="Telegram"
+                                width={ 80 }
+                                height={ 80 }
+                                className="object-contain w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20"
+                            />
+                        </Box>
+                        <Box bgcolor={ colors.BlueAstro }
+                            className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48  rounded-full cursor-pointer transition-all duration-300 transform hover:scale-[1.1] flex justify-center items-center" >
+                            <Image loading="lazy" className="object-contain w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20" src="/socialMedia/youtube.png" alt="YouTube" width={ 100 } height={ 100 } />
+                        </Box>
+                        <Box bgcolor={ colors.YrielYellow }
+                            className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48  rounded-full cursor-pointer transition-all duration-300 transform hover:scale-[1.1] flex justify-center items-center" >
+                            <Image loading="lazy" className="object-contain w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20" src="/socialMedia/whatsapp.png" alt="WhatApp" width={ 100 } height={ 100 } />
+                        </Box>
                     </Box>
-                    {/* need to change color */ }
-                    <Box bgcolor={ colors.BlueAstro }
-                        className="w-48 h-48 rounded-full cursor-pointer transition-all duration-300 transform hover:scale-[1.1] flex justify-center items-center" >
-                        <Image loading="lazy" className="object-contain" src="/socialMedia/youtube.png" alt="YouTube" width={ 100 } height={ 100 } />
-                    </Box>
-                    <Box bgcolor={ colors.YrielYellow }
-                        className="w-48 h-48 rounded-full cursor-pointer transition-all duration-300 transform hover:scale-[1.1] flex justify-center items-center" >
-                        <Image loading="lazy" className="object-contain" src="/socialMedia/whatsapp.png" alt="WhatApp" width={ 100 } height={ 100 } />
-                    </Box>
-                    <Box bgcolor={ colors.ChristySmile } className='w-50 h-50  rounded-tr-full' />
-                    <Box bgcolor={ colors.Zinnia } className='w-30 h-50  rounded-r-full' />
+                    <Box bgcolor={ colors.ChristySmile } display={ { xs: 'none', sm: 'none', md: 'block' } } className='w-50 h-50  rounded-tr-full' />
+                    <Box bgcolor={ colors.Zinnia } display={ { xs: 'none', sm: 'none', md: 'block' } } className='w-30 h-50  rounded-r-full' />
                 </Box>
             </Box>
         </Box >

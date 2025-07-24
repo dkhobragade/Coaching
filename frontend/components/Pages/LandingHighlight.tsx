@@ -3,6 +3,7 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import Image from "next/image";
 import { ListItems } from "@/lib/constant";
 import { ScaleButton } from "../lowLevelComponent/Animation";
+import colors from "@/lib/color";
 
 export default function LandingHighlight ()
 {
@@ -38,7 +39,8 @@ export default function LandingHighlight ()
         >
           <Box position="relative" width="fit-content">
             <Box
-              bgcolor="#FCA311"
+              display={ { xs: 'none', sm: 'none', md: 'block' } }
+              bgcolor={ colors.Zinnia }
               width={ 300 }
               maxHeight={ 250 }
               maxWidth={ 300 }

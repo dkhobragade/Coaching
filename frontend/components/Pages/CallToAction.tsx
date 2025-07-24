@@ -15,7 +15,7 @@ export default function CallToAction ()
             px={ 2 }
         >
             <Box textAlign="center" maxWidth={ 800 }>
-                <Typography fontSize={ { xs: 32, md: 50 } } color="#FFD66B" fontWeight={ 800 } mb={ 2 }>
+                <Typography fontSize={ { xs: 32, md: 50 } } color={ colors.FrenchVanillaSorbet } fontWeight={ 800 } mb={ 2 }>
                     Your MPSC Success Story Starts Here
                 </Typography>
 

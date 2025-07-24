@@ -18,7 +18,6 @@ export default function Home ()
       <LandingPage />
       <Scroller list={ ScrollItems1 } />
       <LandingHighlight />
-      {/* <Strategy /> */ }
       <ChooseUsSection />
       <CallToActionSection />
       <StayConnectedSection />
