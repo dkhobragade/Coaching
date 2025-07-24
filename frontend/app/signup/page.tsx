@@ -12,6 +12,7 @@ import { BounceBox } from "@/components/lowLevelComponent/Animation";
 import { useRouter } from "next/navigation";
 import { postWrapper } from "@/lib/postWrapper";
 import { toast } from "react-toastify";
+import Button from "@/components/lowLevelComponent/Button";
 
 export default function SignUp ()
 {
@@ -24,6 +25,7 @@ export default function SignUp ()
         password: '',
         number: ''
     } )
+    const [ isLoading, setIsLoading ] = useState<boolean>( false )
 
     const onClickSignIn = () =>
     {
@@ -38,6 +40,7 @@ export default function SignUp ()
         }
         else
         {
+            setIsLoading( true )
             postWrapper( 'auth/signup', {
                 fullName: userData.name,
                 email: userData.email,
@@ -62,6 +65,7 @@ export default function SignUp ()
                         number: '',
                         password: ''
                     } )
+                    setIsLoading( false )
                 } )
         }
     }
@@ -107,11 +111,7 @@ export default function SignUp ()
                             <InputField value={ userData.email } onChange={ onChangeEmail } fullWidth label="Email" icon={ <EmailIcon /> } />
                             <InputField value={ userData.number } onChange={ onChangeMobile } fullWidth label="Mobile No." type="number" icon={ <PhoneIcon /> } />
                             <PasswordField value={ userData.password } onChange={ onChangePassword } />
-                            <Box width="100%" onClick={ onClickSubmit } height={ 40 } className='cursor-pointer' borderRadius={ 2 } bgcolor={ colors.Zinnia } padding={ 1 } >
-                                <Typography justifySelf="center" fontSize={ 18 } fontWeight={ 600 } color={ colors.White } >
-                                    Sign up
-                                </Typography>
-                            </Box>
+                            <Button onClick={ onClickSubmit } loading={ isLoading } color={ colors.Zinnia } label="Sign up" variant="contained" />
                         </Stack>
                         <Divider>or</Divider>
                         <Stack rowGap={ 2 }>

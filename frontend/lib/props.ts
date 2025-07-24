@@ -23,18 +23,12 @@ export interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   variant?: "text" | "outlined" | "contained";
-  color?:
-    | "default"
-    | "primary"
-    | "secondary"
-    | "error"
-    | "info"
-    | "success"
-    | "warning";
+  color?: string;
   size?: "small" | "medium" | "large";
   fullWidth?: boolean;
   endIcon?: React.ReactNode;
   startIcon?: React.ReactNode;
+  loading?: boolean;
 }
 
 export interface ModalProps {

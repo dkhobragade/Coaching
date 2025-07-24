@@ -13,11 +13,13 @@ import { toast } from "react-toastify";
 import { postWrapper } from "@/lib/postWrapper";
 import { useSetAtom } from "jotai";
 import { userAtom } from "@/lib/store/userAtom";
+import Button from "@/components/lowLevelComponent/Button";
 
 export default function SignIn ()
 {
     const router = useRouter()
     const setUserAtomState = useSetAtom( userAtom )
+    const [ isLoading, setIsLoading ] = useState<boolean>( false )
     const [ userData, setUserData ] = useState( {
         email: '',
         password: ''
@@ -36,6 +38,7 @@ export default function SignIn ()
         }
         else
         {
+            setIsLoading( true )
             postWrapper( 'auth/signin', {
                 email: userData.email,
                 password: userData.password
@@ -54,6 +57,7 @@ export default function SignIn ()
 
             } ).finally( () =>
             {
+                setIsLoading( false )
                 setUserData( {
                     email: '',
                     password: ''
@@ -93,11 +97,7 @@ export default function SignIn ()
                             <InputField value={ userData.email } onChange={ onChangeEmail } fullWidth label="Email" icon={ <EmailIcon /> } />
                             <PasswordField value={ userData.password } onChange={ onChangePassword } />
                             <CheckBox label="Keep me logged in" />
-                            <Box width="100%" onClick={ onClickSubmit } height={ 40 } className='cursor-pointer' borderRadius={ 2 } bgcolor={ colors.GloomyPurple } padding={ 1 } >
-                                <Typography justifySelf="center" fontSize={ 18 } fontWeight={ 600 } color={ colors.White } >
-                                    Sign In
-                                </Typography>
-                            </Box>
+                            <Button label="Sign In" onClick={ onClickSubmit } loading={ isLoading } color={ colors.GloomyPurple } />
                         </Stack>
                         <Divider>or</Divider>
                         <Stack rowGap={ 2 }>
