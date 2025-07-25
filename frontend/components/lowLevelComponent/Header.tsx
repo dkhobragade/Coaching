@@ -83,7 +83,9 @@ export default function Header ()
                             aria-controls={ openProfile ? 'basic-menu' : undefined }
                             aria-haspopup="true"
                             aria-expanded={ openProfile ? 'true' : undefined }
-                            onClick={ handleClick } className="cursor-pointer" sx={ { width: 40, height: 40, fontWeight: 600 } }>{ userAtomState[ 0 ].user.name[ 0 ]?.toUpperCase() }</Avatar>
+                            onClick={ handleClick }
+                            src={ userAtomState[ 0 ].user.img }
+                            className="cursor-pointer" sx={ { width: 40, height: 40, fontWeight: 600 } }>{ userAtomState[ 0 ].user.img == " " && userAtomState[ 0 ].user.name[ 0 ]?.toUpperCase() }</Avatar>
                         <Menu
                             id="basic-menu"
                             anchorEl={ anchorEl }
