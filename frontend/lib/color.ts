@@ -36,6 +36,7 @@ const colors = {
   OrangeQuench: "#FFC05F",
   BitSugar: "#F3F2EC",
   StarWhite: "#EFEEE8",
+  SlipperyTub: "#D5F6ED",
 };
 
 export default colors;

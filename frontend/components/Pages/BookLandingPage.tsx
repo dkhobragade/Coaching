@@ -4,8 +4,13 @@ import { BounceBox, RotateBox, ScaleButton } from "../lowLevelComponent/Animatio
 import colors from "@/lib/color";
 
 
-export default function BookLandingPage ()
+type BookLandingPageProps = {
+    scrollToCurrentAffair: () => void;
+};
+
+export default function BookLandingPage ( { scrollToCurrentAffair }: BookLandingPageProps )
 {
+
     return (
         <Box
             bgcolor={ colors.Lotion }
@@ -46,7 +51,7 @@ export default function BookLandingPage ()
                                 </Box>
                             </Box>
                         </Box>
-                        <ScaleButton text="Explore shop" justify="start" />
+                        <ScaleButton text="Explore shop" justify="start" onClick={ scrollToCurrentAffair } />
                     </Box>
                 </Grid>
                 <Grid size={ { xs: 12, md: 4 } } display={ { xs: 'none', md: 'block' } } sx={ { alignSelf: "flex-end", } }>

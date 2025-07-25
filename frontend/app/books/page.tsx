@@ -1,3 +1,6 @@
+"use client"
+
+import { useRef } from "react";
 import { ScrollItems2 } from "@/lib/constant";
 import { Box } from "@mui/material";
 import dynamic from "next/dynamic";
@@ -13,11 +16,17 @@ const AllBooks = dynamic( () => import( "@/components/Pages/AllBooks" ) );
 
 export default function Books ()
 {
+    const currentAffairRef = useRef<HTMLDivElement | null>( null )
+
     return <Box sx={ { width: "100%", overflowX: "hidden" } }>
-        <BookLandingPage />
+        <BookLandingPage scrollToCurrentAffair={ () =>
+            currentAffairRef.current?.scrollIntoView( { behavior: "smooth" } )
+        } />
         <Scroller list={ ScrollItems2 } />
         <MustToHaveBooks />
-        <AllBooks />
+        <Box ref={ currentAffairRef }>
+            <AllBooks />
+        </Box>
         <CurrentAffair />
         {/* <FormatComparison /> */ }
         <BooksFAQs />
