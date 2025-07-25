@@ -59,9 +59,12 @@ export default function QRCode ()
     return <Box width="100%" minHeight="100vh" mt={ 2 } padding={ 2 } borderRadius={ 5 } >
         <Grid container>
             <Grid size={ { md: 5, sm: 12, } } mb={ 2 }>
-                <Box display="flex" justifyContent="center" gap={ 2 } >
+                <Box display="flex" flexDirection={ { md: 'row', sm: 'column', xs: 'column' } } gap={ 2 }
+                    alignItems={ { sm: 'center', xs: 'center', md: 'flex' } }
+                    justifyContent={ { sm: 'center', xs: 'center', md: 'flex' } }
+                >
                     <Image src='/qrcode.jpg' alt="QR" width={ 300 } height={ 200 } />
-                    <Box alignContent="center" >
+                    <Box alignContent="center" display={ { md: 'block', sm: 'flex', xs: 'flex' } } justifyContent="center" >
                         <Button loading={ isLoading } component="label" variant="contained" startIcon={ <CloudUploadIcon /> } >
                             Add Image
                             <VisuallyHiddenInput
@@ -80,7 +83,7 @@ export default function QRCode ()
                             <BounceBox>
                                 <MenuBookIcon sx={ { ml: 1 } } />
                             </BounceBox>
-                            <Typography color={ colors.White } mb={ 5 } fontSize={ 20 } fontWeight={ 500 } justifySelf="center" >
+                            <Typography color={ colors.White } mb={ 5 } fontSize={ { md: 20, sm: 15, xs: 15 } } fontWeight={ 500 } justifySelf="center" >
                                 Your Dreams Are Just One Step Away
                             </Typography>
                         </Box>
@@ -114,5 +117,5 @@ export default function QRCode ()
                 </Box>
             </Grid>
         </Grid>
-    </Box>
+    </Box >
 }

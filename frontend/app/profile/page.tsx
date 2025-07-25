@@ -60,7 +60,7 @@ export default function Profile ()
     }
 
     return <Box width="100%" minHeight="100vh">
-        <Box width="50%" justifyContent="center" justifySelf="center" margin={ 2 } borderRadius={ 5 } padding={ 2 } bgcolor={ colors.KissMeKate } >
+        <Box width={ { md: '50%', sm: '95%', xs: '95%' } } minHeight="fit-content" justifyContent="center" justifySelf="center" margin={ 2 } borderRadius={ 5 } padding={ 2 } bgcolor={ colors.KissMeKate } >
             <Typography fontSize={ 20 } fontWeight={ 600 }  >
                 Personal Info
             </Typography>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import colors from "@/lib/color";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import InputField from "@/components/lowLevelComponent/InputField";
 import Button from "@/components/lowLevelComponent/Button";
@@ -83,44 +83,33 @@ export default function Payment ()
 
     return <Box bgcolor={ colors.ChildofLight } width="100%" minHeight="100vh" padding={ 2 } >
 
-        <Box width="70%" justifyItems="center" justifySelf="center" maxHeight={ 500 } bgcolor={ colors.White } padding={ 5 } borderRadius={ 5 } >
+        <Box width={ { md: '70%', sm: '100%', xs: '100%' } } minHeight="fit-content"
+            justifyItems={ { md: 'center', xs: 'normal', sm: 'normal' } }
+            justifySelf="center"
+            maxHeight={ 500 } bgcolor={ colors.White } padding={ 5 } borderRadius={ 5 } >
             <Box display="flex" marginBottom={ 4 } >
                 <LocationOnIcon />
                 <Typography fontWeight={ 600 } fontSize={ 20 }>
                     Address Form
                 </Typography>
             </Box>
-            <Stack spacing={ 2 }>
-                <Grid container spacing={ 2 }>
-                    <Grid size={ 6 }>
-                        <InputField value={ formData.firstName } fullWidth label="First Name" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'firstName', e ) } />
-                    </Grid>
-                    <Grid size={ 6 }>
-                        <InputField value={ formData.lastName } fullWidth label="Last Name" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'lastName', e ) } />
-                    </Grid>
-                </Grid>
-                <Grid container spacing={ 2 }>
-                    <Grid size={ 6 }>
-                        <InputField value={ formData.email } fullWidth label="Email" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'email', e ) } />
-                    </Grid>
-                    <Grid size={ 6 }>
-                        <InputField value={ formData.mobileno } type="number" fullWidth label="Mobile No." onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'mobileno', e ) } />
-                    </Grid>
-                </Grid>
+            <Stack spacing={ 0.5 }>
+                <Box display="flex" flexDirection={ { md: 'row', sm: 'column', xs: 'column' } } >
+                    <InputField value={ formData.firstName } fullWidth label="First Name" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'firstName', e ) } />
+                    <InputField value={ formData.lastName } fullWidth label="Last Name" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'lastName', e ) } />
+                </Box>
+                <Box display="flex" flexDirection={ { md: 'row', sm: 'column', xs: 'column' } } >
+                    <InputField value={ formData.email } fullWidth label="Email" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'email', e ) } />
+                    <InputField value={ formData.mobileno } type="number" fullWidth label="Mobile No." onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'mobileno', e ) } />
+                </Box>
                 <Box>
                     <InputField value={ formData.address } fullWidth label="Resisdence" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'address', e ) } />
                 </Box>
-                <Grid container spacing={ 2 }>
-                    <Grid size={ 4 }>
-                        <InputField value={ formData.city } fullWidth label="City" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'city', e ) } />
-                    </Grid>
-                    <Grid size={ 4 }>
-                        <InputField value={ formData.state } fullWidth label="State" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'state', e ) } />
-                    </Grid>
-                    <Grid size={ 4 }>
-                        <InputField value={ formData.pinCode } type="number" label="ZIP/Postal Code" fullWidth onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'pinCode', e ) } />
-                    </Grid>
-                </Grid>
+                <Box display="flex" flexDirection={ { md: 'row', sm: 'row', xs: 'column' } }>
+                    <InputField value={ formData.city } fullWidth label="City" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'city', e ) } />
+                    <InputField value={ formData.state } fullWidth label="State" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'state', e ) } />
+                    <InputField value={ formData.pinCode } type="number" label="ZIP/Postal Code" fullWidth onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'pinCode', e ) } />
+                </Box>
                 <Button onClick={ onSubmitAddressDetails } label="Submit" variant="contained" fullWidth />
             </Stack>
         </Box>
