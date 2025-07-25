@@ -16,12 +16,13 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:3000", // for development
   "https://coaching-frontend-lovat.vercel.app",
-  "https://coaching-mauve.vercel.app/", // your actual deployed frontend
+  "https://coaching-mauve.vercel.app", // your actual deployed frontend
 ];
 
 app.use(
   cors({
     origin: function (origin, callback) {
+      console.log("Incoming request from origin:", origin);
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
