@@ -14,6 +14,7 @@ import { toast } from "react-toastify";
 import { fetchWrapper } from "@/lib/fetchWrapper";
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { ProductItem } from "@/lib/props";
+import GlobalLoading from "../loading";
 
 export default function Cart ()
 {
@@ -41,7 +42,7 @@ export default function Cart ()
         } ).catch( ( error ) =>
         {
             console.log( error )
-            toast.error( "Please after some time." )
+            toast.error( "Please try again! Refersh the Page." )
         } )
 
 
@@ -98,9 +99,9 @@ export default function Cart ()
         return <Grid marginTop={ 2 } container spacing={ 6 } justifyContent="center" >
             { cartPageDeliveryList.map( ( item ) =>
                 <Grid key={ item.key } size={ { xs: 12, sm: 4, md: 3 } } display="flex" justifyContent="center" >
-                    <Box borderRadius={ 5 } bgcolor={ colors.White } padding={ 1 } width={ { xs: 300, md: 250 } } height={ 90 } >
+                    <Box borderRadius={ 5 } bgcolor={ colors.White } padding={ 1 } width={ { xs: 300, md: 250 } } height="fit-content" >
                         <Box display="flex" gap={ 1 }>
-                            <Box alignContent="center" justifyItems="center" width={ 70 } height={ 70 } borderRadius={ 5 } bgcolor={ colors[ item.color as keyof typeof colors ] } >
+                            <Box display="flex" alignItems="center" justifyContent="center" width={ 70 } height={ 70 } borderRadius={ 5 } bgcolor={ colors[ item.color as keyof typeof colors ] } >
                                 <BounceBox>
                                     <Image loading="lazy" src={ item.img } alt={ item.alt } width={ item.width } height={ item.height } />
                                 </BounceBox>
@@ -123,12 +124,18 @@ export default function Cart ()
 
     const onClickEmptyCart = () =>
     {
+        setIsLoading( true )
+        getCartDetails()
         fetchWrapper( 'auth/empty-cart' ).then( ( resp ) =>
         {
             setCartData( resp.cart.items )
         } ).catch( ( error ) =>
         {
             toast.error( error.message )
+        } ).finally( () =>
+        {
+            getCartDetails()
+            setIsLoading( false )
         } )
     }
 
@@ -146,27 +153,42 @@ export default function Cart ()
         </Box>
 
         <Box marginBottom={ 3 } sx={ { overflowX: 'hidden' } } bgcolor={ colors.White } padding={ 2 } borderRadius={ 5 } width="100%" minHeight="450px" >
-            { !isLoading &&
-                <DataGrid columns={ column } rows={ cartData } getRowId={ ( row ) => row._id } getRowHeight={ () => 'auto' } />
-            }
-            <Button
-                variant="contained"
-                sx={ {
-                    justifySelf: 'end',
-                    display: 'flex',
-                    marginTop: 2,
-                    backgroundColor: colors.Black,
-                    color: colors.White,
-                    fontWeight: 600,
-                    borderRadius: 2,
-                    "&:hover": {
-                        backgroundColor: "#333",
-                    },
-                } }
-                onClick={ onClickEmptyCart }
-            >
-                Empty Cart
-            </Button>
+            { isLoading ? (
+                <GlobalLoading />
+            ) : cartData.length === 0 ? (
+                <Typography variant="h6" sx={ { mt: 4, textAlign: 'center', fontWeight: 500, alignSelf: 'center' } }>
+                    Your cart is empty.
+                </Typography>
+            ) : (
+                <>
+                    <DataGrid
+                        columns={ column }
+                        rows={ cartData }
+                        getRowId={ ( row ) => row._id }
+                        getRowHeight={ () => 'auto' }
+                    />
+                    <Button
+                        variant="contained"
+                        sx={ {
+                            justifySelf: 'end',
+                            display: 'flex',
+                            marginTop: 2,
+                            backgroundColor: colors.Black,
+                            color: colors.White,
+                            fontWeight: 600,
+                            borderRadius: 2,
+                            "&:hover": {
+                                backgroundColor: "#333",
+                            },
+                        } }
+                        loading={ isLoading }
+                        onClick={ onClickEmptyCart }
+                    >
+                        Empty Cart
+                    </Button>
+                </>
+            ) }
+
         </Box>
 
         <Box bgcolor={ colors.White } padding={ 1.5 } borderRadius={ 5 }>

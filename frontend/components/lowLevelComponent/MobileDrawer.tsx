@@ -61,7 +61,7 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
             <Box sx={ { width: 300 } } >
                 { userAtomState[ 0 ].isLoggedIn &&
                     <Box>
-                        <Avatar className="p-1 justify-self-center justify-center mt-2">{ userAtomState[ 0 ].user.name[ 0 ]?.toUpperCase() }</Avatar>
+                        <Avatar className="p-1 flex items-center justify-center mt-2">{ userAtomState[ 0 ].user.name[ 0 ]?.toUpperCase() }</Avatar>
                         <Box width="100%" padding={ 2 } >
                             <Box onClick={ () => router.push( '/profile' ) } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 }  >
                                 <AccountCircleIcon />

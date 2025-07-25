@@ -156,7 +156,7 @@ export const CartAnimatedBox = ( props: CartProps ) =>
             whileHover="hover"
             initial="initial"
         >
-            <Box width="100%" height="100%" justifyItems="center" bgcolor={ colors.StarWhite } padding={ 2 }  >
+            <Box width="100%" height="100%" display="flex" alignItems="center" justifyContent="center" bgcolor={ colors.StarWhite } padding={ 2 }  >
                 <Image src={ props.src } alt={ props.alt } width={ 150 } height={ 100 } />
             </Box>
             <motion.div
