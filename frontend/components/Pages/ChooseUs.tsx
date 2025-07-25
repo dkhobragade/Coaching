@@ -13,7 +13,7 @@ export default function ChooseUs ()
 {
 
     return <Box width="100%" minHeight="fit-content" >
-        <Box display="flex" width="fit-content" justifySelf="center" marginBottom={ 1 } bgcolor={ colors.Zinnia } padding={ 1 } >
+        <Box display="flex" margin="0 auto" width="fit-content" justifySelf="center" marginBottom={ 1 } bgcolor={ colors.Zinnia } padding={ 1 } >
             <Typography fontSize={ { md: 30, sm: 20 } } fontWeight={ 700 } >
                 Why choose us
             </Typography>

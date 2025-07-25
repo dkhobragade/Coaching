@@ -85,7 +85,7 @@ export default function Header ()
                             aria-expanded={ openProfile ? 'true' : undefined }
                             onClick={ handleClick }
                             src={ userAtomState[ 0 ].user.img }
-                            className="cursor-pointer" sx={ { width: 40, height: 40, fontWeight: 600 } }>{ userAtomState[ 0 ].user.img == " " && userAtomState[ 0 ].user.name[ 0 ]?.toUpperCase() }</Avatar>
+                            className="cursor-pointer" sx={ { width: 40, height: 40, fontWeight: 600 } }>{ !userAtomState[ 0 ].user.img?.trim() && userAtomState[ 0 ].user.name[ 0 ]?.toUpperCase() }</Avatar>
                         <Menu
                             id="basic-menu"
                             anchorEl={ anchorEl }
@@ -104,7 +104,7 @@ export default function Header ()
                                         My Profile
                                     </Typography>
                                 </Box>
-                                <Box display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-[#FCA311]" mb={ 1 } >
+                                <Box onClick={ () => router.push( '/account' ) } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-[#FCA311]" mb={ 1 } >
                                     <ManageAccountsIcon />
                                     <Typography>
                                         My Account

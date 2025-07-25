@@ -61,7 +61,15 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
             <Box sx={ { width: 300 } } >
                 { userAtomState[ 0 ].isLoggedIn &&
                     <Box>
-                        <Avatar className="p-1 flex items-center justify-center mt-2">{ userAtomState[ 0 ].user.name[ 0 ]?.toUpperCase() }</Avatar>
+                        <Box display="flex" justifyContent="center" alignItems="center" mt={ 2 }>
+                            <Avatar
+                                className="p-1"
+                                src={ userAtomState[ 0 ].user.img }
+                            >
+                                { !userAtomState[ 0 ].user.img?.trim() &&
+                                    userAtomState[ 0 ].user.name[ 0 ]?.toUpperCase() }
+                            </Avatar>
+                        </Box>
                         <Box width="100%" padding={ 2 } >
                             <Box onClick={ () => router.push( '/profile' ) } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 }  >
                                 <AccountCircleIcon />
@@ -69,7 +77,7 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
                                     My Profile
                                 </Typography>
                             </Box>
-                            <Box display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 } >
+                            <Box onClick={ () => router.push( '/account' ) } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 } >
                                 <ManageAccountsIcon />
                                 <Typography>
                                     My Account
