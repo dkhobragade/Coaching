@@ -1,6 +1,7 @@
 import Image from "next/image";
 import colors from "@/lib/color";
 import { Box, Typography } from "@mui/material";
+import { onClickTelegram, onClickYoutube } from "@/lib/helper";
 
 export default function StayConnectedSection ()
 {
@@ -35,6 +36,7 @@ export default function StayConnectedSection ()
                     <Box display="flex" justifyContent="center" flexWrap={ { md: 'nowrap', sm: 'wrap', xs: 'wrap' } } gap={ { xs: 2, md: 0, sm: 2 } } >
                         <Box
                             bgcolor={ colors.ChristySmile }
+                            onClick={ onClickTelegram }
                             className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48  rounded-full cursor-pointer transition-all duration-300 transform hover:scale-[1.1] flex justify-center items-center"
                         >
                             <Image loading="lazy"
@@ -45,7 +47,7 @@ export default function StayConnectedSection ()
                                 className="object-contain w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20"
                             />
                         </Box>
-                        <Box bgcolor={ colors.BlueAstro }
+                        <Box bgcolor={ colors.BlueAstro } onClick={ onClickYoutube }
                             className="w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48  rounded-full cursor-pointer transition-all duration-300 transform hover:scale-[1.1] flex justify-center items-center" >
                             <Image loading="lazy" className="object-contain w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 lg:w-20 lg:h-20" src="/socialMedia/youtube.png" alt="YouTube" width={ 100 } height={ 100 } />
                         </Box>

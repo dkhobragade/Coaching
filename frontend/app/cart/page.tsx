@@ -9,7 +9,7 @@ import { cartPageDeliveryList } from "@/lib/constant";
 import { useRouter } from "next/navigation";
 import { BounceBox } from "@/components/lowLevelComponent/Animation";
 import { useEffect, useState } from "react";
-import { viewCart } from "@/lib/cartHelper";
+import { viewCart } from "@/lib/helper";
 import { toast } from "react-toastify";
 import { fetchWrapper } from "@/lib/fetchWrapper";
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
@@ -119,6 +119,11 @@ export default function Cart ()
 
     const onClickCheckout = () =>
     {
+        if ( cartData.length == 0 )
+        {
+            toast.warning( "Please add items to the cart in order to checkout" )
+            return
+        }
         router.push( '/cart/payment' )
     }
 

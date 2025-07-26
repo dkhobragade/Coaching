@@ -4,7 +4,7 @@ import { useAtom, useSetAtom } from "jotai"
 import { userAtom, userCartItems } from "./store/userAtom"
 import { useEffect } from "react"
 import { fetchWrapper } from "./fetchWrapper"
-import { getUserCartItems } from "./cartHelper"
+import { getUserCartItems } from "./helper"
 
 export default function AuthInitializer ()
 {

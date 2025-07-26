@@ -14,3 +14,11 @@ export const getUserCartItems = async () => {
   );
   return totalItems;
 };
+
+export const onClickYoutube = () => {
+  window.open("https://www.youtube.com/@DKMPSC", "_blank");
+};
+
+export const onClickTelegram = () => {
+  window.open("https://t.me/dkmpsc05", "_blank");
+};

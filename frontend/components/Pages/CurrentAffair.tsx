@@ -17,15 +17,14 @@ export default function CurrentAffair ()
                     </Grid>
                     <Grid minHeight="fit-content" size={ { xs: 12, md: 8 } } order={ { md: 2 } }>
                         <Stack rowGap={ 2 } >
-                            <Typography fontSize={ 25 }>
+                            <Typography fontSize={ 25 } fontWeight={ 600 }>
                                 Indian Polity
                             </Typography>
                             <Typography textAlign="justify" >
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni laborum possimus quibusdam quo architecto recusandae distinctio, corporis consequuntur! Facilis minus id ipsam iure similique quod vitae assumenda animi esse neque?
+                                Widely regarded as the bible for Indian Polity, this book by M. Laxmikanth offers a clear, comprehensive, and structured understanding of the Indian Constitution and political system. Recommended by toppers, it covers all key topics with easy-to-understand language, updated chapters, and practice questions.
                             </Typography>
                             <Box display="flex" width={ { xs: '80%', md: '60%' } } gap={ 2 } >
-                                <ScaleButton text="Know More" justify="start" />
-                                <ScaleButton text="Add to Cart" justify="start" bgColor="bg-white" textColor="bg-black" />
+                                <ScaleButton text="Buy Now" justify="start" bgColor="bg-white" textColor="bg-black" />
                             </Box>
                         </Stack>
                     </Grid>

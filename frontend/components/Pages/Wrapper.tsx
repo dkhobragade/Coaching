@@ -11,7 +11,7 @@ export default function FooterWrapper ()
     const pathName = usePathname()
     let showFooter = true
 
-    if ( pathName == "/signIn" || pathName == "/signup" || pathName == "/cart" || pathName == "/cart/payment" || pathName == "/profile" )
+    if ( pathName == "/signIn" || pathName == "/signup" || pathName == "/cart" || pathName == "/cart/payment" || pathName == "/profile" || pathName == "/account" )
     {
         showFooter = false
     }

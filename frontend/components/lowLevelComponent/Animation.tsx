@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import { useAtom, useSetAtom } from "jotai";
 import { userAtom, userCartItems } from "@/lib/store/userAtom";
 import { useRouter } from "next/navigation";
-import { getUserCartItems } from "@/lib/cartHelper";
+import { getUserCartItems } from "@/lib/helper";
 
 export default function BorderBoxAnimation ( props: AnmiatedProps )
 {
