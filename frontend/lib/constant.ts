@@ -96,3 +96,42 @@ export const pyqData = [
     label: "Test",
   },
 ];
+
+export const booksFAQsData = [
+  {
+    key: "1",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, possimus. Eos dolorum quod necessitatibus, possimus aut, ducimus dolorem voluptate illo suscipit reprehenderit nemo ipsa doloribus quam ad architecto omnis sunt?",
+  },
+
+  {
+    key: "2",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, possimus. Eos dolorum quod necessitatibus, possimus aut, ducimus dolorem voluptate illo suscipit reprehenderit nemo ipsa doloribus quam ad architecto omnis sunt?",
+  },
+  {
+    key: "3",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, possimus. Eos dolorum quod necessitatibus, possimus aut, ducimus dolorem voluptate illo suscipit reprehenderit nemo ipsa doloribus quam ad architecto omnis sunt?",
+  },
+  {
+    key: "4",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, possimus. Eos dolorum quod necessitatibus, possimus aut, ducimus dolorem voluptate illo suscipit reprehenderit nemo ipsa doloribus quam ad architecto omnis sunt?",
+  },
+];
+
+export const booksFAQsAnsData = [
+  {
+    key: "1",
+    text: "1",
+  },
+  {
+    key: "2",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, possimus. Eos dolorum quod necessitatibus, possimus aut, ducimus dolorem voluptate illo suscipit reprehenderit nemo ipsa doloribus quam ad architecto omnis sunt?",
+  },
+  {
+    key: "3",
+    text: "3",
+  },
+  {
+    key: "4",
+    text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, possimus. Eos dolorum quod necessitatibus, possimus aut, ducimus dolorem voluptate illo suscipit reprehenderit nemo ipsa doloribus quam ad architecto omnis sunt?",
+  },
+];
