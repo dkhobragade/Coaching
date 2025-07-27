@@ -135,3 +135,38 @@ export const booksFAQsAnsData = [
     text: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, possimus. Eos dolorum quod necessitatibus, possimus aut, ducimus dolorem voluptate illo suscipit reprehenderit nemo ipsa doloribus quam ad architecto omnis sunt?",
   },
 ];
+
+export const currentAffairsData = [
+  {
+    key: "1",
+    image: "/books/IndianPolity.jpg",
+    link: "/",
+    title: "Indian Polity1",
+    description:
+      "Widely regarded as the bible for Indian Polity, this book by M. Laxmikanth offers a clear, comprehensive, and structured understanding of the Indian Constitution and political system. Recommended by toppers, it covers all key topics with easy-to-understand language, updated chapters, and practice questions.",
+  },
+  {
+    key: "2",
+    image: "/books/IndianPolity.jpg",
+    link: "/",
+    title: "Indian Polity2",
+    description:
+      "Widely regarded as the bible for Indian Polity, this book by M. Laxmikanth offers a clear, comprehensive, and structured understanding of the Indian Constitution and political system. Recommended by toppers, it covers all key topics with easy-to-understand language, updated chapters, and practice questions.",
+  },
+  {
+    key: "3",
+    image: "/books/IndianPolity.jpg",
+    link: "/",
+    title: "Indian Polity3",
+    description:
+      "Widely regarded as the bible for Indian Polity, this book by M. Laxmikanth offers a clear, comprehensive, and structured understanding of the Indian Constitution and political system. Recommended by toppers, it covers all key topics with easy-to-understand language, updated chapters, and practice questions.",
+  },
+  {
+    key: "4",
+    image: "/books/IndianPolity.jpg",
+    link: "/",
+    title: "Indian Polity4",
+    description:
+      "Widely regarded as the bible for Indian Polity, this book by M. Laxmikanth offers a clear, comprehensive, and structured understanding of the Indian Constitution and political system. Recommended by toppers, it covers all key topics with easy-to-understand language, updated chapters, and practice questions.",
+  },
+];
