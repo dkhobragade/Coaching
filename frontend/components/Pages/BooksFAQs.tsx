@@ -1,10 +1,41 @@
+"use client"
+
 import colors from "@/lib/color";
 import { Box, Grid, Stack, Typography } from "@mui/material";
 import Brightness5Icon from '@mui/icons-material/Brightness5';
 import { BounceBox } from "../lowLevelComponent/Animation";
+import { booksFAQsAnsData, booksFAQsData } from "@/lib/constant";
+import { useState } from "react";
 
 export default function BooksFAQs ()
 {
+    const [ selectedFAQ, setSelectedFAQ ] = useState( "1" )
+
+    const renderBookFAQsData = () =>
+    {
+        return <Stack spacing={ 3 }>
+            { booksFAQsData.map( ( item ) => (
+                <Box key={ item.key } onClick={ () => onClickFAQ( item.key ) } className='cursor-pointer' width={ { xs: '100%', md: 420 } } minHeight={ 35 } borderRadius={ 2 } padding={ 1 } color={ selectedFAQ == item.key ? colors.White : colors.Black } bgcolor={ selectedFAQ == item.key ? colors.Black : colors.KissMeKate }>{ item.text }</Box>
+            ) ) }
+        </Stack>
+
+    }
+
+    const onClickFAQ = ( id: string ) =>
+    {
+        setSelectedFAQ( id )
+    }
+
+    const renderBookFAQsAnsData = () =>
+    {
+        const selectedFAQAns = booksFAQsAnsData.find( ( item ) => item.key == selectedFAQ )
+
+        return <Box>
+            { selectedFAQAns?.text }
+        </Box>
+    }
+
+
     return <Box padding={ 5 } bgcolor={ colors.RoastedSesame } width="100%"   >
         <Box bgcolor={ colors.White } padding={ 3 } borderRadius={ 5 } minHeight={ 500 } justifyContent="center" justifyItems="center" display="flex" justifySelf="center" >
             <Grid container spacing={ 6 }>
@@ -26,16 +57,7 @@ export default function BooksFAQs ()
                             backgroundColor: 'transparent',
                         }
                     } } >
-                        <Stack spacing={ 3 }>
-                            <Box className='cursor-pointer' width={ { xs: '100%', md: 420 } } minHeight={ 35 } borderRadius={ 2 } padding={ 1 } bgcolor={ colors.Black } color={ colors.White } >
-                                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio, possimus. Eos dolorum quod necessitatibus, possimus aut, ducimus dolorem voluptate illo suscipit reprehenderit nemo ipsa doloribus quam ad architecto omnis sunt?
-                            </Box>
-                            <Box className='cursor-pointer' width={ { xs: '100%', md: 420 } } minHeight={ 35 } borderRadius={ 2 } padding={ 1 } bgcolor={ colors.KissMeKate }>ldsngfsldn</Box>
-                            <Box className='cursor-pointer' width={ { xs: '100%', md: 420 } } minHeight={ 35 } borderRadius={ 2 } padding={ 1 } bgcolor={ colors.KissMeKate }>ldsngfsldn</Box>
-                            <Box className='cursor-pointer' width={ { xs: '100%', md: 420 } } minHeight={ 35 } borderRadius={ 2 } padding={ 1 } bgcolor={ colors.KissMeKate }>ldsngfsldn</Box>
-                            <Box className='cursor-pointer' width={ { xs: '100%', md: 420 } } minHeight={ 35 } borderRadius={ 2 } padding={ 1 } bgcolor={ colors.KissMeKate }>ldsngfsldn</Box>
-                            <Box className='cursor-pointer' width={ { xs: '100%', md: 420 } } minHeight={ 35 } borderRadius={ 2 } padding={ 1 } bgcolor={ colors.KissMeKate }>ldsngfsldn</Box>
-                        </Stack>
+                        { renderBookFAQsData() }
                     </Box>
                 </Grid>
                 <Grid size={ { xs: 12, md: 6 } } order={ { xs: 2 } } >
@@ -46,6 +68,7 @@ export default function BooksFAQs ()
                         <BounceBox>
                             <Brightness5Icon />
                         </BounceBox>
+                        { renderBookFAQsAnsData() }
                     </Box>
                 </Grid>
             </Grid>
