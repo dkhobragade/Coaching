@@ -30,7 +30,7 @@ export default function BooksFAQs ()
     {
         const selectedFAQAns = booksFAQsAnsData.find( ( item ) => item.key == selectedFAQ )
 
-        return <Box>
+        return <Box marginTop={ 1 }>
             { selectedFAQAns?.text }
         </Box>
     }
