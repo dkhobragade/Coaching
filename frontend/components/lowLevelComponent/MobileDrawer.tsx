@@ -138,7 +138,7 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
                                     Download
                                 </Typography>
                             </Box>
-                            <Box padding={ 1 } display="flex" mb={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
+                            <Box onClick={ () => router.push( '/test' ) } padding={ 1 } display="flex" mb={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
                                 <StarBorder />
                                 <Typography>
                                     Test
