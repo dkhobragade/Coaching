@@ -37,6 +37,9 @@ const colors = {
   BitSugar: "#F3F2EC",
   StarWhite: "#EFEEE8",
   SlipperyTub: "#D5F6ED",
+  DarkMidnightBlue: "#003779",
+  FlorentineLapis: "#1F5993",
+  CottonBoll: "#E3EEFC",
 };
 
 export default colors;
