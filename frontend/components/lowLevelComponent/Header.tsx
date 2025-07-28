@@ -58,6 +58,17 @@ export default function Header ()
 
     }
 
+    const handleOnClickCourseData = ( label: string ) =>
+    {
+        console.log( "label", label )
+    }
+
+    const handleOnClickPYQData = ( label: string ) =>
+    {
+        if ( label == "Test" )
+            router.push( '/test' )
+    }
+
     return (
         <Box width="100%" height={ 60 } borderBottom={ 1 } borderColor="#ccc" px={ 2 } display="flex" alignItems="center" justifyContent="space-between">
             {/* Logo */ }
@@ -66,11 +77,11 @@ export default function Header ()
             </Box>
 
             <Box display={ { xs: 'none', md: 'flex' } } alignItems="center" gap={ 4 }>
-                <MenuBox title="Courses" menuItems={ coursesData } />
+                <MenuBox onClick={ ( label: string ) => handleOnClickCourseData( label ) } title="Courses" menuItems={ coursesData } />
                 <Box onClick={ () => router.push( '/books' ) } className='cursor-pointer' width="fit-content" p={ 1 }>
                     <Typography>Books</Typography>
                 </Box>
-                <MenuBox title='PYQ' menuItems={ pyqData } />
+                <MenuBox title='PYQ' onClick={ ( label: string ) => handleOnClickPYQData( label ) } menuItems={ pyqData } />
                 <Box className='cursor-pointer' width="fit-content" p={ 1 }>
                     <Typography>Free Initiative</Typography>
                 </Box>
