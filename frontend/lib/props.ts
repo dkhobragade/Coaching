@@ -29,6 +29,7 @@ export interface ButtonProps {
   endIcon?: React.ReactNode;
   startIcon?: React.ReactNode;
   loading?: boolean;
+  hoverColor?: string;
 }
 
 export interface ModalProps {

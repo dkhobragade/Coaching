@@ -170,3 +170,62 @@ export const currentAffairsData = [
       "Widely regarded as the bible for Indian Polity, this book by M. Laxmikanth offers a clear, comprehensive, and structured understanding of the Indian Constitution and political system. Recommended by toppers, it covers all key topics with easy-to-understand language, updated chapters, and practice questions.",
   },
 ];
+
+export const testLandingPageData = [
+  {
+    key: "M",
+    background: "Mains",
+    text: "Mains Paper",
+    description:
+      "Practice MPSC Mains papers designed to strengthen your analytical and writing skills. Build your answer-writing abilities for high scores.",
+    button: "Start Solving",
+  },
+  {
+    key: "P",
+    background: "Prelims",
+    text: "Prelims Paper",
+    description:
+      "Solve previous years' MPSC Prelims papers to understand exam trends and enhance your MCQ solving speed.",
+    button: "Start Solving",
+  },
+  {
+    key: "R",
+    background: "Revision",
+    text: "Revision Sets",
+    description:
+      "Access subject-wise revision sets for MPSC to quickly brush up your preparation and retain key concepts.",
+    button: "Start Revising",
+  },
+  {
+    key: "A",
+    background: "AnswerKeys",
+    text: "Answer Keys",
+    description:
+      "Get detailed and accurate answer keys for all your test papers to self-assess and track your performance.",
+    button: "View Keys",
+  },
+  {
+    key: "C",
+    background: "CurrentAffairs",
+    text: "Current Affairs",
+    description:
+      "Stay updated with monthly MPSC-specific current affairs, tailored for both Prelims and Mains.",
+    button: "Read Now",
+  },
+  {
+    key: "T",
+    background: "Strategy",
+    text: "Test Strategy",
+    description:
+      "Explore effective test-taking strategies and expert tips to tackle MPSC exams with confidence.",
+    button: "Explore Tips",
+  },
+  {
+    key: "S",
+    background: "SubjectWise",
+    text: "Subject-Wise Tests",
+    description:
+      "Take subject-wise MPSC tests to master each area individually and identify strengths and weaknesses.",
+    button: "Start Test",
+  },
+];
