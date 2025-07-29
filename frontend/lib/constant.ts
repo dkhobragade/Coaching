@@ -229,3 +229,33 @@ export const testLandingPageData = [
     button: "Start Test",
   },
 ];
+
+export const testPlanData = [
+  {
+    key: "1",
+    number: "01",
+    color: "#639DFF",
+    title: "Practice Tests",
+    description:
+      "Attempt topic-wise and full-length mock tests to evaluate your understanding and improve speed.",
+    btnText: "Replaces offline test series | Simulates real exam interface",
+  },
+  {
+    key: "2",
+    number: "02",
+    color: "#FF8D61",
+    title: "Performance Insights",
+    description:
+      "Analyze your strengths and weaknesses through detailed reports and AI-driven feedback.",
+    btnText: "Replaces manual review | Tracks progress & ranks",
+  },
+  {
+    key: "3",
+    number: "03",
+    color: "#CE65FF",
+    title: "Revision Planner",
+    description:
+      "Get smart revision schedules and personalized topic reminders to ensure complete coverage.",
+    btnText: "Replaces scattered notes | Keeps you focused",
+  },
+];
