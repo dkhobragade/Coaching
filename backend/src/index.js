@@ -19,10 +19,16 @@ const allowedOrigins = [
   "https://coaching-mauve.vercel.app", // your actual deployed frontend
 ];
 
+const vercelRegex = /^https:\/\/coaching-[a-z0-9\-]+\.vercel\.app$/;
+
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (
+        !origin ||
+        origin === "http://localhost:3000" ||
+        vercelRegex.test(origin)
+      ) {
         callback(null, true);
       } else {
         return callback(new Error("Not allowed by CORS"));
