@@ -4,6 +4,7 @@ import { fetchWrapper } from "./fetchWrapper";
 
 export const itemsInCart = () => fetchWrapper("auth/cart");
 export const viewCart = () => fetchWrapper("auth/view-cart");
+export const emptyCart = () => fetchWrapper("auth/empty-cart");
 
 export const getUserCartItems = async () => {
   const items = await viewCart();

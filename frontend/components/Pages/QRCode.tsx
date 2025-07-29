@@ -13,6 +13,10 @@ import { BounceBox } from "../lowLevelComponent/Animation";
 import StarIcon from '@mui/icons-material/Star';
 import DuoIcon from '@mui/icons-material/Duo';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
+import { emptyCart } from "@/lib/helper";
+import { useSetAtom } from "jotai";
+import { userCartItems } from "@/lib/store/userAtom";
+import { useRouter } from "next/navigation";
 
 
 const VisuallyHiddenInput = styled( "input" )( {
@@ -30,6 +34,8 @@ const VisuallyHiddenInput = styled( "input" )( {
 export default function QRCode ()
 {
     const [ isLoading, setIsLoading ] = useState<boolean>( false )
+    const setCartItemsVal = useSetAtom( userCartItems );
+    const router = useRouter()
 
     const handleImgChange = async ( e: React.ChangeEvent<HTMLInputElement> ) =>
     {
@@ -46,6 +52,13 @@ export default function QRCode ()
             await postWrapper( 'auth/payment-receipt', { url: base64Img } ).then( ( resp ) =>
             {
                 toast.success( resp.message )
+                router.push( '/' )
+                emptyCart().then( ( resp ) =>
+                {
+                    console.log( resp )
+                    setCartItemsVal( 0 )
+                } )
+
             } ).catch( ( error ) =>
             {
                 toast.error( error.message )

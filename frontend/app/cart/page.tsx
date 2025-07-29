@@ -9,9 +9,8 @@ import { cartPageDeliveryList } from "@/lib/constant";
 import { useRouter } from "next/navigation";
 import { BounceBox } from "@/components/lowLevelComponent/Animation";
 import { useEffect, useState } from "react";
-import { viewCart } from "@/lib/helper";
+import { emptyCart, viewCart } from "@/lib/helper";
 import { toast } from "react-toastify";
-import { fetchWrapper } from "@/lib/fetchWrapper";
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { ProductItem } from "@/lib/props";
 import GlobalLoading from "../loading";
@@ -131,17 +130,18 @@ export default function Cart ()
     {
         setIsLoading( true )
         getCartDetails()
-        fetchWrapper( 'auth/empty-cart' ).then( ( resp ) =>
+
+        emptyCart().then( ( resp ) =>
         {
-            setCartData( resp.cart.items )
+            setCartData( resp.cart.items );
         } ).catch( ( error ) =>
         {
-            toast.error( error.message )
+            toast.error( error.message );
         } ).finally( () =>
         {
-            getCartDetails()
-            setIsLoading( false )
-        } )
+            getCartDetails();
+            setIsLoading( false );
+        } );
     }
 
     const CardTotalAmountAfterDiscount = () =>
