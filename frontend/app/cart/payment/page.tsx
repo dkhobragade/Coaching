@@ -15,6 +15,7 @@ import QRCode from "@/components/Pages/QRCode";
 export default function Payment ()
 {
     const [ userAtomState ] = useAtom( userAtom )
+    const [ showPaymentTab, setShowPaymentTab ] = useState<boolean>( false )
 
     const [ formData, setFormData ] = useState( {
         firstName: userAtomState.user.name,
@@ -46,8 +47,56 @@ export default function Payment ()
         setFormData( prev => ( { ...prev, [ field ]: e.target.value } ) );
     }
 
+    const formValidator = () =>
+    {
+        if ( !formData.firstName )
+        {
+            toast.warning( "Please fill First Name" );
+            return false;
+        }
+        if ( !formData.lastName )
+        {
+            toast.warning( "Please fill Last Name" );
+            return false;
+        }
+        if ( !formData.email )
+        {
+            toast.warning( "Please fill Email" );
+            return false;
+        }
+        if ( !formData.mobileno )
+        {
+            toast.warning( "Please fill Mobile Number" );
+            return false;
+        }
+        if ( !formData.address )
+        {
+            toast.warning( "Please fill Address" );
+            return false;
+        }
+        if ( !formData.city )
+        {
+            toast.warning( "Please fill City" );
+            return false;
+        }
+        if ( !formData.state )
+        {
+            toast.warning( "Please fill State" );
+            return false;
+        }
+        if ( !formData.pinCode )
+        {
+            toast.warning( "Please fill Pin Code" );
+            return false;
+        }
+
+        return true;
+    };
+
+
     const onSubmitAddressDetails = () =>
     {
+        if ( !formValidator() ) return;
 
         postWrapper( 'auth/add-address', {
             firstName: formData.firstName,
@@ -61,24 +110,11 @@ export default function Payment ()
         } ).then( ( resp ) =>
         {
             toast.success( resp.message )
-
+            setShowPaymentTab( true )
         } ).catch( ( error ) =>
         {
             toast.error( error.message )
-        } ).finally( () =>
-        {
-            setFormData( {
-                firstName: '',
-                lastName: '',
-                email: '',
-                mobileno: '',
-                address: '',
-                city: '',
-                state: '',
-                pinCode: '',
-            } )
         } )
-
     }
 
     return <Box bgcolor={ colors.ChildofLight } width="100%" minHeight="100vh" padding={ 2 } >
@@ -113,6 +149,8 @@ export default function Payment ()
                 <Button onClick={ onSubmitAddressDetails } label="Submit" variant="contained" fullWidth />
             </Stack>
         </Box>
-        <QRCode />
+        { showPaymentTab &&
+            <QRCode />
+        }
     </Box>
 }
