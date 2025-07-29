@@ -14,6 +14,8 @@ import { toast } from "react-toastify";
 import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { ProductItem } from "@/lib/props";
 import GlobalLoading from "../loading";
+import { useSetAtom } from "jotai";
+import { userCartItems } from "@/lib/store/userAtom";
 
 export default function Cart ()
 {
@@ -22,6 +24,7 @@ export default function Cart ()
     const [ cartData, setCartData ] = useState<ProductItem[]>( [] )
     const [ total, setTotal ] = useState<number>( 0 )
     const [ isLoading, setIsLoading ] = useState<boolean>( false )
+    const setCartItemsVal = useSetAtom( userCartItems );
 
     useEffect( () =>
     {
@@ -134,6 +137,7 @@ export default function Cart ()
         emptyCart().then( ( resp ) =>
         {
             setCartData( resp.cart.items );
+            setCartItemsVal( 0 )
         } ).catch( ( error ) =>
         {
             toast.error( error.message );

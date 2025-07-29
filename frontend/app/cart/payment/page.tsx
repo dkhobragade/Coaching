@@ -147,7 +147,7 @@ export default function Payment ()
                 <Box display="flex" flexDirection={ { md: 'row', sm: 'row', xs: 'column' } }>
                     <InputField value={ formData.city } fullWidth label="City" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'city', e ) } />
                     <InputField value={ formData.state } fullWidth label="State" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'state', e ) } />
-                    <InputField value={ formData.pincode } type="number" label="ZIP/Postal Code" fullWidth onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'pinCode', e ) } />
+                    <InputField value={ formData.pincode } type="number" label="ZIP/Postal Code" fullWidth onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'pincode', e ) } />
                 </Box>
                 <Button loading={ isLoading } onClick={ onSubmitAddressDetails } label="Submit" variant="contained" fullWidth />
             </Stack>
