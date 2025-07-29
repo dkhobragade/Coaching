@@ -16,6 +16,7 @@ export default function Payment ()
 {
     const [ userAtomState ] = useAtom( userAtom )
     const [ showPaymentTab, setShowPaymentTab ] = useState<boolean>( false )
+    const [ isLoading, setIsLoading ] = useState<boolean>( false )
 
     const [ formData, setFormData ] = useState( {
         firstName: userAtomState.user.name,
@@ -25,7 +26,7 @@ export default function Payment ()
         address: '',
         city: '',
         state: '',
-        pinCode: ''
+        pincode: ''
     } )
 
     useEffect( () =>
@@ -84,7 +85,7 @@ export default function Payment ()
             toast.warning( "Please fill State" );
             return false;
         }
-        if ( !formData.pinCode )
+        if ( !formData.pincode )
         {
             toast.warning( "Please fill Pin Code" );
             return false;
@@ -97,6 +98,7 @@ export default function Payment ()
     const onSubmitAddressDetails = () =>
     {
         if ( !formValidator() ) return;
+        setIsLoading( true )
 
         postWrapper( 'auth/add-address', {
             firstName: formData.firstName,
@@ -106,11 +108,12 @@ export default function Payment ()
             address: formData.address,
             city: formData.city,
             state: formData.state,
-            pinCode: formData.pinCode
+            pincode: formData.pincode
         } ).then( ( resp ) =>
         {
             toast.success( resp.message )
             setShowPaymentTab( true )
+            setIsLoading( false )
         } ).catch( ( error ) =>
         {
             toast.error( error.message )
@@ -144,9 +147,9 @@ export default function Payment ()
                 <Box display="flex" flexDirection={ { md: 'row', sm: 'row', xs: 'column' } }>
                     <InputField value={ formData.city } fullWidth label="City" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'city', e ) } />
                     <InputField value={ formData.state } fullWidth label="State" onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'state', e ) } />
-                    <InputField value={ formData.pinCode } type="number" label="ZIP/Postal Code" fullWidth onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'pinCode', e ) } />
+                    <InputField value={ formData.pincode } type="number" label="ZIP/Postal Code" fullWidth onChange={ ( e: React.ChangeEvent<HTMLInputElement> ) => onchangeFirstName( 'pinCode', e ) } />
                 </Box>
-                <Button onClick={ onSubmitAddressDetails } label="Submit" variant="contained" fullWidth />
+                <Button loading={ isLoading } onClick={ onSubmitAddressDetails } label="Submit" variant="contained" fullWidth />
             </Stack>
         </Box>
         { showPaymentTab &&

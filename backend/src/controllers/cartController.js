@@ -120,7 +120,7 @@ export const fillAddressDetails = async (req, res) => {
     address,
     city,
     state,
-    pinCode,
+    pincode,
   } = req.body;
 
   const userId = req.user._id;
@@ -132,10 +132,11 @@ export const fillAddressDetails = async (req, res) => {
       lastName,
       email,
       mobileno,
-      Address: address,
+      address,
       city,
       state,
-      pincode: pinCode,
+      pincode,
+      paymentUrl: "",
     });
 
     await addressDetails.save();

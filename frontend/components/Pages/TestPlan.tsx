@@ -7,12 +7,11 @@ import { testPlanData } from "@/lib/constant";
 export default function TestPlan ()
 {
 
-
     const renderBox = () =>
     {
-        return <Box display="flex" flexDirection={ { md: 'row', xs: 'column' } } >
+        return <Box display="flex" gap={ 3 } flexDirection={ { md: 'row', xs: 'column' } } >
             { testPlanData.map( ( item ) => (
-                <>
+                <Box key={ item.key } >
                     <Typography fontSize={ 50 } fontWeight={ 800 } color={ colors.White } >
                         { item.number }
                     </Typography>
@@ -48,7 +47,7 @@ export default function TestPlan ()
                             </Box>
                         </Box>
                     </Box>
-                </>
+                </Box>
             ) ) }
         </Box>
 

@@ -22,7 +22,7 @@ const addressSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    Address: {
+    address: {
       type: String,
       required: true,
     },
@@ -37,6 +37,9 @@ const addressSchema = new mongoose.Schema(
     pincode: {
       type: Number,
       required: true,
+    },
+    paymentUrl: {
+      type: String,
     },
   },
   {
