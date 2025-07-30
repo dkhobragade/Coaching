@@ -1,3 +1,5 @@
+import colors from "./color";
+
 // export const BASEURL = "http://localhost:5001/api/";
 export const BASEURL = "https://coaching-pxe5.onrender.com/api/";
 
@@ -257,5 +259,56 @@ export const testPlanData = [
     description:
       "Get smart revision schedules and personalized topic reminders to ensure complete coverage.",
     btnText: "Replaces scattered notes | Keeps you focused",
+  },
+];
+
+export const handPickedBooks = [
+  {
+    key: "1",
+    link: "",
+    color: colors.ChristySmile,
+    image: "/books/IndianPolity.jpg",
+    name: "Indian Polity",
+    description: "by M. Laxmikanth",
+  },
+  {
+    key: "2",
+    link: "",
+    color: colors.SlipperyTub,
+    image: "/books/art.jpg",
+    name: "An Introduction To Indian Art",
+    description: "Class 11",
+  },
+  {
+    key: "3",
+    link: "",
+    color: colors.HoneyBird,
+    image: "/books/geo.jpg",
+    name: "School Atlas",
+    description: "The Orient BlackSwan",
+  },
+  {
+    key: "4",
+    link: "",
+    color: colors.HoneyBird,
+    image: "/books/ancient_history.jpg",
+    name: "Ancient India",
+    description: "By Ram Sharan",
+  },
+  {
+    key: "5",
+    link: "",
+    color: colors.SlipperyTub,
+    image: "/books/history.jpg",
+    name: "MPSC UPSC Adhunik Bharatacha",
+    description: "आधुनिक भारताचा इतिहास ",
+  },
+  {
+    key: "6",
+    link: "",
+    color: colors.ChristySmile,
+    image: "/books/medievalHistory.jpeg",
+    name: "Medieval India",
+    description: "By Satish Chandra",
   },
 ];
