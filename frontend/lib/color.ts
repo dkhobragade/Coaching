@@ -40,6 +40,8 @@ const colors = {
   DarkMidnightBlue: "#003779",
   FlorentineLapis: "#1F5993",
   CottonBoll: "#E3EEFC",
+  CoralRed: "#FB4141",
+  JasmineGreen: "#78C841",
 };
 
 export default colors;
