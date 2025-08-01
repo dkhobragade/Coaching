@@ -4,6 +4,6 @@ import { orderDetails } from "../controllers/orderController.js";
 
 const router = express.Router();
 
-router.get("/order_details", protectRoute, orderDetails);
+router.post("/order_details", protectRoute, orderDetails);
 
 export default router;
