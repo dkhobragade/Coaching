@@ -15,13 +15,14 @@ import { DataGrid, GridColDef, GridRenderCellParams } from "@mui/x-data-grid";
 import { ProductItem } from "@/lib/props";
 import GlobalLoading from "../loading";
 import { useSetAtom } from "jotai";
-import { userCartItems } from "@/lib/store/userAtom";
+import { cartDetails, userCartItems } from "@/lib/store/userAtom";
 
 export default function Cart ()
 {
 
     const router = useRouter()
     const [ cartData, setCartData ] = useState<ProductItem[]>( [] )
+    const setCartDetails = useSetAtom( cartDetails )
     const [ total, setTotal ] = useState<number>( 0 )
     const [ isLoading, setIsLoading ] = useState<boolean>( false )
     const setCartItemsVal = useSetAtom( userCartItems );
@@ -46,8 +47,6 @@ export default function Cart ()
             console.log( error )
             toast.error( "Please try again! Refersh the Page." )
         } )
-
-
     }
 
     const column: GridColDef[] = [
@@ -126,6 +125,10 @@ export default function Cart ()
             toast.warning( "Please add items to the cart in order to checkout" )
             return
         }
+        setCartDetails( {
+            totalAmount: total,
+            cartDetails: cartData,
+        } )
         router.push( '/cart/payment' )
     }
 

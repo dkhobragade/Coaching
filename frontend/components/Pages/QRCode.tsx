@@ -14,9 +14,10 @@ import StarIcon from '@mui/icons-material/Star';
 import DuoIcon from '@mui/icons-material/Duo';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { emptyCart } from "@/lib/helper";
-import { useSetAtom } from "jotai";
-import { userCartItems } from "@/lib/store/userAtom";
+import { useAtom, useSetAtom } from "jotai";
+import { cartDetails, userCartItems } from "@/lib/store/userAtom";
 import { useRouter } from "next/navigation";
+import { ProductItem } from "@/lib/props";
 
 
 const VisuallyHiddenInput = styled( "input" )( {
@@ -35,6 +36,8 @@ export default function QRCode ()
 {
     const [ isLoading, setIsLoading ] = useState<boolean>( false )
     const setCartItemsVal = useSetAtom( userCartItems );
+    const cartDetailsVal = useAtom( cartDetails )
+    const setCartDetails = useSetAtom( cartDetails )
     const router = useRouter()
 
     const handleImgChange = async ( e: React.ChangeEvent<HTMLInputElement> ) =>
@@ -52,12 +55,8 @@ export default function QRCode ()
             await postWrapper( 'auth/payment-receipt', { url: base64Img } ).then( ( resp ) =>
             {
                 toast.success( resp.message )
+                addCartDetailsToOrder( resp.updateAddressDetails.paymentUrl )
                 router.push( '/' )
-                emptyCart().then( ( resp ) =>
-                {
-                    console.log( resp )
-                    setCartItemsVal( 0 )
-                } )
 
             } ).catch( ( error ) =>
             {
@@ -67,6 +66,29 @@ export default function QRCode ()
                 setIsLoading( false )
             } )
         }
+    }
+
+    const addCartDetailsToOrder = ( paymentUrl: string ) =>
+    {
+        postWrapper( 'auth/order_details', {
+            totalAmount: cartDetailsVal[ 0 ].totalAmount,
+            paymentStatus: "Completed",
+            paymentUrl: paymentUrl,
+            items: cartDetailsVal[ 0 ].cartDetails
+        } ).catch( ( error ) =>
+        {
+            console.log( "Error while adding the items to the order", error.message )
+        } ).finally( () =>
+        {
+            setCartDetails( {
+                totalAmount: 0,
+                cartDetails: [] as ProductItem[]
+            } )
+        } )
+        emptyCart().then( () =>
+        {
+            setCartItemsVal( 0 )
+        } )
     }
 
     return <Box width="100%" minHeight="100vh" mt={ 2 } padding={ 2 } borderRadius={ 5 } >

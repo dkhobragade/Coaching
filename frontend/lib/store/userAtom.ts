@@ -1,4 +1,5 @@
 import { atom } from "jotai";
+import { ProductItem } from "../props";
 
 export const userAtom = atom({
   isLoggedIn: false,
@@ -13,3 +14,8 @@ export const userAtom = atom({
 });
 
 export const userCartItems = atom(0);
+
+export const cartDetails = atom({
+  totalAmount: 0,
+  cartDetails: [] as ProductItem[],
+});
