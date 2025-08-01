@@ -124,7 +124,7 @@ export const CartAnimatedBox = ( props: CartProps ) =>
 
         if ( !userId )
         {
-            toast.error( "Please create an account to buy." );
+            toast.error( "Login to buy." );
             router.push( '/signup' )
             return
         }
