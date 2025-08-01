@@ -129,7 +129,7 @@ export const CartAnimatedBox = ( props: CartProps ) =>
             return
         }
 
-        postWrapper( 'auth/cart', {
+        await postWrapper( 'auth/cart', {
             productId: id
         } ).then( ( resp ) =>
         {
