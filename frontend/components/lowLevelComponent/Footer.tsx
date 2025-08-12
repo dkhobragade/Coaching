@@ -5,6 +5,7 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { BounceBox } from "./Animation";
 import { useRouter } from "next/navigation";
+import { onClickTelegram, onClickYoutube } from "@/lib/helper";
 
 export default function Foooter ()
 {
@@ -29,10 +30,10 @@ export default function Foooter ()
                             <InstagramIcon className="cursor-pointer" />
                         </BounceBox>
                         <BounceBox>
-                            <TelegramIcon className="cursor-pointer" />
+                            <TelegramIcon onClick={ onClickTelegram } className="cursor-pointer" />
                         </BounceBox>
                         <BounceBox>
-                            <YouTubeIcon className="cursor-pointer" />
+                            <YouTubeIcon onClick={ onClickYoutube } className="cursor-pointer" />
                         </BounceBox>
                     </Box>
                     <Box
