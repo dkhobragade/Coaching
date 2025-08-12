@@ -111,7 +111,7 @@ export default function SignUp ()
                             <InputField value={ userData.email } onChange={ onChangeEmail } fullWidth label="Email" icon={ <EmailIcon /> } />
                             <InputField value={ userData.number } onChange={ onChangeMobile } fullWidth label="Mobile No." type="number" icon={ <PhoneIcon /> } />
                             <PasswordField value={ userData.password } onChange={ onChangePassword } />
-                            <Button onClick={ onClickSubmit } loading={ isLoading } color={ colors.Zinnia } label="Sign up" variant="contained" />
+                            <Button onClick={ onClickSubmit } loading={ isLoading } bgColor={ colors.Zinnia } label="Sign up" variant="contained" />
                         </Stack>
                         <Divider>or</Divider>
                         <Stack rowGap={ 2 }>

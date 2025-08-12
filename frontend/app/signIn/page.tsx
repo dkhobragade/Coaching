@@ -97,7 +97,7 @@ export default function SignIn ()
                             <InputField value={ userData.email } onChange={ onChangeEmail } fullWidth label="Email" icon={ <EmailIcon /> } />
                             <PasswordField value={ userData.password } onChange={ onChangePassword } />
                             <CheckBox label="Keep me logged in" />
-                            <Button label="Sign In" onClick={ onClickSubmit } loading={ isLoading } color={ colors.GloomyPurple } />
+                            <Button label="Sign In" onClick={ onClickSubmit } loading={ isLoading } bgColor={ colors.GloomyPurple } />
                         </Stack>
                         <Divider>or</Divider>
                         <Stack rowGap={ 2 }>

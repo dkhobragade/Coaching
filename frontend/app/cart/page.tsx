@@ -16,6 +16,7 @@ import { ProductItem } from "@/lib/props";
 import GlobalLoading from "../loading";
 import { useSetAtom } from "jotai";
 import { cartDetails, userCartItems } from "@/lib/store/userAtom";
+import PrimaryBtn from '../../components/lowLevelComponent/Button'
 
 export default function Cart ()
 {
@@ -25,6 +26,7 @@ export default function Cart ()
     const setCartDetails = useSetAtom( cartDetails )
     const [ total, setTotal ] = useState<number>( 0 )
     const [ isLoading, setIsLoading ] = useState<boolean>( false )
+    const [ isLoadingCheckout, setIsLoadingCheckout ] = useState<boolean>( false )
     const setCartItemsVal = useSetAtom( userCartItems );
 
     useEffect( () =>
@@ -120,6 +122,7 @@ export default function Cart ()
 
     const onClickCheckout = () =>
     {
+        setIsLoadingCheckout( true )
         if ( cartData.length == 0 )
         {
             toast.warning( "Please add items to the cart in order to checkout" )
@@ -130,6 +133,7 @@ export default function Cart ()
             cartDetails: cartData,
         } )
         router.push( '/cart/payment' )
+        setIsLoadingCheckout( false )
     }
 
     const onClickEmptyCart = () =>
@@ -264,11 +268,7 @@ export default function Cart ()
                                             ₹ { CardTotalAmountAfterDiscount() }
                                         </Typography>
                                     </Box>
-                                    <Box onClick={ onClickCheckout } padding={ 1 } className="cursor-pointer" bgcolor={ colors.White } color={ colors.Black } borderRadius={ 5 } width='100%' height='20%' >
-                                        <Typography justifySelf="center" fontWeight={ 600 } >
-                                            Proceed to Checkout
-                                        </Typography>
-                                    </Box>
+                                    <PrimaryBtn loading={ isLoadingCheckout } label="Proceed to Checkout" variant="contained" bgColor={ colors.White } color={ colors.Black } onClick={ onClickCheckout } />
                                 </Stack>
                             </Box>
                         </Stack>

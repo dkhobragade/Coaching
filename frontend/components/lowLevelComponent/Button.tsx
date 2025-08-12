@@ -5,7 +5,7 @@ import PrimaryButton from '@mui/material/Button';
 export default function Button ( props: ButtonProps )
 {
     return <PrimaryButton sx={ {
-        backgroundColor: `${ props.color }`, color: colors.White, "&:hover": {
+        backgroundColor: `${ props.bgColor }`, color: props.color || colors.White, "&:hover": {
             backgroundColor: props.hoverColor
         },
     } }

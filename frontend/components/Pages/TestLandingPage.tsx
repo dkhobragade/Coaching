@@ -85,7 +85,7 @@ export default function TestLandingPage ()
                     >
                         { box[ 0 ].description }
                     </Typography>
-                    <Button label={ box[ 0 ].button } color="#6A9AC4" hoverColor="#4f81ab" />
+                    <Button label={ box[ 0 ].button } bgColor="#6A9AC4" hoverColor="#4f81ab" />
                 </Box>
             </Box>
         </Box>

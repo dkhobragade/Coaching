@@ -116,7 +116,7 @@ export default function Account ()
 
     return <Box width="100%" minHeight="100vh" padding={ 2 }>
         <Typography fontSize={ 20 } mb={ 2 } fontWeight={ 600 } >
-            My Orders
+            My Orders - ( Past Order History )
         </Typography>
         { isLoading ? <GlobalLoading /> :
             <Box width="100%" padding={ 2 } borderRadius={ 5 } minHeight="50vh"  >

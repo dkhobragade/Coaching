@@ -23,6 +23,7 @@ export interface ButtonProps {
   onClick?: () => void;
   disabled?: boolean;
   variant?: "text" | "outlined" | "contained";
+  bgColor?: string;
   color?: string;
   size?: "small" | "medium" | "large";
   fullWidth?: boolean;

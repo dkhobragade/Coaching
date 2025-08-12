@@ -181,7 +181,7 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
                         {
                             router.push( '/signup' )
                             onCloseDrawer()
-                        } } color={ colors.Zinnia } fullWidth />
+                        } } bgColor={ colors.Zinnia } fullWidth />
                     }
                     { userAtomState[ 0 ].isLoggedIn &&
                         <Box onClick={ onClickLogout } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200"  >
