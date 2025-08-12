@@ -48,6 +48,7 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
         {
             toast.success( resp.message )
             router.push( '/' )
+            onCloseDrawer()
             setUserAtomState( { isLoggedIn: false, user: { name: '', email: '', id: '', mobile: '', role: '', img: '' } } )
         } ).catch( ( error ) =>
         {
