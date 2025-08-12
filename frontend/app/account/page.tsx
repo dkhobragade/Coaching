@@ -5,10 +5,13 @@ import { Box, Typography } from "@mui/material";
 import { fetchWrapper } from "@/lib/fetchWrapper";
 import { toast } from "react-toastify";
 import colors from "@/lib/color";
+import GlobalLoading from "../loading";
 
 export default function Account ()
 {
     const [ orderDetails, setOrderDetails ] = useState<any[]>( [] )
+    const [ isLoading, setIsLoading ] = useState<boolean>( false )
+
     useEffect( () =>
     {
         getOrderDetails()
@@ -16,12 +19,16 @@ export default function Account ()
 
     const getOrderDetails = async () =>
     {
+        setIsLoading( true )
         await fetchWrapper( 'auth/orders' ).then( ( resp ) =>
         {
             setOrderDetails( resp.orderDetails )
         } ).catch( ( error ) =>
         {
             toast.error( error.message )
+        } ).finally( () =>
+        {
+            setIsLoading( false )
         } )
     }
 
@@ -107,14 +114,14 @@ export default function Account ()
         );
     };
 
-
-
     return <Box width="100%" minHeight="100vh" padding={ 2 }>
         <Typography fontSize={ 20 } mb={ 2 } fontWeight={ 600 } >
             My Orders
         </Typography>
-        <Box width="100%" padding={ 2 } borderRadius={ 5 } minHeight="50vh"  >
-            { renderItems() }
-        </Box>
+        { isLoading ? <GlobalLoading /> :
+            <Box width="100%" padding={ 2 } borderRadius={ 5 } minHeight="50vh"  >
+                { renderItems() }
+            </Box>
+        }
     </Box>
 }

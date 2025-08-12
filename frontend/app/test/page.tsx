@@ -9,6 +9,5 @@ export default function Test ()
     return <Box sx={ { width: "100%", overflowX: "hidden" } } >
         <TestLandingPage />
         <TestPlan />
-
     </Box >
 }
