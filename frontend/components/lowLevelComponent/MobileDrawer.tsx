@@ -71,13 +71,21 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
                             </Avatar>
                         </Box>
                         <Box width="100%" padding={ 2 } >
-                            <Box onClick={ () => router.push( '/profile' ) } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 }  >
+                            <Box onClick={ () =>
+                            {
+                                router.push( '/profile' ),
+                                    onCloseDrawer()
+                            } } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 }  >
                                 <AccountCircleIcon />
                                 <Typography>
                                     My Profile
                                 </Typography>
                             </Box>
-                            <Box onClick={ () => router.push( '/account' ) } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 } >
+                            <Box onClick={ () =>
+                            {
+                                router.push( '/account' )
+                                onCloseDrawer()
+                            } } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" mb={ 1 } >
                                 <ManageAccountsIcon />
                                 <Typography>
                                     My Account
@@ -88,7 +96,11 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
                 }
                 <Divider />
                 <Box width="100%" padding={ 1 } >
-                    <Box onClick={ () => router.push( '/books' ) } mt={ 1 } mb={ 1 } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200">
+                    <Box onClick={ () =>
+                    {
+                        router.push( '/books' )
+                        onCloseDrawer()
+                    } } mt={ 1 } mb={ 1 } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200">
                         <MenuBookIcon />
                         <Typography>
                             Books
@@ -138,7 +150,11 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
                                     Download
                                 </Typography>
                             </Box>
-                            <Box onClick={ () => router.push( '/test' ) } padding={ 1 } display="flex" mb={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
+                            <Box onClick={ () =>
+                            {
+                                router.push( '/test' )
+                                onCloseDrawer()
+                            } } padding={ 1 } display="flex" mb={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200" >
                                 <StarBorder />
                                 <Typography>
                                     Test
@@ -161,7 +177,11 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
                 </Box>
                 <Box width="100%" padding={ 1 }>
                     { !userAtomState[ 0 ].isLoggedIn &&
-                        <Button label="Get Started" onClick={ () => router.push( '/signup' ) } color={ colors.Zinnia } fullWidth />
+                        <Button label="Get Started" onClick={ () =>
+                        {
+                            router.push( '/signup' )
+                            onCloseDrawer()
+                        } } color={ colors.Zinnia } fullWidth />
                     }
                     { userAtomState[ 0 ].isLoggedIn &&
                         <Box onClick={ onClickLogout } display="flex" padding={ 1 } gap={ 2 } className="cursor-pointer hover:bg-amber-200"  >
