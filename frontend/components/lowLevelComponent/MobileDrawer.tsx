@@ -170,7 +170,7 @@ export default function MobileDrawer ( { open, toggleDrawer, }: MobileDrawerProp
                         Free Initiative
                     </Typography>
                 </Box>
-                <Box mt={ 1 } mb={ 1 } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200">
+                <Box onClick={ () => router.push( '/counselling' ) } mt={ 1 } mb={ 1 } padding={ 1 } display="flex" gap={ 2 } className="cursor-pointer hover:bg-amber-200">
                     <SafetyDividerIcon />
                     <Typography>
                         Counselling
