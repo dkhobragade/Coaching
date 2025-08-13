@@ -85,7 +85,7 @@ export default function Header ()
                 <Box className='cursor-pointer' width="fit-content" p={ 1 }>
                     <Typography>Free Initiative</Typography>
                 </Box>
-                <Box className='cursor-pointer' width="fit-content" p={ 1 }>
+                <Box onClick={ () => router.push( '/counselling' ) } className='cursor-pointer' width="fit-content" p={ 1 }>
                     <Typography>Counselling</Typography>
                 </Box>
                 { userAtomState[ 0 ].isLoggedIn ?
