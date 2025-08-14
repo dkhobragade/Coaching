@@ -24,6 +24,7 @@ export default function CounsellingHeroSection ()
             <Box width={ 250 } display="flex" flexDirection="column" justifyContent="space-evenly" padding={ 2 } borderRadius={ 5 } className='cursor-pointer  hover:scale-105 transition-transform duration-300 rotate-x-20 -rotate-y-30' height={ 350 } bgcolor={ colors.BeniukonBronze } >
                 <Typography fontSize={ 25 } fontWeight={ 700 }>
                     Study Plan & Strategy
+
                 </Typography>
                 <Typography fontSize={ 20 } fontWeight={ 500 } >
                     Customised preparation strategies to maximise your MPSC score.
