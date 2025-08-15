@@ -108,3 +108,18 @@ export interface UserType {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface BookType {
+  name: string;
+  description: string;
+  price: string;
+  category: string;
+  imageUrl: string;
+}
+
+export interface PDFType {
+  name: string;
+  description: string;
+  tags: string;
+  price: string;
+}

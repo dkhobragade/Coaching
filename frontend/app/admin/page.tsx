@@ -11,7 +11,8 @@ import { postWrapper } from "@/lib/postWrapper";
 import { ScaleButton } from "@/components/lowLevelComponent/Animation";
 import Image from "next/image";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { ProductItem, UserType } from "@/lib/props";
+import { BookType, ProductItem, UserType } from "@/lib/props";
+import AddPDF from "@/components/Pages/AddPDF";
 
 const columns = [
     { field: 'fullName', headerName: 'First name', width: 130 },
@@ -54,7 +55,7 @@ export default function Admin ()
 {
 
     const [ userList, setUserList ] = useState<UserType[]>( [] )
-    const [ formData, setFormData ] = useState( {
+    const [ formData, setFormData ] = useState<BookType>( {
         name: '',
         description: '',
         price: '',
@@ -147,14 +148,17 @@ export default function Admin ()
     {
         setFormData( prev => ( { ...prev, name: e.target.value } ) );
     }
+
     const onChangeDescription = ( e: React.ChangeEvent<HTMLInputElement> ) =>
     {
         setFormData( prev => ( { ...prev, description: e.target.value } ) );
     }
+
     const onChangeCategory = ( e: React.ChangeEvent<HTMLInputElement> ) =>
     {
         setFormData( prev => ( { ...prev, category: e.target.value } ) );
     }
+
     const onChangePrice = ( e: React.ChangeEvent<HTMLInputElement> ) =>
     {
         setFormData( prev => ( { ...prev, price: e.target.value } ) );
@@ -251,5 +255,6 @@ export default function Admin ()
                 </Box>
             </Box>
         </Stack>
+        <AddPDF />
     </Box>
 }
