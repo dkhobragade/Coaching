@@ -71,10 +71,32 @@ export const addProductImg = async (req, res) => {
   try {
     if (!imageUrl)
       res.status(400).json({
-        message: "Profile Pic Required",
+        message: "Product Image Required",
       });
 
-    await cloudinary.uploader.upload(imageUrl);
+    await cloudinary.uploader.upload(imageUrl, {
+      folder: "Product Img",
+    });
+
+    res.status(201).json({ message: "Added Successfully", imageUrl });
+  } catch (error) {
+    console.log("Error while uploading the image", error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const addPDFImg = async (req, res) => {
+  const { pdfImg } = req.body;
+
+  try {
+    if (!pdfImg) {
+      res.status(400).json({
+        message: "PDF Image Required",
+      });
+    }
+    await cloudinary.uploader.upload(imageUrl, {
+      folder: "PDF Img",
+    });
     res.status(201).json({ message: "Added Successfully", imageUrl });
   } catch (error) {
     console.log("Error while uploading the image", error);
