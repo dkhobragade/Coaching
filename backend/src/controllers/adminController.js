@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import Product from "../models/Product.js";
 import cloudinary from "../lib/cloudinary.js";
+import Pdf from "../models/Pdf.js";
 
 export const updateUserRole = async (req, res) => {
   const { userID, newRole } = req.body;
@@ -108,6 +109,20 @@ export const addPDF = async (req, res) => {
   const { name, description, tags, price } = req.body;
 
   try {
+    const user = await User.findById(req.user._id);
+
+    if (!user || user.role !== "admin") {
+      return res.status(403).json({ message: "Access denied. Admins only." });
+    }
+
+    const newPDF = new Pdf({
+      name,
+      description,
+      tags,
+      price,
+    });
+
+    await newPDF.save();
   } catch (error) {
     console.log("Error while adding the PDF Details", error.message);
     res.status(500).json({ message: "Internal Server Error" });
