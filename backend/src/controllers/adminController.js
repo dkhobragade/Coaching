@@ -103,3 +103,13 @@ export const addPDFImg = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
+
+export const addPDF = async (req, res) => {
+  const { name, description, tags, price } = req.body;
+
+  try {
+  } catch (error) {
+    console.log("Error while adding the PDF Details", error.message);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
