@@ -1,5 +1,5 @@
+import { Box, Grid, Typography } from "@mui/material";
 import colors from "@/lib/color";
-import { Box, Typography } from "@mui/material";
 
 export default function CounsellingHeroSection ()
 {
@@ -12,5 +12,24 @@ export default function CounsellingHeroSection ()
                 Guiding you through every step of your MPSC journey — from preparation to final selection.
             </Typography>
         </Box>
+        <Grid container>
+            <Grid size={ 4 } >
+                <Box display="flex" flexDirection="column" gap={ 1 } >
+                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 300 } bgcolor={ colors.BlueAstro } >1</Box>
+                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 300 } bgcolor={ colors.BlueAstro } >2</Box>
+                </Box>
+            </Grid>
+            <Grid size={ 4 } >
+                <Box display="flex" flexDirection="column" gap={ 1 } >
+                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 605 } bgcolor={ colors.BlueAstro } >1</Box>
+                </Box>
+            </Grid>
+            <Grid size={ 4 } >
+                <Box display="flex" flexDirection="column" gap={ 1 } >
+                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 300 } bgcolor={ colors.BlueAstro } >1</Box>
+                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 300 } bgcolor={ colors.BlueAstro } >2</Box>
+                </Box>
+            </Grid>
+        </Grid>
     </Box>
 }
