@@ -42,6 +42,7 @@ const colors = {
   CottonBoll: "#E3EEFC",
   CoralRed: "#FB4141",
   JasmineGreen: "#78C841",
+  Ghosted: "#E2E0DC",
 };
 
 export default colors;
