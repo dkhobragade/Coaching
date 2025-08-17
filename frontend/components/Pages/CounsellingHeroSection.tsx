@@ -15,19 +15,19 @@ export default function CounsellingHeroSection ()
         <Grid container>
             <Grid size={ 4 } >
                 <Box display="flex" flexDirection="column" gap={ 1 } >
-                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 300 } bgcolor={ colors.BlueAstro } >1</Box>
-                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 300 } bgcolor={ colors.BlueAstro } >2</Box>
+                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 250 } bgcolor={ colors.BlueAstro } >1</Box>
+                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 250 } bgcolor={ colors.BlueAstro } >2</Box>
                 </Box>
             </Grid>
             <Grid size={ 4 } >
                 <Box display="flex" flexDirection="column" gap={ 1 } >
-                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 605 } bgcolor={ colors.BlueAstro } >1</Box>
+                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 505 } bgcolor={ colors.BlueAstro } >1</Box>
                 </Box>
             </Grid>
             <Grid size={ 4 } >
                 <Box display="flex" flexDirection="column" gap={ 1 } >
-                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 300 } bgcolor={ colors.BlueAstro } >1</Box>
-                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 300 } bgcolor={ colors.BlueAstro } >2</Box>
+                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 250 } bgcolor={ colors.BlueAstro } >1</Box>
+                    <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 250 } bgcolor={ colors.BlueAstro } >2</Box>
                 </Box>
             </Grid>
         </Grid>
