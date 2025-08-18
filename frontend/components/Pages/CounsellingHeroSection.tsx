@@ -17,8 +17,8 @@ export default function CounsellingHeroSection ()
                 Guiding you through every step of your MPSC journey — from preparation to final selection.
             </Typography>
         </Box>
-        <Grid container>
-            <Grid size={ 4 } >
+        <Grid container gap={ { md: 0, sm: 3, xs: 3 } }   >
+            <Grid size={ { md: 4, sm: 12, xs: 12 } } display={ { sm: 'flex' } } justifyContent="center" >
                 <Box display="flex" flexDirection="column" gap={ 1 } >
                     <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 250 } bgcolor={ colors.Ghosted } >
                         <Box display="flex" flexDirection="column" justifyContent="space-evenly" height="100%"  >
@@ -51,13 +51,13 @@ export default function CounsellingHeroSection ()
                         </Box>
                     </Box>
                 </Box>
-            </Grid>
-            <Grid size={ 4 } >
+            </Grid  >
+            <Grid size={ { md: 4, sm: 12, xs: 12 } } display={ { sm: 'flex' } } justifyContent="center"  >
                 <Box display="flex" flexDirection="column" gap={ 1 } >
                     <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 505 } bgcolor={ colors.Ghosted } >1</Box>
                 </Box>
-            </Grid>
-            <Grid size={ 4 } >
+            </Grid  >
+            <Grid size={ { md: 4, sm: 12, xs: 12 } } display={ { sm: 'flex' } } justifyContent="center"  >
                 <Box display="flex" flexDirection="column" gap={ 1 } >
                     <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 250 } bgcolor={ colors.Ghosted } >
                         <Box display="flex" flexDirection="column" justifyContent="space-evenly" height="100%">
