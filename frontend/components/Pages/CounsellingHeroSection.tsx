@@ -21,26 +21,34 @@ export default function CounsellingHeroSection ()
             <Grid size={ 4 } >
                 <Box display="flex" flexDirection="column" gap={ 1 } >
                     <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 250 } bgcolor={ colors.Ghosted } >
-                        <BounceBox>
-                            <Brightness7Icon sx={ { color: colors.DarkMidnightBlue, fontSize: 40 } } />
-                        </BounceBox>
-                        <Typography fontSize={ 20 } fontWeight={ 600 } >
-                            Career Guidance
-                        </Typography>
-                        <Typography>
-                            Personalized career path planning for MPSC aspirants
-                        </Typography>
+                        <Box display="flex" flexDirection="column" justifyContent="space-evenly" height="100%"  >
+                            <BounceBox>
+                                <Brightness7Icon sx={ { color: colors.DarkMidnightBlue, fontSize: 40 } } />
+                            </BounceBox>
+                            <Box>
+                                <Typography fontSize={ 20 } fontWeight={ 600 } >
+                                    Career Guidance
+                                </Typography>
+                                <Typography>
+                                    Personalized career path planning for MPSC aspirants
+                                </Typography>
+                            </Box>
+                        </Box>
                     </Box>
                     <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 250 } bgcolor={ colors.Ghosted } >
-                        <BounceBox>
-                            <MenuBookIcon sx={ { color: colors.JasmineGreen, fontSize: 40 } } />
-                        </BounceBox>
-                        <Typography fontSize={ 20 } fontWeight={ 600 } >
-                            Study Planning
-                        </Typography>
-                        <Typography>
-                            Customized study schedules and preparation strategies
-                        </Typography>
+                        <Box display="flex" flexDirection="column" justifyContent="space-evenly" height="100%">
+                            <BounceBox>
+                                <MenuBookIcon sx={ { color: colors.JasmineGreen, fontSize: 40 } } />
+                            </BounceBox>
+                            <Box>
+                                <Typography fontSize={ 20 } fontWeight={ 600 } >
+                                    Study Planning
+                                </Typography>
+                                <Typography>
+                                    Customized study schedules and preparation strategies
+                                </Typography>
+                            </Box>
+                        </Box>
                     </Box>
                 </Box>
             </Grid>
@@ -52,26 +60,34 @@ export default function CounsellingHeroSection ()
             <Grid size={ 4 } >
                 <Box display="flex" flexDirection="column" gap={ 1 } >
                     <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 250 } bgcolor={ colors.Ghosted } >
-                        <BounceBox>
-                            <PeopleIcon sx={ { color: colors.GloomyPurple, fontSize: 40 } } />
-                        </BounceBox>
-                        <Typography fontSize={ 20 } fontWeight={ 600 } >
-                            Group Sessions
-                        </Typography>
-                        <Typography>
-                            Interactive group counselling and peer learning
-                        </Typography>
+                        <Box display="flex" flexDirection="column" justifyContent="space-evenly" height="100%">
+                            <BounceBox>
+                                <PeopleIcon sx={ { color: colors.GloomyPurple, fontSize: 40 } } />
+                            </BounceBox>
+                            <Box>
+                                <Typography fontSize={ 20 } fontWeight={ 600 } >
+                                    Group Sessions
+                                </Typography>
+                                <Typography>
+                                    Interactive group counselling and peer learning
+                                </Typography>
+                            </Box>
+                        </Box>
                     </Box>
                     <Box width={ 400 } borderRadius={ 5 } padding={ 2 } height={ 250 } bgcolor={ colors.Ghosted } >
-                        <BounceBox>
-                            <WorkspacePremiumIcon sx={ { color: colors.OrangeQuench, fontSize: 40 } } />
-                        </BounceBox>
-                        <Typography fontSize={ 20 } fontWeight={ 600 } >
-                            Success Mentoring
-                        </Typography>
-                        <Typography>
-                            One-on-one mentoring from successful MPSC officers
-                        </Typography>
+                        <Box display="flex" flexDirection="column" justifyContent="space-evenly" height="100%">
+                            <BounceBox>
+                                <WorkspacePremiumIcon sx={ { color: colors.OrangeQuench, fontSize: 40 } } />
+                            </BounceBox>
+                            <Box>
+                                <Typography fontSize={ 20 } fontWeight={ 600 } >
+                                    Success Mentoring
+                                </Typography>
+                                <Typography>
+                                    One-on-one mentoring from successful MPSC officers
+                                </Typography>
+                            </Box>
+                        </Box>
                     </Box>
                 </Box>
             </Grid>
