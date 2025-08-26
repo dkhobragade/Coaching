@@ -8,7 +8,7 @@ import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 
 export default function CounsellingHeroSection ()
 {
-    return <Box minWidth="100%" minHeight="fit-content">
+    return <Box minWidth="100%" padding={ 2 } minHeight="fit-content">
         <Box m={ 5 }>
             <Typography fontSize={ 25 } fontWeight={ 700 } textAlign="center" >
                 Counselling Services
