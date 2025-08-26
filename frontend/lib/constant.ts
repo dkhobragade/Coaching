@@ -312,3 +312,22 @@ export const handPickedBooks = [
     description: "By Satish Chandra",
   },
 ];
+
+export const booking_session = [
+  {
+    key: "1",
+    text: "Personalized 1-on-1 guidance",
+  },
+  {
+    key: "2",
+    text: "Confidential and supportive environment",
+  },
+  {
+    key: "3",
+    text: "Practical solutions & actionable steps",
+  },
+  {
+    key: "4",
+    text: "Flexible scheduling options",
+  },
+];
