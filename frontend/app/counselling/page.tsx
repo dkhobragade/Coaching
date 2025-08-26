@@ -7,7 +7,7 @@ const CounsellingBookingSession = dynamic( () => import( '@/components/Pages/Cou
 
 export default function Counselling ()
 {
-    return <Box minWidth="100%" padding={ 2 } minHeight="fit-content">
+    return <Box minWidth="100%" minHeight="fit-content">
         <CounsellingLandingPage />
         <CounsellingHeroSection />
         <CounsellingBookingSession />
